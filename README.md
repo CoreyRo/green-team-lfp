@@ -116,4 +116,4 @@ Source https://github.com/coreyro/green-team-lfp.git
 
 ---
 
-[![HitCount](https://hitt.herokuapp.com/coreyro/green-team-lfp)](https://github.com/coreyro/green-team-lfp)
+[![HitCount](http://hits.dwyl.io/coreyro/green-team-lfp.svg)](http://hits.dwyl.io/coreyro/green-team-lfp)

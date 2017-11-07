@@ -13,7 +13,7 @@ Looking for Project (tentative) is a social platform where developers of all ski
 
 ---
 ## Status
-- #### WORK IN PROGRESS
+- #### WORK IN PROGRESS [Trello Board](https://trello.com/b/My2a69pl/green-team-lfg "green team trello board")
 
 ### To Do (tentative)
 - [ ] Github

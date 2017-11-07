@@ -56,7 +56,7 @@ Looking for Project (tentative) is a social platform where developers of all ski
 
 ---
 ## Installation (Source Code)
-Source https://github.com/erikamtnz13/green-team.git
+Source https://github.com/coreyro/green-team-lfp.git
 - git clone the repo to your computer
 - Make sure you are in the right directory, then type "yarn install" to install the required node modules. 
 - 

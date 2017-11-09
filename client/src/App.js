@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Profile from './pages/Profile'
 import Navbar from './components/Navbar'
 import Wrapper from './components/Wrapper'
+import Header from './components/Header'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
           <Router>
             <Wrapper>
               <Navbar />
+              <Header />
               <Route exact path="/Profile" component={Profile} />
             </Wrapper>
           </Router>

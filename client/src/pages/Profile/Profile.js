@@ -12,11 +12,9 @@ class Profile extends Component {
         pic: "",
         stars: "",
         edit: false,
-        projectInput: "",
-        joinedInput: "",
         skillInput: "",
-        projects: [],        
-        joined: [],   
+        projects: ["Pulled", "From", "Database"],        
+        joined: ["Pulled", "From", "Database"],   
         skills: ["Javascript", "HTML"]
     }
 
@@ -53,28 +51,12 @@ class Profile extends Component {
 
     handleArraySubmit = event => {
         event.preventDefault()
-            if(this.state.projectInput){
-                console.log("projectInput", this.state.projectInput)
-                this.state.projects.push(this.state.projectInput)
-            }
-            else if(this.state.joinedInput){
-                console.log("joinedInput", this.state.joinedInput)
-                this.state.joined.push(this.state.joinedInput)
-            }
-            else if(this.state.skillInput){
-                console.log("skillInput", this.state.skillInput)
-                this.state.skills.push(this.state.skillInput)
-            }
-            this.setState({
-                projects: this.state.projects,
-                joined: this.state.joined,
-                skills: this.state.skills,
-                projectInput: "",
-                joinedInput: "",
-                skillInput: ""
-            })
-            console.log("ARRAY SUBMIT STATE", this.state)
-        
+        this.state.skills.push(this.state.skillInput)
+        this.setState({
+            skills: this.state.skills,
+            skillInput: ""
+        })
+        console.log("ARRAY SUBMIT STATE", this.state)
     }
 
     editPage = event => {
@@ -146,19 +128,19 @@ class Profile extends Component {
                                         <div className="row">
                                             <div className="col-sm-12 profileAboutDiv">
                                                 <h2 style={{borderBottom: "4px solid #FFF", marginTop: "4rem"}}> Skills </h2>
-                                                <ul>
+                                                <div className="row">
                                                     {this.state.edit === true ? this.state.skills.map((skill,i) =>{
                                                         return(
-                                                        <li key={i}>
-                                                            <span>{skill}</span> <span onClick={this.removeSkill}id={"skill"+i}>[x]</span>
-                                                        </li>)
+
+                                                            <div><span key={i}>{skill}</span> <span onClick={this.removeSkill}id={"skill"+i}>[x]</span></div>
+)
                                                     }): this.state.skills.map((skill,i) =>{
                                                         return(
-                                                        <li key={i}>
-                                                            <span>{skill}</span>
-                                                        </li>)
+
+                                                            <span key={i} className="skillPill">{skill}</span>
+)
                                                     }) }
-                                                </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

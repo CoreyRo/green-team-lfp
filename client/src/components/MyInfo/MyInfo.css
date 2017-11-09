@@ -34,6 +34,7 @@ img{
 
   .profileAboutDiv{
     text-overflow: ellipsis;
+    word-break:break-all;
     margin: 10px 0 25px 0;
     border-radius: 3px;
     color: #FFF !important;
@@ -45,7 +46,8 @@ img{
 .infoContainer{
   border: 2px solid #161A2D;
   color: #FFF;
-
+  word-break:break-all;
+  overflow: auto;
   border-radius: 5px;
   background-color: #161A2D;
   box-shadow: 3px 5px 10px 3px #000;

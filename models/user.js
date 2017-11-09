@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+var passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -10,6 +11,9 @@ const userSchema = new Schema({
   location: {type: String},
   Skills: {type: Array}
 });
+
+// //takes care of salting and hashing the passpword for us
+// userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("User", userSchema);
 

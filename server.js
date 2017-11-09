@@ -66,7 +66,7 @@ app.use(function(req, res, next){
 });
 
 require('./config/passport/passport.js')(passport, db.User);
-var authRoute = require('./routes/auth.js')(app,passport);
+var authRoute = require('./routes/index.js')(app,passport);
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

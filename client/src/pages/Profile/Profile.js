@@ -1,4 +1,4 @@
-import React, { Component} from 'react'
+import React, { Component, update} from 'react'
 import { Col, Container, Row } from '../../components/Grid'
 import Jumbotron from '../../components/Jumbotron'
 import ProfileEdit from '../../components/ProfileEdit'
@@ -17,7 +17,7 @@ class Profile extends Component {
         skillInput: "",
         projects: [],        
         joined: [],   
-        skills: []
+        skills: ["Javascript", "HTML"]
     }
 
     componentWillMount(){
@@ -85,6 +85,13 @@ class Profile extends Component {
         console.log(this.state)
     }
 
+    removeSkill = event => {
+        this.state.skills.splice("skill" + event.target.id, 1)
+        this.setState({
+            skills: this.state.skills
+          })
+    }
+
     renderPage = () => {
         if(this.state.edit){
             return <ProfileEdit props={this.state} handleArraySubmit={this.handleArraySubmit} handleArrayInput={this.handleArrayInput} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} editPage={this.editPage}/>
@@ -98,62 +105,60 @@ class Profile extends Component {
     render(){
         return(
             <Container>
-                
+                    
                     <div className="row jumbotron d-flex">
-                        <Col size="sm-4">
-                            <div className="row">
-                                <div className="col-sm-12">
+                        <div className="row mx-auto profileHead">
+                            <div className="col-sm-12">
+                        <h1 className="text-center mx-auto profileHeadText"> PROFILE </h1>
+                            </div>
+                        </div>
+                    <Col size="sm-12">
+                        <div className="row">
+                        
+                            <Col size="sm-3">
+                                <div className="row infoContainer">
 
-                                    <div className="row">
-                                        <div className="col-sm-12 text-center">
-                                            <img className="img-fluid" style={{width: 150}} src="https://projects.scpr.org/static-files/_v4/images/default_avatar.png" /> 
-                                            <h2> Joe Doe </h2>
-                                            <button className="btn btn-sm btn-primary">Change Picture</button>
-                                            <div class="stars">
-                                                <form action="">
-                                                    <input class="star star-5" id="star-5" type="radio" name="star"/>
-                                                    <label class="star star-5" for="star-5"></label>
-                                                    <input class="star star-4" id="star-4" type="radio" name="star"/>
-                                                    <label class="star star-4" for="star-4"></label>
-                                                    <input class="star star-3" id="star-3" type="radio" name="star"/>
-                                                    <label class="star star-3" for="star-3"></label>
-                                                    <input class="star star-2" id="star-2" type="radio" name="star"/>
-                                                    <label class="star star-2" for="star-2"></label>
-                                                    <input class="star star-1" id="star-1" type="radio" name="star"/>
-                                                    <label class="star star-1" for="star-1"></label>
-                                                </form>
+                                    <div className="col-sm-12">
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                                <div className="text-center profileAboutDiv">
+                                                    <img className="img-fluid" style={{width: 150}} src="https://projects.scpr.org/static-files/_v4/images/default_avatar.png" /> 
+                                                    <h2> Joe Doe </h2>
+                                                    <button className="btn btn-sm btn-primary">Change Picture</button>
+                                                    <button className="btn btn-sm btn-primary" onClick={this.editPage}>Edit Profile</button>
+                                                </div>
+                                            </div>
+                                        </div>
+   
+                                        <div className="row">
+                                            <div className="col-sm-12 profileAboutDiv">
+                                                <h2> Skills </h2>
+                                                <ul>
+                                                    {this.state.edit === true ? this.state.skills.map((skill,i) =>{
+                                                        return(
+                                                        <li key={i}>
+                                                            <span>{skill}</span> <span onClick={this.removeSkill}id={"skill"+i}>[x]</span>
+                                                        </li>)
+                                                    }): this.state.skills.map((skill,i) =>{
+                                                        return(
+                                                        <li key={i}>
+                                                            <span>{skill}</span>
+                                                        </li>)
+                                                    }) }
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
-                                        
-                                    <div className="row">
-                                        <div className="col-sm-12">
-                                            <h2> Skills </h2>
-                                            <ul>
-                                                <li>
-                                                    <h4>Javascript</h4>
-                                                </li>
-                                                <li>
-                                                    <h4>HTML</h4>
-                                                </li>
-                                                <li>
-                                                    <h4>Python</h4>
-                                                </li>
-                                                <li>
-                                                    <h4>Ruby</h4>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
+                                    
                                 </div>
-                            </div>
-                        </Col>
-                        <Col size="sm-2">
-                        </Col>
-                        <Col size="sm-6">
-                        {this.renderPage()}
-                            
+                            </Col>
+                            <Col size="sm-1">
+                            </Col>
+                            <Col size="sm-7">
+                            {this.renderPage()}
+                                
+                            </Col>
+                        </div>
                         </Col>
                     </div>
                 

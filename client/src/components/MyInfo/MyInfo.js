@@ -4,10 +4,10 @@ import './MyInfo.css'
 
 const MyInfo = props => {
   console.log(props)
-  return (<div className="container">
-    <div className="row scrollbar">
+  return (<div className="row">
+    <div className="row">
     <h3>About me</h3>
-      <div className="col-sm-12 aboutMe profileAboutDiv force-overflow">
+      <div className="col-sm-12 aboutMe profileAboutDiv">
         <p>{props.props.about || "About me...."}</p>
       </div>
     </div>
@@ -25,7 +25,7 @@ const MyInfo = props => {
         ) : <p>Joined Projects...</p>}
       </div>
     </div>
-    <button className="btn btn-sm btn-primary" onClick={props.editPage}>Edit Profile</button>
+   
   </div>)
 }
 

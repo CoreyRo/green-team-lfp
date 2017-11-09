@@ -6,8 +6,8 @@ import "./Login.css";
 class Login extends Component {
 
 
-    hanndleNewUser = event => {
-        axios.post('/signup')
+    handleNewUser = event => {
+        axios.post('/sign-up')
         .then((res) => {
             console.log(res);
         })
@@ -62,7 +62,7 @@ class Login extends Component {
                         </div>
                         
 
-                        <input type="submit" className="btn btn-primary" id="registerSubmit" value="Sign Up" onClick={this.hanndleNewUser}/>
+                        <input type="submit" className="btn btn-primary" id="registerSubmit" value="Sign Up" onClick={this.handleNewUser}/>
 
                         </form>
 

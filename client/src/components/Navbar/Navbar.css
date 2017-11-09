@@ -1,3 +1,19 @@
-/* nav.navbar.navbar-default {
-  margin-bottom: 0;
-} */
+.bg-dark{
+/* IE10+ */ 
+background-image: -ms-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #242B4A), color-stop(100, #161A2D));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+/* W3C Markup */ 
+background-image: linear-gradient(to bottom, #242B4A 0%, #161A2D 100%);
+}

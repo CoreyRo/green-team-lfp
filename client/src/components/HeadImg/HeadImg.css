@@ -1,5 +1,5 @@
 .HeadImg {
-  height: 500px;
+  height: 400px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -8,13 +8,13 @@
 .HeadImg::after {
   content: "";
   display: block;
-  opacity: .4;
+  opacity: .8;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: black;
+  background: #000;
 }
 
 .HeadImg * {
@@ -31,3 +31,4 @@
   padding-top: 140px;
   margin-top: 0;
 }
+

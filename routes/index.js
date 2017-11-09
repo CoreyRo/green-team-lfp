@@ -1,7 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
-var authController = require('../controllers/authController.js');
+var auth = require('../controllers/authController.js');
 var db = require("../models");
 
 
@@ -11,13 +11,8 @@ router.use("/api", apiRoutes);
 
 //Used to authenticate sign-up
 router
-.get('/sign-up', authController.signup)
-.post('/sign-up', passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: '/',
-    failureFlash:true
-
-  }));
+.get('/sign-up', auth.register)
+.post('/sign-up', auth.doRegister);
 
 // //Used to authenticate sign-in
 // router

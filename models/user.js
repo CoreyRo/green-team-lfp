@@ -12,8 +12,8 @@ const userSchema = new Schema({
   Skills: {type: Array}
 });
 
-// //takes care of salting and hashing the passpword for us
-// userSchema.plugin(passportLocalMongoose);
+//takes care of salting and hashing the passpword for us
+userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("User", userSchema);
 

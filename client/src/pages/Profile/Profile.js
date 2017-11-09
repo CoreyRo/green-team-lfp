@@ -1,12 +1,23 @@
 import React, { Component} from 'react'
 import { Col, Container, Row } from '../../components/Grid'
 import Jumbotron from '../../components/Jumbotron'
+import ProfileEdit from '../../components/ProfileEdit'
+import MyInfo from '../../components/MyInfo'
 import './Profile.css'
 
 
 class Profile extends Component {
     state = {
-
+        about:"",
+        pic: "",
+        stars: "",
+        edit: false,
+        projectInput: "",
+        joinedInput: "",
+        skillInput: "",
+        projects: [],        
+        joined: [],   
+        skills: []
     }
 
     componentWillMount(){
@@ -17,7 +28,72 @@ class Profile extends Component {
 
     }
 
+    handleSubmit = event => {
+        event.preventDefault()
+        this.setState({
+            About: this.state.about || null,
+            projects: this.state.projects || null,
+            joined: this.state.joined || null,
+            pic: this.state.pic || null,
+            skills: this.state.skills || null,
+            stars: this.state.stars  || null,
+            edit: true
+        })
+    }
 
+    handleInputChange = event => {
+        let value =  event.target.value
+        let name = event.target.name
+
+        this.setState({
+            [name] :value
+        })
+
+    }
+
+    handleArraySubmit = event => {
+        event.preventDefault()
+            if(this.state.projectInput){
+                console.log("projectInput", this.state.projectInput)
+                this.state.projects.push(this.state.projectInput)
+            }
+            else if(this.state.joinedInput){
+                console.log("joinedInput", this.state.joinedInput)
+                this.state.joined.push(this.state.joinedInput)
+            }
+            else if(this.state.skillInput){
+                console.log("skillInput", this.state.skillInput)
+                this.state.skills.push(this.state.skillInput)
+            }
+            this.setState({
+                projects: this.state.projects,
+                joined: this.state.joined,
+                skills: this.state.skills,
+                projectInput: "",
+                joinedInput: "",
+                skillInput: ""
+            })
+            console.log("ARRAY SUBMIT STATE", this.state)
+        
+    }
+
+    editPage = event => {
+        event.preventDefault()
+        this.setState({
+            edit: !this.state.edit 
+        })
+        console.log(this.state)
+    }
+
+    renderPage = () => {
+        if(this.state.edit){
+            return <ProfileEdit props={this.state} handleArraySubmit={this.handleArraySubmit} handleArrayInput={this.handleArrayInput} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} editPage={this.editPage}/>
+        }
+        else if(!this.state.edit){
+            
+            return <MyInfo props={this.state} editPage={this.editPage} />
+        }
+    }
 
     render(){
         return(
@@ -76,31 +152,11 @@ class Profile extends Component {
                         <Col size="sm-2">
                         </Col>
                         <Col size="sm-6">
-
-                            <div className="">
-                                <h3>About me</h3>
-                                <p>Lorem ipsum dolor sit amet, per et alia equidem fabulas. 
-                                    Legendos delicata ea nam, duo no accusamus percipitur, pro ancillae appetere eu. 
-                                    Ex pro graeci democritum, mea eu tale vivendum deseruisse, eu albucius urbanitas consectetuer vel. 
-                                    At per meis congue imperdiet, altera nostrud eam eu.</p>
-                            </div>
-                            <div>
-                                <h3>My Projects</h3>
-                                <p>Lorem ipsum dolor sit amet, per et alia equidem fabulas. 
-                                    Legendos delicata ea nam, duo no accusamus percipitur, pro ancillae appetere eu. 
-                                    Ex pro graeci democritum, mea eu tale vivendum deseruisse, eu albucius urbanitas consectetuer vel. 
-                                    At per meis congue imperdiet, altera nostrud eam eu.</p>    
-                            </div>
-                            <div>
-                                <h3>Joined Projects</h3>
-                                <p>Lorem ipsum dolor sit amet, per et alia equidem fabulas. 
-                                    Legendos delicata ea nam, duo no accusamus percipitur, pro ancillae appetere eu. 
-                                    Ex pro graeci democritum, mea eu tale vivendum deseruisse, eu albucius urbanitas consectetuer vel. 
-                                    At per meis congue imperdiet, altera nostrud eam eu.</p>
-                            </div>
+                        {this.renderPage()}
+                            
                         </Col>
                     </div>
-
+                
             </Container>
         )
     }

@@ -115,24 +115,37 @@ class Profile extends Component {
                     <Col size="sm-12">
                         <div className="row">
                         
-                            <Col size="sm-3">
+                            <Col size="sm-5">
                                 <div className="row infoContainer">
 
                                     <div className="col-sm-12">
                                         <div className="row">
                                             <div className="col-sm-12">
-                                                <div className="text-center profileAboutDiv">
-                                                    <img className="img-fluid" style={{width: 150}} src="https://projects.scpr.org/static-files/_v4/images/default_avatar.png" /> 
-                                                    <h2> Joe Doe </h2>
-                                                    <button className="btn btn-sm btn-primary">Change Picture</button>
-                                                    <button className="btn btn-sm btn-primary" onClick={this.editPage}>Edit Profile</button>
+                                                <div className="row">
+                                                    <div className="col-sm-12">
+                                                        <div className="text-center profileAboutDiv">
+                                                            <img className="img-fluid" style={{width: 150}} src="https://projects.scpr.org/static-files/_v4/images/default_avatar.png" /> 
+                                                        </div>
+                                                        <div className="row text-center mx-auto">
+                                                            <h2 className="text-center mx-auto"> John Doe </h2>
+                                                        </div>
+                                                        <div className="row">
+                                                            <span className="text-center mx-auto"> johndoe@email.com </span>
+                                                        </div>
+                                                        <div className="row text-center mx-auto">
+                                                            <button className="text-center mx-auto btn btn-sm btn-primary">Change Picture</button>
+                                                        </div>
+                                                        <div className="row text-center mx-auto">
+                                                            <button className="text-center mx-auto btn btn-sm btn-primary" onClick={this.editPage}>Edit Profile</button>
+                                                        </div>                                                           
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
    
                                         <div className="row">
                                             <div className="col-sm-12 profileAboutDiv">
-                                                <h2> Skills </h2>
+                                                <h2 style={{borderBottom: "4px solid #FFF", marginTop: "4rem"}}> Skills </h2>
                                                 <ul>
                                                     {this.state.edit === true ? this.state.skills.map((skill,i) =>{
                                                         return(
@@ -154,7 +167,7 @@ class Profile extends Component {
                             </Col>
                             <Col size="sm-1">
                             </Col>
-                            <Col size="sm-7">
+                            <Col size="sm-6">
                             {this.renderPage()}
                                 
                             </Col>

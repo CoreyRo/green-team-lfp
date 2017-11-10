@@ -17,9 +17,10 @@ class Browse extends Component {
         return (
             <Container>
                 <Row>
-                    <Col size="md-3">
+                    <div className="md-3">
                         <Related />
-                    </Col>
+                    </div>
+                        <Feed />
                 </Row>
             </Container>
         )

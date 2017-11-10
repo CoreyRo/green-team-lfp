@@ -8,8 +8,16 @@ class Feed extends Component {
     {
         super()
         this.state = 
-        {
-            feedData: []
+        { // feedData: [{
+            //     title: "Test Title",
+            //     subtitle: "Test Subtitle",
+            //     text: "Test Text"
+            // }, {
+            //     title: "Test Title2",
+            //     subtitle: "Test Subtitle2",
+            //     text: "Test Text2"
+            // }]
+           
         }
     }
 

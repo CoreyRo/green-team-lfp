@@ -3,37 +3,34 @@ import {Row, Col} from "../Grid"
 import "./Feed.css"
 import Card from "../Card"
 
-class Feed extends Component {
-    constructor()
-    {
-        super()
-        this.state = 
-        {
-            feedData: []
-        }
-    }
+// class Feed extends Component {
+//     constructor()
+//     {
+//         super()
+//         this.state = 
+//         {
+//             feedData: []
+//         }
+//     }
 
-    render() {
-        return (
-            <Row>
-                <Col size="md-12">
-                    {/*The below code will be implemented later*/}
-                    {/* <div id="main-feed">
-                        {this.state.feedData ? this.state.feedData.map(e =>
-                        {
-                            <Card title={e.title} subtitle={e.subtitle}
-                             text={e.text} firstText="View Project" secondText="View Profile"
-                             />
-                        } :
+//     render() {
+//         return (
 
-                        <h1>No Projects Available</h1>
+//                     /*The below code will be implemented later*/
+//                     /* <div id="main-feed">
+//                         {this.state.feedData ? this.state.feedData.map(e =>
+//                         {
+//                             <Card title={e.title} subtitle={e.subtitle}
+//                              text={e.text} firstText="View Project" secondText="View Profile"
+//                              />
+//                         } :
+
+//                         <h1>No Projects Available</h1>
                              
-                        }
-                    </div> */}
-                </Col>
-            </Row>
-        )
-    }
-}
+//                         }
+//                     </div> */
+//         )
+//     }
+// }
     
-export default Feed
+// export default Feed

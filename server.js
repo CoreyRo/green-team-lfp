@@ -12,16 +12,11 @@ var flash = require("connect-flash");
 var session = require("express-session");
 var passport = require("passport");
 const mongoose = require("mongoose");
-<<<<<<< HEAD
-const routes = require("./routes")(app,passport);
-const PORT = process.env.PORT || 3001;
-=======
 const routes = require("./routes");
 var env = require('dotenv').load();
 
 // Sets up the Express App
 // =============================================================
->>>>>>> 5c9d2a24578541ce9fee4a05426c50b05f2b1592
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -65,14 +60,6 @@ mongoose.connect(
     useMongoClient: true
   }
 );
-
-<<<<<<< HEAD
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
-require('./config/passport/passport.js')(passport, db.User);
-var authRoute = require('./routes/auth.js')(app,passport);
-=======
->>>>>>> 5c9d2a24578541ce9fee4a05426c50b05f2b1592
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

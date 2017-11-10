@@ -10,6 +10,7 @@ class Related extends Component {
             <div id="Related">
                 <div id="title-div">
                     <h3 id="title">Related Developers</h3>
+                    <hr id="line"/>
                 </div>
             </div>
         )

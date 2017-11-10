@@ -17,10 +17,12 @@ class Browse extends Component {
         return (
             <Container>
                 <Row>
-                    <div className="md-3">
+                    <Col size="md-3">
                         <Related />
-                    </div>
+                    </Col>
+                    <Col size="md-9">
                         <Feed />
+                    </Col>
                 </Row>
             </Container>
         )

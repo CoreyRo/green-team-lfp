@@ -8,7 +8,8 @@ class Feed extends Component {
     {
         super()
         this.state = 
-        { // feedData: [{
+        { 
+            // feedData: [{
             //     title: "Test Title",
             //     subtitle: "Test Subtitle",
             //     text: "Test Text"
@@ -41,7 +42,7 @@ class Feed extends Component {
                         text={e.text} firstText="View Project" secondText="View Profile"/>
                 ))
                 :
-                (<h1>No Projects Available</h1>)
+                (<h1 id="nan">No Projects Available</h1>)
                 }
             </div> 
         )

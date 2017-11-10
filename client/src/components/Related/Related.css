@@ -3,6 +3,8 @@
     margin-top: 100px;
     background-color: #A7C4E5 !important;
     height: 175%;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px black;
 }
 
 #title-div 

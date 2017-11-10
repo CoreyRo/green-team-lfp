@@ -6,6 +6,7 @@ import Profile from './pages/Profile'
 import Navbar from './components/Navbar'
 import Wrapper from './components/Wrapper'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
               <Navbar />
               <Header />
               <Route exact path="/Profile" component={Profile} />
-            </Wrapper>
+              <Footer />
+            </Wrapper>           
           </Router>
         
     );

@@ -20,34 +20,7 @@ img{
 ul{
   margin-top: 20px;
 }
-.skillPill{
-  border: 2px solid #FFF;
-  font-size: 14pt;
-  border-radius: 10px;
-  padding: 0 5px 0 5px;
-  margin:10px 5px 10px 5px;
-  background-color: #A7C4E5 !important;
-  /* IE10+ */ 
-  background-image: -ms-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
 
-  /* Mozilla Firefox */ 
-  background-image: -moz-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
-
-  /* Opera */ 
-  background-image: -o-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
-
-  /* Webkit (Safari/Chrome 10) */ 
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #A7C4E5), color-stop(100, #7B90A8));
-
-  /* Webkit (Chrome 11+) */ 
-  background-image: -webkit-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
-
-  /* W3C Markup */ 
-  background-image: linear-gradient(to bottom, #A7C4E5 0%, #7B90A8 100%);
-}
-#skillsHeadText{
-  border-bottom: 4px solid #FFF;
-}
 .jumbotron{
   color: #000000;
   text-shadow: none;

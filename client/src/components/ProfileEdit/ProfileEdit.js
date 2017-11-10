@@ -40,13 +40,6 @@ const ProfileEdit = props =>{
             Add more skills
             </button>
 
-            <button
-              type='submit'
-              onClick={props.editPage}
-              className='btn btn-success'
-            >
-              Finish
-            </button>
           </div>
         </form>
       </div>

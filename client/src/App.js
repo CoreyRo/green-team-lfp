@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import Browse from "./pages/Browse"
-import LoginRegisterForm from "./components/Login-Register"
-=======
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import logo from './logo.svg';
->>>>>>> master
 import './App.css';
 import Profile from './pages/Profile'
 import Navbar from './components/Navbar'

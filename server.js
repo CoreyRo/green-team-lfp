@@ -18,6 +18,11 @@ var cookieParser = require('cookie-parser');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
+const routes = require("./routes")
+app.use(routes);
+
+
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
@@ -32,6 +37,7 @@ mongoose.connect(
 // =============================================================
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -61,8 +67,7 @@ app.use(flash()) // use connect-flash for flash messages stored in session
 // Routes
 // =============================================================
 require('./config/passport/passport.js')(passport, db.User);
-const routes = require("./routes")
-app.use(routes);
+
 // var authRoute = require('./routes/api/posts.js')(app,passport);
 
 app.listen(PORT, function() {

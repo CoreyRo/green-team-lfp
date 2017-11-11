@@ -8,7 +8,7 @@ const App = () =>
   <Router>
     <div>
 
-    <Login />
+    <Route exact path="/sign-up" component= {Login} />
 
     </div>
 

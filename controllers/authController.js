@@ -34,8 +34,12 @@ module.exports = {
 				else{
 					console.log("Register User:", user)
 					passport.authenticate('local-signup')(req, res, function () {
-						// console.log("passport.authenticate res" , res)
-						  
+						console.log("passport.authenticate res" , res.body)
+						console.log("passport.authenticate req" , req.user)
+						// return(
+						// 	res.redirect('/profile/' + req. )
+						// )
+						
 					  });
 				}
 				

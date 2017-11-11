@@ -32,13 +32,15 @@ module.exports = {
 					 return console.log("Register Error: ", err);
 				}
 				else{
-					return console.log("Register User:", user)
+					console.log("Register User:", user)
+					passport.authenticate('local-signup')(req, res, function () {
+						// console.log("passport.authenticate res" , res)
+						  
+					  });
 				}
-			
-				// passport.authenticate('local-signup')(req, res, function () {
-				//   console.log(res)
-					
-				// });
+				
+				
+				
 		});
 	},
 

@@ -36,9 +36,21 @@ module.exports = {
 					passport.authenticate('local-signup')(req, res, function () {
 						console.log("passport.authenticate res" , res.body)
 						console.log("passport.authenticate req" , req.user)
-						// return(
-						// 	res.redirect('/profile/' + req. )
-						// )
+						
+						// User.update({id :req.body._id}, { $set: data})
+						// .then(function(newUser, created) {
+						// 	if (!newUser) {
+						// 		return done(null, false);
+						// 	}
+	
+						// 	if (newUser) {
+						// 		return done(null, newUser);
+						// 	}
+						// })
+						// .catch((err) => {
+						// 	console.log(err)
+						// 	res.json(err)
+						// })
 						
 					  });
 				}

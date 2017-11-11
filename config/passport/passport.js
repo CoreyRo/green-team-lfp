@@ -59,13 +59,14 @@ module.exports = function(passport, user) {
                         password: userPassword
                     };
                     console.log("DATA", data)
-                    User.create(data)
+                    User.update({id :req.body._id}, { $set: data})
                     .then(function(newUser, created) {
                         if (!newUser) {
                             return done(null, false);
                         }
 
                         if (newUser) {
+                            
                             return done(null, newUser);
                         }
                     })

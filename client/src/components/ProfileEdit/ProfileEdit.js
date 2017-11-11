@@ -22,6 +22,28 @@ const ProfileEdit = props =>{
               id='about'
             />
 
+            <label htmlFor='displayName'>Display Name:</label>
+            <input
+              value={prop.displayName}
+              onChange={props.handleInputChange}
+              name='displayName'
+              type='text'
+              className='form-control'
+              placeholder='Enter your first name'
+              id='displayName'
+            />
+
+            <label htmlFor='email'>Email:</label>
+            <input
+              value={prop.email}
+              onChange={props.handleInputChange}
+              name='email'
+              type='email'
+              className='form-control'
+              placeholder='Enter an email address'
+              id='email'
+            />
+
             <label htmlFor='skillInput'>Skills:</label>
             <input
               value={prop.skillInput}

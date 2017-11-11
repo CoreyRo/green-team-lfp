@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+var passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
@@ -11,6 +12,10 @@ const userSchema = new Schema({
   Skills: {type: Array}
 });
 
-const User = mongoose.model("User", userSchema);
+//takes care of salting and hashing the passpword for us
+UserSchema.plugin(passportLocalMongoose);
+
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
+

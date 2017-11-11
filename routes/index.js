@@ -5,14 +5,15 @@ var auth = require('../controllers/authController.js');
 var db = require("../models");
 
 
-module.exports = function(app, passport) {
+module.exports = function() {
 // API Routes
 router.use("/api", apiRoutes);
 
 //Used to authenticate sign-up
 router
-.get('/sign-up', auth.register)
-.post('/sign-up', auth.doRegister);
+.route("/sign-up")
+.get(auth.register)
+.post(auth.doRegister);
 
 // //Used to authenticate sign-in
 // router
@@ -20,13 +21,6 @@ router
 // .get('/sign-in', function(req, res) {
 //   authController.signin
 // })
-// .post('/sign-in', function(req,res) {
-//   passport.authenticate('local-signin', {
-//     successRedirect: '/edit-profile',
-//     failureRedirect: '/sign-in',
-//     failureFlash:true
-//   })
-// });
 
 // //Used to terminate passport session
 // router
@@ -50,16 +44,6 @@ router
 //       res.render('user', { user: dbUser, layout: 'profile.handlebars' });
 //   });
 // });
-
-
-isLoggedIn = (req, res, next)  => {
-  console.log('redirect',req.isAuthenticated())
-  if (req.isAuthenticated())
-  
-      return next();
-      
-  res.redirect('/sign-in');      
-}
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {

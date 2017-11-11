@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var passport = require("passport");
-var User = require("../models/User");
+var db = require("../models");
 
 var userController = {};
 
@@ -11,19 +11,21 @@ userController.home = function(req, res) {
 
 // Go to registration page
 userController.register = function(req, res) {
-  res.render('register');
+  res.redirect('/signup');
 };
 
 // Post registration
-userController.doRegister = function(req, res) {
-  User.register(new User({ firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username : req.body.username }), req.body.password, function(err, user) {
+userController
+.doRegister = function(req, res) {
+
+  console.log("In auth controller... req body is...", req.body);
+  db.User.create(req.body);
+  db.User.register(new User({ firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username : req.body.username }), req.body.password, function(err, user) {
     if (err) {
         console.log(err);
-      return res.render('/', { user : user });
     }
-
     passport.authenticate('local-signup')(req, res, function () {
-      res.redirect('/');
+      
     });
   });
 };

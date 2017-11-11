@@ -10,11 +10,13 @@ class Login extends Component {
         lastName: "",
         email: "",
         username: "",
-        password: ""
+        password: "",
+        errors: ""
     }
 
 
     handleFormSubmit = event => {
+        this.setState({ errors: {} });
         event.preventDefault();
         console.log(this.state);
         axios.post('/api/user/sign-up', 
@@ -25,9 +27,11 @@ class Login extends Component {
             username: this.state.username, 
             password: this.state.password
         })
-        .then((res) => {
-            console.log("RES: ", res);
-        })
+        .then((result) => 
+        {
+            console.log("Here")
+        }
+        )
         .catch((err) => {
             console.log(err);
         })
@@ -42,6 +46,7 @@ class Login extends Component {
 
 
     render() {
+        const { errors } = this.state;
         return (
             <Container fluid>
                 <Row>
@@ -51,11 +56,8 @@ class Login extends Component {
                         <h3>Register</h3>
                     </div>
                     <div className="card-body">
-
                         <form id="register-form">
-
                         <div className="form-group">
-
                             <div className="form-group">
                                 <label htmlFor="firstName" className="form-control-label">First Name:</label>
                                 <input type="text" className="form-control" name="firstName" id="firstName" onChange={this.handleInputChange} placeholder="First Name" required/>
@@ -79,6 +81,11 @@ class Login extends Component {
                             <div className="form-group">
                                 <label htmlFor="password" className="form-control-label">Password:</label>
                                 <input type="password" className="form-control" name="password" id="password" placeholder="Password" onChange={this.handleInputChange} required/>
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="passwordConfirmation" className="form-control-label">Confirm Password:</label>
+                                <input type="password" className="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="Confirm Password" onChange={this.handleInputChange} required/>
                             </div>
 
                             <div className="form-group">

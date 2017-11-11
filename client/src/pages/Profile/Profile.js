@@ -11,6 +11,7 @@ import './Profile.css'
 class Profile extends Component {
     state = {
         about:"",
+        displayName: "",
         pic: "",
         stars: "",
         edit: false,
@@ -37,7 +38,10 @@ class Profile extends Component {
             pic: this.state.pic || null,
             skills: this.state.skills || null,
             stars: this.state.stars  || null,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             edit: true
+            
         })
     }
 

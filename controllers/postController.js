@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the ArticlesController
+// Defining methods for the postController
 module.exports = {
   findAll: function(req, res) {
     db.Post

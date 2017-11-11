@@ -12,17 +12,13 @@ class Browse extends Component {
     }
 
     componentDidMount() {
-
-        console.log("did mount");
-
         axios.get("/api/user/browse")
         .then((res) => {
-            console.log("Posts from db", res);
             let data = res.data;
             this.setState({
                 posts: data
             });
-            console.log("State", this.state);
+            console.log("State: ", this.state);
         })
         .catch((err) => {
             console.log(err);

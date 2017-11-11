@@ -1,0 +1,16 @@
+#main-feed
+{
+    margin-top: 100px;
+    background-color: #A7C4E5;
+    height: 100%;
+    width: 80%;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px black;
+}
+
+#nan 
+{
+    text-align: center !important;
+    padding-top: 10px;
+    color: #161A2D
+}

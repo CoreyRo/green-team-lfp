@@ -6,6 +6,7 @@ import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
 import './Profile.css'
+import axios from 'axios'
 
 
 class Profile extends Component {
@@ -22,11 +23,14 @@ class Profile extends Component {
     }
 
     componentWillMount(){
-
+        
     }
 
     componentDidMount(){
-
+        let id = localStorage.getItem("id");
+        axios.get('/api/user/profile/' + id)
+        .then(res => console.log("PROFILE RES:", res))
+        .catch(err => console.log(err))
     }
 
     handleSubmit = event => {

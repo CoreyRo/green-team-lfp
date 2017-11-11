@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Col, Row, Container } from "../../components/Grid";
 import axios from 'axios';
 import "./Login.css";
+import {Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import Profile from '../Profile'
 
 class Login extends Component {
 
@@ -13,10 +16,21 @@ class Login extends Component {
         password: ""
     }
 
+    handleRedirect = (result) => {
+        console.log("HANDLE REDIRECT")
+        window.location.replace("/profile/" + result.data.user)
+        // this.context.router.transitionTo("/profile/")
+    //     return (<Router>
+            
+    //         <Route exact path="/sign-up" component={()=> <Redirect to= />} />
+        
+    // </Router>)
+                   
+    }
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state);
+        console.log("STATE", this.state);
         axios.post('/api/user/sign-up', 
         { 
             firstName: this.state.firstName, 
@@ -26,12 +40,18 @@ class Login extends Component {
             password: this.state.password
         })
         .then((res) => {
-            console.log("RES: ", res);
+            console.log("RES", res)
+            localStorage.setItem('id', res.data.user)
+            this.handleRedirect(res)
+            // window.location.href('/profile/' + res.data.user)
+            
         })
         .catch((err) => {
             console.log(err);
         })
     }
+
+    
 
     handleInputChange = event => {
         const { name, value } = event.target;

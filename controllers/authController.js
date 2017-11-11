@@ -18,46 +18,25 @@ module.exports = {
 
 	//constructs an new user using the mongoose model
 	doRegister : function(req, res) {
-		let newUser = new db.User({ 
-			firstName: req.body.firstName, 
-			lastName: req.body.lastName,
-			email: req.body.email,
-			password: req.body.password, 
-			username : req.body.username 
+
+		passport.authenticate('local-signup')(req, res, function (cb) {
+			// console.log("passport.authenticate res" , res)
+			console.log("passport.authenticate req" , req.session)
+			let result = req.session.passport
+			// console.log("passport session req" , req.session)
+			res.json(result)
+								
+			// res.redirect("/profile/" + req.session.passport.user)
+			});
+	},
+	findOne: function(req,res) {
+		console.log("REQ PARAMAS", req.params.id)
+		db.User.findOne({ _id: req.params.id})
+		.then(function(result) {
+			console.log("FINDONE RES: " + result)
+			res.json(result)
 		})
-		//registers the user with passport
-		db.User
-			.register(newUser, newUser.password, (err, user) => {
-				if (err) {
-					 return console.log("Register Error: ", err);
-				}
-				else{
-					console.log("Register User:", user)
-					passport.authenticate('local-signup')(req, res, function () {
-						console.log("passport.authenticate res" , res.body)
-						console.log("passport.authenticate req" , req.user)
-						
-						// User.update({id :req.body._id}, { $set: data})
-						// .then(function(newUser, created) {
-						// 	if (!newUser) {
-						// 		return done(null, false);
-						// 	}
-	
-						// 	if (newUser) {
-						// 		return done(null, newUser);
-						// 	}
-						// })
-						// .catch((err) => {
-						// 	console.log(err)
-						// 	res.json(err)
-						// })
-						
-					  });
-				}
-				
-				
-				
-		});
+		.catch(err => console.log(err))
 	},
 
 // Go to login page

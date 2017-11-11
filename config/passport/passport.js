@@ -44,7 +44,7 @@ module.exports = function(passport, user) {
                where: {
                    email: email
                }
-           }).then(function(user) {
+           }).then((user) => {
                if (user) {
                     console.log("User Exists");
                    return done(null, false, req.flash('error', 'That email is already taken'));
@@ -59,14 +59,13 @@ module.exports = function(passport, user) {
                         password: userPassword
                     };
                     console.log("DATA", data)
-                    User.update({id :req.body._id}, { $set: data})
+                    User.create(data)
                     .then(function(newUser, created) {
                         if (!newUser) {
                             return done(null, false);
                         }
 
                         if (newUser) {
-                            
                             return done(null, newUser);
                         }
                     })
@@ -75,7 +74,8 @@ module.exports = function(passport, user) {
                         res.json(err)
                     })
                }
-           });
+           })
+           .catch(err => console.log("REGISTER ERROR: ", err))
        }
    ));
 

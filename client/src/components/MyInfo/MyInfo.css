@@ -1,0 +1,71 @@
+body{
+
+}
+img{
+    margin: 0 auto !important;
+}
+
+.jumbotron{
+    color: #000000;
+    text-shadow: none;
+}
+
+
+  h3{
+    border-bottom:  4px solid #fff;
+    color: #FFF !important;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-shadow: 1px 1px 5px #161A2D;
+    font-size: 30pt;
+  }
+  .myProjects{
+    height: 6rem;
+
+  }
+
+  .myJoined{
+    height: 6rem;
+
+  }
+
+  .aboutMe{
+    height: 8rem;
+  }
+
+  .profileAboutDiv{
+    text-overflow: ellipsis;
+    word-break:break-all;
+    margin: 10px 0 25px 0;
+    border-radius: 3px;
+    color: #FFF !important;
+    font-family: 'Kanit', sans-serif !important;
+    text-shadow: 1px 1px 5px #161A2D;
+    font-size: 18pt;
+  }
+
+.infoContainer{
+  border: 2px solid #161A2D;
+  color: #FFF;
+  word-break:break-all;
+  overflow: auto;
+  border-radius: 5px;
+  background-color: #161A2D;
+  box-shadow: 3px 5px 10px 3px #000;
+  /* IE10+ */ 
+  background-image: -ms-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+  /* Mozilla Firefox */ 
+  background-image: -moz-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+  /* Opera */ 
+  background-image: -o-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #242B4A), color-stop(100, #161A2D));
+
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+
+  /* W3C Markup */ 
+  background-image: linear-gradient(to bottom, #242B4A 0%, #161A2D 100%);
+}

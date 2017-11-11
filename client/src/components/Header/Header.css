@@ -1,0 +1,13 @@
+.headerTitle{
+    color: #A7C4E5  !important;
+    text-shadow: 2px 2px 2px #000 !important;
+    font-family: 'Cabin', sans-serif !important;
+    margin-bottom: 20px;
+    font-size: 72pt !important;
+    font-weight: bold;
+  }
+.headerDesc{
+    color: #FFF;
+    text-shadow: 2px 2px 2px #000;
+    font-family: 'Kanit', sans-serif !important;
+}

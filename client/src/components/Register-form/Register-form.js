@@ -2,7 +2,7 @@ import React from "react"
 import "./Register-form.css"
 import {Container, Col, Row} from "../Grid"
 
-const RegisterForm = ({first, last, email, userName, pass, confPass, location, handleChange, handleNewUser}) =>
+const RegisterForm = ({first, last, email, userName, pass, confPass, location, handleChange, handleLogin, handleNewUser}) =>
     <div id="form-style">
 
         <form method="POST" action="/sign-up">
@@ -48,8 +48,8 @@ const RegisterForm = ({first, last, email, userName, pass, confPass, location, h
         </div>
         
 
-        <input type="submit" className="btn btn-primary" id="registerSubmit" value="Sign Up" onClick={handleNewUser} id="submit"/>
-
+            <input type="submit" className="btn btn-primary" value="Sign In" onClick={handleLogin} id="login-submit"/>
+            <input type="submit" className="btn btn-primary" value="Register" onClick={handleNewUser} id="register-submit"/>
         </form>
 
     </div>

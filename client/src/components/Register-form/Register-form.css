@@ -10,8 +10,15 @@
     font-family: 'Indie Flower', cursive;
 }
 
-#submit
+#login-submit
 {
     margin-top: 20px;
+    background-color: #161A2D !important;
+}
+
+#register-submit 
+{
+    margin-top: 20px;
+    margin-left: 88% !important;
     background-color: #161A2D !important;
 }

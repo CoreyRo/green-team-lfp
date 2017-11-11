@@ -2,7 +2,7 @@ import React from "react"
 import "./Login-form.css"
 import {Container, Col, Row} from "../Grid"
 
-const LoginForm = props =>
+const LoginForm = ({username, pass, handleNewUser, handleLogin}) =>
     <div id="form-style">
 
         <form method="POST" action="/sign-up">
@@ -10,18 +10,18 @@ const LoginForm = props =>
         <div className="form-group">
             <div className="form-group">
                 <label htmlFor="username" className="form-control-label">Username:</label>
-                <input type="text" className="form-control" name="username" id="username" placeholder="Username" required/>
+                <input type="text" value={username} className="form-control" name="username" id="username" placeholder="Username" required/>
             </div>
 
             <div className="form-group">
                 <label htmlFor="password" className="form-control-label">Password:</label>
-                <input type="password" className="form-control" name="password" id="password" placeholder="Password" required/>
+                <input type="password" value={pass} className="form-control" name="password" id="password" placeholder="Password" required/>
             </div>  
         </div>
         
 
-        <input type="submit" className="btn btn-primary" id="registerSubmit" value="Sign Up" onClick={props.handleNewUser} id="submit"/>
-
+        <input type="submit" className="btn btn-primary" value="Sign In" onClick={handleLogin} id="login-submit"/>
+        <input type="submit" className="btn btn-primary" value="Register" onClick={handleNewUser} id="register-submit"/>
         </form>
 
     </div>

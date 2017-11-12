@@ -15,28 +15,28 @@ module.exports = {
 	},
 
 // Post registration
-
-	//constructs an new user using the mongoose model
 	doRegister : function(req, res) {
-
-		passport.authenticate('local-signup')(req, res, function (cb) {
-			// console.log("passport.authenticate res" , res)
-			console.log("passport.authenticate req" , req.session)
-			let result = req.session.passport
-			// console.log("passport session req" , req.session)
-			res.json(result)
-								
-			// res.redirect("/profile/" + req.session.passport.user)
-			});
+		//registers the user with passport
+		db.User
+			passport.authenticate('local-signup')(req, res, function () {
+			return res.json(req.user)
+					
+			})
+		// process.on('unhandledRejection', (reason, p) => {
+		// 	console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
+		// 	// application specific logging, throwing an error, or other logic here
+		// 	});
+					
 	},
 	findOne: function(req,res) {
+		console.log("FINDONE REQ:",req.user)
 		console.log("REQ PARAMAS", req.params.id)
 		db.User.findOne({ _id: req.params.id})
 		.then(function(result) {
 			console.log("FINDONE RES: " + result)
-			res.json(result)
+			return res.json(result)
 		})
-		.catch(err => console.log(err))
+		.catch(err => console.log("FIND ONE err ", err))
 	},
 
 // Go to login page

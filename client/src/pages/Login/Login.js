@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Col, Row, Container } from "../../components/Grid";
+import { Row, Container } from "../../components/Grid";
 import axios from 'axios';
 import "./Login.css";
-import {Link} from 'react-router-dom'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import Profile from '../Profile'
+
 
 class Login extends Component {
 
@@ -17,15 +15,10 @@ class Login extends Component {
     }
 
     handleRedirect = (result) => {
-        console.log("HANDLE REDIRECT")
-        window.location.replace("/profile/" + result.data.user)
-        // this.context.router.transitionTo("/profile/")
-    //     return (<Router>
-            
-    //         <Route exact path="/sign-up" component={()=> <Redirect to= />} />
-        
-    // </Router>)
-                   
+        console.log("HANDLE REDIRECT", result)
+        let id = result.data._id
+        return window.location.replace("/profile/" + id)
+                    
     }
 
     handleFormSubmit = event => {
@@ -41,9 +34,8 @@ class Login extends Component {
         })
         .then((res) => {
             console.log("RES", res)
-            localStorage.setItem('id', res.data.user)
+            localStorage.setItem('id', res.data._id)
             this.handleRedirect(res)
-            // window.location.href('/profile/' + res.data.user)
             
         })
         .catch((err) => {

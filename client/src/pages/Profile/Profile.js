@@ -5,11 +5,14 @@ import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
+import axios from 'axios'
 import './Profile.css'
 
 
 class Profile extends Component {
     state = {
+        firstName: "",
+        lastName: "",
         about:"",
         displayName: "",
         pic: "",
@@ -26,7 +29,9 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-
+        // axios.get("/api/user/profile").then((res) => {
+        //     console.log(res);
+        // })
     }
 
     handleSubmit = event => {

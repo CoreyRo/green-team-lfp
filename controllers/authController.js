@@ -14,6 +14,18 @@ module.exports = {
 		res.redirect('/sign-up');
 	},
 
+	findOne : function(req, res) {
+		console.log("HERE");
+		db.User.findOne({ _id: req.user._id})
+		.then((result) => {
+			console.log("FIND ONE RESULT  " , result)
+			return result;
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+	},
+
 // Post registration
 
 	//constructs an new user using the mongoose model
@@ -27,25 +39,15 @@ module.exports = {
 		})
 		//registers the user with passport
 		db.User
-			.register(newUser, newUser.password, (err, user) => {
-				if (err) {
-					 return console.log("Register Error: ", err);
-				}
-				else{
-					console.log("Register User:", user)
-					passport.authenticate('local-signup')(req, res, function () {
-						console.log("passport.authenticate res" , res.body)
-						console.log("passport.authenticate req" , req.user)
-						// return(
-						// 	res.redirect('/profile/' + req. )
-						// )
-						
-					  });
-				}
+			passport.authenticate('local-signup')(req, res, function () {
+				console.log("passport.authenticate res" , res.body)
+				console.log("passport.authenticate req" , req.user)
+				// return(
+				// 	res.redirect('/profile/' + req. )
+				// )
 				
+				});
 				
-				
-		});
 	},
 
 // Go to login page

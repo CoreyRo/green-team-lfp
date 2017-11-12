@@ -9,6 +9,9 @@ const session = require("express-session");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+var flash = require("connect-flash");
+var session = require("express-session");
+var passport = require("passport");
 const mongoose = require("mongoose");
 const env = require('dotenv').load();
 const db = require("./models")
@@ -41,10 +44,20 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(flash());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+
+// Routes
+// =============================================================
+require('./config/passport/passport.js')(passport, db.User);
+const routes = require("./routes")
+app.use(routes);
+// var authRoute = require('./routes/api/posts.js')(app,passport);
 
 // Send every request to the React app
 // Define any API routes before this runs
@@ -62,13 +75,6 @@ app.use(function(req, res, next){
   console.log(req.user);
   next();
 });
-app.use(flash()) // use connect-flash for flash messages stored in session
-
-// Routes
-// =============================================================
-require('./config/passport/passport.js')(passport, db.User);
-
-// var authRoute = require('./routes/api/posts.js')(app,passport);
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

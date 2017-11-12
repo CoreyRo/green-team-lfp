@@ -31,11 +31,15 @@ module.exports = function(passport, user) {
     },
 
        function(req, email, password, done) {
+<<<<<<< HEAD
+           console.log("This is the sign up");
+=======
            console.log("This is the sign up", req.body);
            console.log("email", email);
            console.log("password", password);
            console.log("done", done);
 
+>>>>>>> 716cb00a3aa5ea49d97a2f2dfadef67f843ad819
            var generateHash = function(password) {
                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
            };
@@ -52,6 +56,27 @@ module.exports = function(passport, user) {
                else {
                    var userPassword = generateHash(password);
                    var data = {
+<<<<<<< HEAD
+                        email: email,
+                        password: userPassword,
+                        name: req.body.name,
+                        phone: req.body.phone,
+                        location: req.body.location,
+                        userName: req.body.userName
+                    };
+
+                   User.create(data).then(function(newUser, created) {
+                       if (!newUser) {
+                           return done(null, false);
+                       }
+
+                       if (newUser) {
+
+                           return done(null, newUser);
+
+                       }
+                   });
+=======
                         firstName: req.body.firstName,
                         lastName: req.body.lastName,
                         email: email,
@@ -73,6 +98,7 @@ module.exports = function(passport, user) {
                         console.log(err)
                         res.json(err)
                     })
+>>>>>>> 716cb00a3aa5ea49d97a2f2dfadef67f843ad819
                }
            });
        }

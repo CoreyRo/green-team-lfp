@@ -1,19 +1,22 @@
-import React, { Component, update} from 'react'
+import React, { Component } from 'react'
 import { Col, Container, Row } from '../../components/Grid'
 import Jumbotron from '../../components/Jumbotron'
 import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
+import axios from 'axios'
 import './Profile.css'
 
 
 class Profile extends Component {
     state = {
+        id: "",
+        firstName: "",
+        lastName: "",
         about:"",
         displayName: "",
         pic: "",
-        stars: "",
         edit: false,
         skillInput: "",
         projects: ["Pulled", "From", "Database"],        
@@ -22,22 +25,42 @@ class Profile extends Component {
     }
 
     componentWillMount(){
-
+        
     }
 
     componentDidMount(){
+        console.log("PROFILE DIDMOUNT")
+        let id = localStorage.getItem("id");
+        axios.get('/api/user/profile/' + id)
+        .then(res => {
+            console.log("PROFILE RES:", res)
+            let data = res.data
+            this.setState({
+                displayName: data.username,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email,
+                id: data._id,
+                skills: data.skills,
+                joined: data.joined,
+                projects: data.projects
 
+            })
+
+        })
+        .catch(err => console.log("PROFILE DIDMOUNT err",err))
     }
 
     handleSubmit = event => {
         event.preventDefault()
         this.setState({
             About: this.state.about || null,
+            pic: this.state.pic || null,
+            displayName: this.state.displayName || "Enter Name",
             projects: this.state.projects || null,
             joined: this.state.joined || null,
             pic: this.state.pic || null,
             skills: this.state.skills || null,
-            stars: this.state.stars  || null,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             edit: true

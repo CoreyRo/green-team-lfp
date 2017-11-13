@@ -1,6 +1,6 @@
 import React from 'react'
 import './Skills.css'
-import { Col, Container, Row } from '../Grid'
+// import { Col, Container, Row } from '../Grid'
 
 
 const Skills = props => {

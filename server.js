@@ -8,13 +8,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 var flash = require("connect-flash");
-var session = require("express-session");
-var passport = require("passport");
 const mongoose = require("mongoose");
 const env = require('dotenv').load();
 const db = require("./models")
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
+const passport = require('passport');
+var session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -69,7 +69,6 @@ app.use(function(req, res, next){
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

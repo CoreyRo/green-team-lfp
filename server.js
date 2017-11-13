@@ -18,13 +18,6 @@ var session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Routes
-// =============================================================
-// require('./config/passport/passport.js')(passport, db.User);
-// var authRoute = require('./routes/api/UserRoutes.js')(app,passport);
-const routes = require("./routes")
-app.use(routes);
-
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
@@ -40,17 +33,13 @@ mongoose.connect(
 // =============================================================
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.use(flash());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
 
 // For Passport
 app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
@@ -62,6 +51,18 @@ app.use(function(req, res, next){
   console.log(req.user);
   next();
 });
+app.use(flash());
+
+// Routes
+// =============================================================
+require('./config/passport/passport.js')(passport, db.User);
+const routes = require("./routes")
+app.use(routes);
+// var authRoute = require('./routes/api/UserRoutes.js')(app,passport);
+
+
+
+
 
 
 // Send every request to the React app

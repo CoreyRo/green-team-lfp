@@ -14,6 +14,18 @@ module.exports = {
 		res.redirect('/sign-up');
 	},
 
+	findOne : function(req, res) {
+		console.log("HERE");
+		db.User.findOne({ _id: req.user._id})
+		.then((result) => {
+			console.log("FIND ONE RESULT  " , result)
+			return result;
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+	},
+
 // Post registration
 	doRegister : function(req, res) {
 		//registers the user with passport

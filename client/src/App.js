@@ -3,6 +3,7 @@ import { BrowserHistory, BrowserRouter as Router, Route } from 'react-router-dom
 import logo from './logo.svg';
 import './App.css';
 import Profile from './pages/Profile'
+import Browse from './pages/Browse'
 import Navbar from './components/Navbar'
 import Wrapper from './components/Wrapper'
 import Header from './components/Header'
@@ -16,8 +17,9 @@ class App extends Component {
             <Wrapper>
               <Navbar />
               <Header />
-              
+              <Route exact path="/" component={Profile} />
               <Route path="/profile/" component={Profile} />
+              <Route exact path="/browse" component = {Browse} />
               <Route exact path="/sign-up" component= {Login} />
               <Footer />
             </Wrapper>           

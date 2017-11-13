@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row, Container } from "../../components/Grid";
+import { Row, Container } from "../../components/Grid";
 import axios from 'axios';
 import "./Login.css";
 
@@ -15,11 +15,17 @@ class Login extends Component {
         errors: ""
     }
 
+    handleRedirect = (result) => {
+        console.log("HANDLE REDIRECT", result)
+        let id = result.data._id
+        return window.location.replace("/profile/" + id)
+                    
+    }
 
     handleFormSubmit = event => {
         this.setState({ errors: {} });
         event.preventDefault();
-        console.log(this.state);
+        console.log("STATE", this.state);
         axios.post('/api/user/sign-up', 
         { 
             firstName: this.state.firstName, 
@@ -28,15 +34,18 @@ class Login extends Component {
             username: this.state.username, 
             password: this.state.password
         })
-        .then((result) => 
-        {
-            console.log("Here")
-        }
-        )
+        .then((res) => {
+            console.log("RES", res)
+            localStorage.setItem('id', res.data._id)
+            this.handleRedirect(res)
+            
+        })
         .catch((err) => {
             console.log(err);
         })
     }
+
+    
 
     handleInputChange = event => {
         const { name, value } = event.target;

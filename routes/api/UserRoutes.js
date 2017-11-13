@@ -8,7 +8,12 @@ var db = require("../../models");
   router
     .route("/sign-up")//path /api/user/sign-up
     .get(auth.register)
-    .post(auth.doRegister);
+    .post(auth.doRegister)
+
+    router
+    .route("/profile/:id")//path /api/user/sign-up
+    .get(auth.findOne)
+
 
   router
   .route("/browse")
@@ -17,7 +22,7 @@ var db = require("../../models");
 
   router 
   .route("/profile")
-  .get(isLoggedInauth, function(req, res) => {
+  .get(isLoggedInauth, function(req, res) {
     
   });
 

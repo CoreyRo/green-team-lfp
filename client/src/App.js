@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserHistory, BrowserRouter as Router, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Profile from './pages/Profile'
@@ -18,7 +18,7 @@ class App extends Component {
               <Navbar />
               <Header />
               <Route exact path="/" component={Profile} />
-              <Route exact path="/Profile" component={Profile} />
+              <Route path="/profile/" component={Profile} />
               <Route exact path="/browse" component = {Browse} />
               <Route exact path="/sign-up" component= {Login} />
               <Footer />

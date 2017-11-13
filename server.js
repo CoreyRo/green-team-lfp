@@ -4,8 +4,6 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================--------------------------------------
-const passport = require("passport");
-const session = require("express-session");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -15,13 +13,15 @@ var passport = require("passport");
 const mongoose = require("mongoose");
 const env = require('dotenv').load();
 const db = require("./models")
-var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
+// Routes
+// =============================================================
+// require('./config/passport/passport.js')(passport, db.User);
+// var authRoute = require('./routes/api/UserRoutes.js')(app,passport);
 const routes = require("./routes")
 app.use(routes);
 
@@ -52,12 +52,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-// Routes
-// =============================================================
-require('./config/passport/passport.js')(passport, db.User);
-const routes = require("./routes")
-app.use(routes);
-var authRoute = require('./routes/api/UserRoutes.js')(app,passport);
 // For Passport
 app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
 app.use(passport.initialize());

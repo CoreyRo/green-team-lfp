@@ -22,7 +22,7 @@ var db = require("../../models");
 
   router 
   .route("/profile")
-  .get(isLoggedInauth, function(req, res) => {
+  .get(isLoggedInauth, function(req, res) {
     
   });
 

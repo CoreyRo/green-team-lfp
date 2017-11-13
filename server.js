@@ -4,19 +4,20 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================--------------------------------------
-const passport = require("passport");
-const session = require("express-session");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+var flash = require("connect-flash");
 const mongoose = require("mongoose");
 const env = require('dotenv').load();
 const db = require("./models")
-var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
+const passport = require('passport');
+var session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
@@ -50,14 +51,19 @@ app.use(function(req, res, next){
   console.log(req.user);
   next();
 });
-app.use(flash()) // use connect-flash for flash messages stored in session
+app.use(flash());
 
 // Routes
 // =============================================================
 require('./config/passport/passport.js')(passport, db.User);
 const routes = require("./routes")
 app.use(routes);
-// var authRoute = require('./routes/api/posts.js')(app,passport);
+// var authRoute = require('./routes/api/UserRoutes.js')(app,passport);
+
+
+
+
+
 
 // Send every request to the React app
 // Define any API routes before this runs

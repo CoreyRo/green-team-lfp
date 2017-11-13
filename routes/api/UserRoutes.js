@@ -1,5 +1,6 @@
 const router = require("express").Router();
 var auth = require('../../controllers/authController.js');
+var posts = require("../../controllers/postController.js");
 var db = require("../../models");
 
 
@@ -13,6 +14,15 @@ var db = require("../../models");
     .route("/profile/:id")//path /api/user/sign-up
     .get(auth.findOne)
 
+
+  router
+  .route("/browse")
+  .get(posts.findAll)
+  .post(posts.create)
+
+  router 
+  .route("/profile")
+  .get(auth.findOne);
 
 module.exports = router;
 

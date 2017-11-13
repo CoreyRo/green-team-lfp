@@ -5,17 +5,17 @@ import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
-import './Profile.css'
 import axios from 'axios'
+import './Profile.css'
 
 
 class Profile extends Component {
     state = {
         id: "",
+        firstName: "",
+        lastName: "",
         about:"",
         displayName: "",
-        firstName: "",
-        lastName:"",
         pic: "",
         edit: false,
         skillInput: "",

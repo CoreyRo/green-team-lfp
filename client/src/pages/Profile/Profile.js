@@ -41,7 +41,7 @@ class Profile extends Component {
                 lastName: data.lastName,
                 email: data.email,
                 id: data._id,
-                skills: data.Skills,
+                skills: data.skills,
                 joined: data.joined,
                 projects: data.projects
 

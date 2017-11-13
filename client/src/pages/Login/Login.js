@@ -36,7 +36,7 @@ class Login extends Component {
         .then((res) => {
             console.log("RES", res)
             localStorage.setItem('id', res.data._id)
-            this.handleRedirect(res)
+            this.handleRedirect(res)``
             
         })
         .catch((err) => {

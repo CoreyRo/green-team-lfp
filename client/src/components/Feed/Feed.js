@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Row, Col} from "../Grid"
+import axios from "axios"
 import "./Feed.css"
 import Card from "../Card"
 
@@ -15,6 +16,7 @@ class Feed extends Component {
         axios.get("/api/user/browse")
         .then((res) => {
             let data = res.data;
+            console.log(data)
             this.setState({
                 posts: data
             });
@@ -35,10 +37,11 @@ class Feed extends Component {
         return (
 
             <div id="main-feed">
-                {this.state.feedData ? this.state.posts.map(e =>
+                {this.state.posts ? this.state.posts.map(e =>
                 (
-                    <Card title={e.title} subtitle={e.subtitle}
-                        text={e.text} firstText="View Project" secondText="View Profile"/>
+
+                    <Card key={e._id} title={e.title} subtitle={e.author}
+                        text={e.description} firstText="View Project" secondText="View Profile"/>
                 ))
                 :
                 (<h1 id="nan">No Projects Available</h1>)

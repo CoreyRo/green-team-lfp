@@ -57,14 +57,7 @@ if (process.env.NODE_ENV === "production") {
 require('./config/passport/passport.js')(passport, db.User);
 const routes = require("./routes")
 app.use(routes);
-// var authRoute = require('./routes/api/posts.js')(app,passport);
-
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
+var authRoute = require('./routes/api/UserRoutes.js')(app,passport);
 // For Passport
 app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
 app.use(passport.initialize());
@@ -75,6 +68,14 @@ app.use(function(req, res, next){
   console.log(req.user);
   next();
 });
+
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

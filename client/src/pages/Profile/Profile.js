@@ -7,7 +7,6 @@ import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
 import axios from 'axios'
 import './Profile.css'
-import axios from 'axios'
 
 
 class Profile extends Component {

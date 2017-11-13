@@ -16,7 +16,6 @@ class Login extends Component {
     }
 
     handleRedirect = (result) => {
-        console.log("HANDLE REDIRECT", result)
         let id = result.data._id
         return window.location.replace("/profile/" + id)
                     
@@ -91,11 +90,6 @@ class Login extends Component {
                             <div className="form-group">
                                 <label htmlFor="password" className="form-control-label">Password:</label>
                                 <input type="password" className="form-control" name="password" id="password" placeholder="Password" onChange={this.handleInputChange} required/>
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor="passwordConfirmation" className="form-control-label">Confirm Password:</label>
-                                <input type="password" className="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="Confirm Password" onChange={this.handleInputChange} required/>
                             </div>
 
                             <div className="form-group">

@@ -17,7 +17,6 @@ class App extends Component {
             <Wrapper>
               <Navbar />
               <Header />
-              <Route exact path="/" component={Profile} />
               <Route path="/profile/" component={Profile} />
               <Route exact path="/browse" component = {Browse} />
               <Route exact path="/sign-up" component= {Login} />

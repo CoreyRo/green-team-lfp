@@ -48,7 +48,7 @@ module.exports = {
 			console.log("FINDONE RES: " + result)
 			return res.json(result)
 		})
-		.catch(err => console.log("FIND ONE err ", err))
+		.catch(err => console.log("FIND ONE err ", err.body))
 	},
 
 // Go to login page

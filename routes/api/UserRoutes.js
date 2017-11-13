@@ -16,8 +16,18 @@ var db = require("../../models");
   .post(posts.create)
 
   router 
-  .route("/profile")
+  .route("/profile", isLoggedIn)
   .get(auth.findOne);
+
+  router.isLoggedIn = function(req, res, next) {
+    console.log('redirect',req.isAuthenticated())
+    if (req.isAuthenticated())
+    
+        return next();
+        
+    res.redirect('/sign-in');
+    
+}
 
 module.exports = router;
 

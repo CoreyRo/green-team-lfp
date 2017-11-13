@@ -6,11 +6,7 @@ import Feed from "../../components/Feed"
 
 class Browse extends Component {
 
-    constructor()
-    {
-        super()
-
-    }
+    
 
 
     render() {

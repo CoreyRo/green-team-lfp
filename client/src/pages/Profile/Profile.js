@@ -5,6 +5,7 @@ import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
+
 import axios from 'axios'
 import './Profile.css'
 
@@ -18,6 +19,7 @@ class Profile extends Component {
         displayName: "",
         pic: "",
         edit: false,
+        canEdit: false,
         skillInput: "",
         projects: ["Pulled", "From", "Database"],        
         joined: ["Pulled", "From", "Database"],   
@@ -29,8 +31,12 @@ class Profile extends Component {
     }
 
     componentDidMount(){
+        console.log("WINDOW LOCATION", window.location.href)
+        let urlID = window.location.href
+        let getId = urlID.split("/profile/")
+        let id = getId[1]
+        console.log("get ID ", getId)
         console.log("PROFILE DIDMOUNT")
-        let id = localStorage.getItem("id");
         axios.get('/api/user/profile/' + id)
         .then(res => {
             console.log("PROFILE RES:", res)
@@ -46,10 +52,16 @@ class Profile extends Component {
                 projects: data.projects
 
             })
+            this.validUser()
+            
 
         })
         .catch(err => console.log("PROFILE DIDMOUNT err",err))
     }
+
+
+    
+
 
     handleSubmit = event => {
         event.preventDefault()
@@ -94,6 +106,22 @@ class Profile extends Component {
             edit: !this.state.edit 
         })
         console.log(this.state)
+    }
+
+    validUser = event => {
+        console.log("Validating User")
+        let stateId = this.state.id
+        let userId = localStorage.getItem("id")
+        if(userId == stateId){
+            this.setState({
+                canEdit: true
+            })
+        }
+        else{
+            this.setState({
+                canEdit: false
+            })
+        }
     }
 
     removeSkill = event => {

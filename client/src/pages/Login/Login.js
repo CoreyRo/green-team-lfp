@@ -36,7 +36,12 @@ class Login extends Component {
         .then((res) => {
             console.log("RES", res)
             localStorage.setItem('id', res.data._id)
+<<<<<<< HEAD
             this.handleRedirect(res)``
+=======
+            localStorage.setItem('loggedIn', true)
+            this.handleRedirect(res)
+>>>>>>> b31a7596974e1a37e631a8e7838629633b864dcc
             
         })
         .catch((err) => {
@@ -64,6 +69,7 @@ class Login extends Component {
                     <div className="card-header">
                         <h3>Register</h3>
                     </div>
+                    {this.state.newUser === true ? <login /> : <signUp />}
                     <div className="card-body">
                         <form id="register-form">
                         <div className="form-group">

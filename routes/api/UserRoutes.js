@@ -20,9 +20,13 @@ var db = require("../../models");
   .get(posts.findAll)
   .post(posts.create)
 
+  router
+  .route("/browse/get-all")
+  .get(posts.findAllUsers)
+
   router 
   .route("/profile")
-  .get(auth.findOne);
+  .get(posts.findOne);
 
 module.exports = router;
 

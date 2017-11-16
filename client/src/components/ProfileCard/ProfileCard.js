@@ -1,9 +1,10 @@
 import React from 'react'
 import './ProfileCard.css'
 import { Col, Container, Row } from '../Grid'
-
+import EditButton from '../EditButton'
 
 const ProfileCard = props => {
+
     return(
         <Row>
             <Col size="sm-12">
@@ -17,11 +18,9 @@ const ProfileCard = props => {
                     <span className="text-center mx-auto"> {props.state.email}</span>
                 </div>
                 <div className="row text-center mx-auto">
-                    <button className="text-center mx-auto btn btn-sm btn-primary">Change Picture</button>
+                    
                 </div>
-                <div className="row text-center mx-auto">
-                    <button className={props.state.edit === true ? "text-center mx-auto btn btn-sm btn-success" : "text-center mx-auto btn btn-sm btn-primary"} onClick={props.editPage}>{props.state.edit === true ? "Save Changes" : "Edit Profile"}</button>
-                </div>                                                               
+                {props.state.canEdit === true ? <EditButton props={props} editPage={props.editPage}/> : "" }
             </Col>
         </Row>
     )

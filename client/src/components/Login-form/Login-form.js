@@ -2,7 +2,7 @@ import React from "react"
 import "./Login-form.css"
 import {Container, Col, Row} from "../Grid"
 
-const LoginForm = ({username, pass, handleNewUser, handleLogin}) =>
+const LoginForm = ({username, pass, handleNewUser, handleFormSubmit}) =>
     <div id="form-style">
 
         <form method="POST" action="/sign-up">
@@ -20,8 +20,8 @@ const LoginForm = ({username, pass, handleNewUser, handleLogin}) =>
         </div>
         
 
-        <input type="submit" className="btn btn-primary" value="Sign In" onClick={handleLogin} id="login-submit"/>
-        <input type="submit" className="btn btn-primary" value="Register" onClick={handleNewUser} id="register-submit"/>
+        <input type="submit" className="btn btn-primary" value="Sign In" onClick={handleFormSubmit} id="login-submit"/>
+        <input type="submit" className="btn btn-primary"  href="/sign-up" value="Register" onClick={handleNewUser} id="register-submit"/>
         </form>
 
     </div>

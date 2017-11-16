@@ -58,11 +58,7 @@ app.use(flash());
 require('./config/passport/passport.js')(passport, db.User);
 const routes = require("./routes")
 app.use(routes);
-// var authRoute = require('./routes/api/UserRoutes.js')(app,passport);
-
-
-
-
+var authRoute = require('./routes/api/authRoutes.js')(app,passport);
 
 
 // Send every request to the React app

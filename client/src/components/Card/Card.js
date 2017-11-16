@@ -8,7 +8,7 @@ const Card = ({title, subtitle, text, handleFirstClick,
     <div className="card" id="main">
         <div className="card-block">
             <h4 className="card-title" id="header">{title}</h4>
-            <h6 className="card-subtitle mb-2 text-muted">{subtitle}</h6>
+            <h6 id="text" className="card-subtitle mb-2 text-muted">{subtitle}</h6>
             <p className="card-text">{text}</p>
             <Button onClick={handleFirstClick} className="card-link button-color" type="primary">
                 {firstText}

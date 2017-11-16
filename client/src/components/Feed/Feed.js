@@ -37,6 +37,7 @@ class Feed extends Component {
         return (
 
             <div id="main-feed">
+                <h1 id="title">Projects Nearby</h1>
                 {this.state.posts ? this.state.posts.map(e =>
                 (
 

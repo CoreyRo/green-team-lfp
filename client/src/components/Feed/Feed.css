@@ -15,3 +15,12 @@
     padding-top: 10px;
     color: #161A2D
 }
+
+#title 
+{
+    color: white !important;
+    text-align: center;
+    padding: 10px;
+    margin-top: -20px;
+    font-size: 50px;
+}

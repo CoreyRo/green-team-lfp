@@ -18,7 +18,7 @@ const ProfileCard = props => {
                     <span className="text-center mx-auto"> {props.state.email}</span>
                 </div>
                 <div className="row text-center mx-auto">
-                    <button className="text-center mx-auto btn btn-sm btn-primary">Change Picture</button>
+                    
                 </div>
                 {props.state.canEdit === true ? <EditButton props={props} editPage={props.editPage}/> : "" }
             </Col>

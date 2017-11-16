@@ -26,7 +26,7 @@ var db = require("../../models");
 
   router 
   .route("/profile")
-  .get(posts.findOne);
+  .get(auth.findOne);
 
 module.exports = router;
 

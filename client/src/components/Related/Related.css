@@ -6,15 +6,19 @@
     border-radius: 25px;
     box-shadow: 10px 10px 5px black;
     margin-left: 15%;
+    padding: 15px;
+    
 }
 
 #title-div 
 {
     padding-top: 1px;
     text-align: center;
+    
 }
 
 #title 
 {
     color: #161A2D;   
+    text-shadow: 3px 3px 3px black !important;
 }

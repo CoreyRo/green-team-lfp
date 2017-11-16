@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom'
 import './Navbar.css'
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const Navbar = props =>
+const Navbar = props => {
+
+  return(
   <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
     <div className='container'>
       <div className='navbar-header'>
@@ -15,6 +17,7 @@ const Navbar = props =>
         <span className='navbar-toggler-icon' />
       </button>
       <div className='collapse navbar-collapse' id='navbarText'>
+      {localStorage.getItem('loggedIn') === true ?
         <ul className='navbar-nav mr-auto'>
           <li
             className={
@@ -29,8 +32,11 @@ const Navbar = props =>
             <Link className='nav-link' to='/Link3'>Link3</Link>
           </li>
         </ul>
+        : "" }
       </div>
     </div>
   </nav>
+  )
+}
 
 export default Navbar

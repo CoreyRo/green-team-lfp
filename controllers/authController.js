@@ -58,8 +58,11 @@ module.exports = {
 
 // Post login
 	doLogin : function(req, res) {
+		console.log("In dologin")
+		db.User
 		passport.authenticate('local-signin')(req, res, function () {
-			res.redirect('/');
+			console.log("do login req", req.body)
+			return res.json(req.user)
 		});
 	},
 

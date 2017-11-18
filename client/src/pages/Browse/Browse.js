@@ -41,7 +41,6 @@ class Browse extends Component {
             </Container>
         )
     }
-
 }
 
 export default Browse;

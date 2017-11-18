@@ -50,9 +50,6 @@ app.use(function(req, res, next){
   console.log(req.user);
   next();
 });
-<<<<<<< HEAD
-
-=======
 app.use(flash()) // use connect-flash for flash messages stored in session
 
 // Routes
@@ -67,7 +64,6 @@ app.use(routes);
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
->>>>>>> 71a584497374f54e4971e87a4e1b4c6e748d34ac
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

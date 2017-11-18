@@ -1,6 +1,9 @@
-.splash-back {
-    background: url("../../components/pictures/back-drop-final.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 1000px;
+.splash-btn {
+    color: #fff;
+    font-size: 25px;
+    position: absolute;
+    bottom: 35%;
+    left: 45%;
+    padding: 20px;
+    background-color: #A7C4E5;
 }

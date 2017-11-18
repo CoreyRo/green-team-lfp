@@ -13,6 +13,7 @@ var db = require("../../models");
     router
     .route("/profile/:id")//path /api/user/sign-up
     .get(auth.findOne)
+    .post(posts.updateUser)
 
 
   router

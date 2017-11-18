@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from '../../components/Grid';
-import Jumbotron from '../../components/Jumbotron';
+import Header from '../../components/Header';
+import Navbar from "../../components/Navbar";
 import Login from "../../components/Login-form";
 import axios from 'axios';
-import './Login-In.css';
+import './Sign-In.css';
 
 class SignIn extends Component {
 
     state = {
-        username = "",
-        password = ""
+        username: "",
+        password: ""
     }
 
 
@@ -49,33 +50,13 @@ class SignIn extends Component {
 
     render() {
         return (
-            <Container>
-    
-
-
-    <div id="form-style">
-
-        <form >
-            <div className="form-group">
-                <div className="form-group">
-                    <label htmlFor="username" className="form-control-label">Username:</label>
-                    <input type="text" value={this.state.username} className="form-control" name="username" id="username" onChange={this.handleInputChange} placeholder="Username" required/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="password" className="form-control-label">Password:</label>
-                    <input type="password" value={this.state.password} className="form-control" name="password" id="password" onChange={this.handleInputChange} placeholder="Password" required/>
-                </div>  
+            <div>
+                <Navbar />
+                <Header />
+                <Container>
+                    <Login />
+                </Container>
             </div>
-            
-
-            <button type="submit" className="btn" onClick={this.handleFormSubmit} id="login-submit">Sign-In</button>
-
-            <a type="submit" className="btn"  href="/sign-up" id="register-submit">Register</a>
-        </form>
-
-    </div>
-            </Container>
         )
     }
 }

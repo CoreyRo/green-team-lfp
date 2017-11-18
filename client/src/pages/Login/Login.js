@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Container } from "../../components/Grid";
+import Navbar from '../../components/Navbar';
+import Header from "../../components/Header";
 import axios from 'axios';
 import "./Login.css";
 
@@ -58,9 +60,12 @@ class Login extends Component {
     render() {
         const { errors } = this.state;
         return (
+            <div>
+            <Navbar />
+            <Header />
             <Container fluid>
                 <Row>
-                <div className="col-md-6" id="registerCard">
+                <div className="col-md-6 mx-auto" id="registerCard">
                     <div className="card">
                     <div className="card-header">
                         <h3>Register</h3>
@@ -111,6 +116,7 @@ class Login extends Component {
                 </div>
                 </Row>
             </Container>
+            </div>
         )
     }
 

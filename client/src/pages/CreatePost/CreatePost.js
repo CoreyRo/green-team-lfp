@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Container } from "../../components/Grid";
+import Navbar from '../../components/Navbar';
+import Header from "../../components/Header";
 import "./CreatePost.css";
 import axios from 'axios';
 
@@ -17,6 +19,9 @@ class CreatePost extends Component {
 
         return (
 
+            <div>
+            <Navbar />
+            <Header />
             <Container>
 
                 <Row>
@@ -26,6 +31,7 @@ class CreatePost extends Component {
                 </Row>
 
             </Container>
+            </div>
 
         )
     }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Col, Container, Row } from '../../components/Grid'
 import Jumbotron from '../../components/Jumbotron'
+import Navbar from '../../components/Navbar';
+import Header from "../../components/Header";
 import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
@@ -166,6 +168,9 @@ class Profile extends Component {
 
     render(){
         return(
+            <div>
+            <Navbar />
+            <Header />
             <Container>
                     <div className="row jumbotron d-flex">
                         <div className="row mx-auto profileHead">
@@ -198,6 +203,7 @@ class Profile extends Component {
                             </Col>
                     </div>
             </Container>
+            </div>
         )
     }
 

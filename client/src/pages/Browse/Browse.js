@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Container } from "../../components/Grid";
+import Navbar from '../../components/Navbar';
+import Header from "../../components/Header";
 import "./Browse.css";
 // import ProfileCard from "../../components/ProfileCard";
 import axios from 'axios';
@@ -27,6 +29,9 @@ class Browse extends Component {
 
     render() {
         return (
+            <div>
+            <Navbar />
+            <Header />
             <Container>
                 <Row>
                     {this.state.posts.map((post, index) => 
@@ -39,6 +44,7 @@ class Browse extends Component {
                     )}
                 </Row>
             </Container>
+            </div>
         )
     }
 }

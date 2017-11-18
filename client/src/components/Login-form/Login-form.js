@@ -2,29 +2,36 @@ import React from "react"
 import "./Login-form.css"
 import {Container, Col, Row} from "../Grid"
 
-const LoginForm = ({username, pass, handleNewUser, handleLogin}) =>
+const LoginForm = props => {
+
+    console.log(props);
+    return (
+
+
     <div id="form-style">
 
-        <form method="POST" action="/sign-up">
-
-        <div className="form-group">
+        <form >
             <div className="form-group">
-                <label htmlFor="username" className="form-control-label">Username:</label>
-                <input type="text" value={username} className="form-control" name="username" id="username" placeholder="Username" required/>
+                <div className="form-group">
+                    <label htmlFor="username" className="form-control-label">Username:</label>
+                    <input type="text" value={props.username} className="form-control" name="username" id="username" onChange={props.handleInputChange} placeholder="Username" required/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="password" className="form-control-label">Password:</label>
+                    <input type="password" value={props.password} className="form-control" name="password" id="password" onChange={props.handleInputChange} placeholder="Password" required/>
+                </div>  
             </div>
+            
 
-            <div className="form-group">
-                <label htmlFor="password" className="form-control-label">Password:</label>
-                <input type="password" value={pass} className="form-control" name="password" id="password" placeholder="Password" required/>
-            </div>  
-        </div>
-        
+            <button type="submit" className="btn" onClick={props.handleFormSubmit} id="login-submit">Sign-In</button>
 
-        <input type="submit" className="btn btn-primary" value="Sign In" onClick={handleLogin} id="login-submit"/>
-        <input type="submit" className="btn btn-primary" value="Register" onClick={handleNewUser} id="register-submit"/>
+            <a type="submit" className="btn"  href="/sign-up" id="register-submit">Register</a>
         </form>
 
     </div>
+    )
+}
 
 
 export default LoginForm

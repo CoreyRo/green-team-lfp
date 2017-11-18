@@ -9,6 +9,8 @@ import Wrapper from './components/Wrapper'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Login from './pages/Login'
+import SignIn from "./components/Login-form"
+import Splash from "./pages/Splash"
 
 class App extends Component {
   render() {
@@ -17,9 +19,11 @@ class App extends Component {
             <Wrapper>
               <Navbar />
               <Header />
+              <Splash />
               <Route path="/profile/" component={Profile} />
               <Route exact path="/browse" component = {Browse} />
               <Route exact path="/sign-up" component= {Login} />
+              <Route exact path="/sign-in" component= {SignIn} />
               <Footer />
             </Wrapper>           
           </Router>

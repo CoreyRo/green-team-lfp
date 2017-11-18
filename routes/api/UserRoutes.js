@@ -24,5 +24,9 @@ var db = require("../../models");
   .route("/profile")
   .get(auth.findOne);
 
+  router
+  .route("/sign-in")
+  .post(auth.doLogin);
+
 module.exports = router;
 

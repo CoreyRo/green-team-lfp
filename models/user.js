@@ -10,12 +10,14 @@ const UserSchema = new Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true },
   username: {type: String, required: true},
+  displayName: {type: String},
   password: {type: String, required: true},
   location: {type: String},
   skills: {type: Array},
   joined: {type: Array},
   projects: {type: Array},
-  pic: {type: String}
+  pic: {type: String},
+  about: {type: String}
 });
 
 //takes care of salting and hashing the passpword for us

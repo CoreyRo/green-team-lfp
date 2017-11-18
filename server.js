@@ -9,9 +9,6 @@ const session = require("express-session");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-var flash = require("connect-flash");
-var session = require("express-session");
-var passport = require("passport");
 const mongoose = require("mongoose");
 const env = require('dotenv').load();
 const db = require("./models")
@@ -20,11 +17,6 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-
-const routes = require("./routes")
-app.use(routes);
-
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
@@ -40,17 +32,28 @@ mongoose.connect(
 // =============================================================
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.use(flash());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// For Passport
+app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(function(req, res, next){
+  res.locals.isAuthenticated = req.isAuthenticated();
+  console.log(req.isAuthenticated());
+  console.log(req.user);
+  next();
+});
+<<<<<<< HEAD
+
+=======
+app.use(flash()) // use connect-flash for flash messages stored in session
 
 // Routes
 // =============================================================
@@ -64,18 +67,7 @@ app.use(routes);
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-// For Passport
-app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(function(req, res, next){
-  res.locals.isAuthenticated = req.isAuthenticated();
-  console.log(req.isAuthenticated());
-  console.log(req.user);
-  next();
-});
-
+>>>>>>> 71a584497374f54e4971e87a4e1b4c6e748d34ac
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

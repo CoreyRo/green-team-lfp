@@ -8,19 +8,25 @@ module.exports = function(passport, user) {
 
    //serialize
    passport.serializeUser(function(user, done) {
-        done(null, user.id); 
+        return done(null, user.id); 
    });
    
    // deserialize user 
    passport.deserializeUser(function(id, done) {
-       User.findById(id).then(function(user) {
-           if (user) {
-               done(null, user.get());
-           } 
-           else { 
-               done(user.errors, null);
-           }
-       });
+       console.log("deserial id: ", id)
+       User.findById(id)
+        .then(function(user) {
+            console.log("deserializeUser user: ", user)
+            if (user) {
+                console.log("USER if ", user)
+                return done(null, user);
+            } 
+            else { 
+                console.log("user.errors: ",user.errors)
+                return done(user.errors, null);
+            }
+        })
+        .catch(err => console.log("DESERIALIZE ERROR: ", err))
    });
 
 
@@ -44,10 +50,10 @@ module.exports = function(passport, user) {
                where: {
                    email: email
                }
-           }).then(function(user) {
+           }).then((user) => {
                if (user) {
                     console.log("User Exists");
-                   return done(null, false, req.flash('error', 'That email is already taken'));
+                    return done(null, false, req.flash('error', 'That email is already taken'));
                } 
                else {
                    var userPassword = generateHash(password);
@@ -70,11 +76,12 @@ module.exports = function(passport, user) {
                         }
                     })
                     .catch((err) => {
-                        console.log(err)
-                        res.json(err)
+                        console.log("REGISTER CREATE ERROR:",err)
+                        return res.json(err)
                     })
                }
-           });
+           })
+           .catch(err => console.log("REGISTER ERROR: ", err))
        }
    ));
 
@@ -87,6 +94,7 @@ module.exports = function(passport, user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
        function(req, email, password, done) {
+           console.log("Heeerrree")
            var User = user;
            var isValidPassword = function(userpass, password) {
                return bCrypt.compareSync(password, userpass);
@@ -106,6 +114,7 @@ module.exports = function(passport, user) {
 
                    return done(null, false, req.flash('error', 'Incorrect Password'));
                }
+               console.log("HERRRREEEE")
                var userinfo = user.get();
                return done(null, userinfo);
     

@@ -6,6 +6,8 @@ import './Footer.css'
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Footer = props =>{
 	return (
+		<div>
+			<div className="footer-div"></div>
 		<footer className="footer">
 			<div className="footerTop">
 			<Row>
@@ -40,6 +42,7 @@ const Footer = props =>{
 	</div>
 			
 		</footer>
+		</div>
 )
 }
 

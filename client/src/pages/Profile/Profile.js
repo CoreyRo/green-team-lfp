@@ -3,6 +3,7 @@ import { Col, Container, Row } from '../../components/Grid'
 import Jumbotron from '../../components/Jumbotron'
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
@@ -179,8 +180,7 @@ class Profile extends Component {
                             </div>
                         </div>
                         <Col size="sm-12">
-                            <Row>
-                            
+                            <Row>          
                                 <Col size="sm-5">
                                     <div className="row infoContainer">
                                         <Col size="sm-12">
@@ -196,13 +196,13 @@ class Profile extends Component {
                                 <Col size="sm-1">
                                 </Col>
                                 <Col size="sm-6">
-                                {this.renderPage()}
-                                    
+                                {this.renderPage()}           
                                 </Col>
                             </Row>
                             </Col>
                     </div>
             </Container>
+            <Footer/>
             </div>
         )
     }

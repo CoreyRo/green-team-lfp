@@ -3,6 +3,7 @@ import { Col, Container, Row } from '../../components/Grid';
 import Header from '../../components/Header';
 import Navbar from "../../components/Navbar";
 import Login from "../../components/Login-form";
+import Footer from "../../components/Footer";
 import axios from 'axios';
 import './Sign-In.css';
 
@@ -56,6 +57,7 @@ class SignIn extends Component {
                 <Container>
                     <Login />
                 </Container>
+                <Footer/>
             </div>
         )
     }

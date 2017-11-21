@@ -1,24 +1,16 @@
 #form-style
 {
-    width: 100%;
+    width: 60%;
     padding: 80px;
     background-color: #A7C4E5;
-    margin-top: 75px;
+    margin: 0 auto;
+    margin-top: 25px;
     box-shadow: 9px 9px 5px black;
     z-index: 2px;
     border-radius: 25px;
     font-family: 'Indie Flower', cursive;
 }
 
-#login-submit
-{
-    margin-top: 20px;
-    background-color: #161A2D !important;
-}
-
-#register-submit 
-{
-    margin-top: 20px;
-    margin-left: 88% !important;
-    background-color: #161A2D !important;
+#login-submit {
+    margin-right: 10px;
 }

@@ -1,0 +1,12 @@
+#registerCard .card {
+    margin-top: 30px;
+    background-color: #A7C4E5;
+}
+
+label {
+    color: #fff;
+    font-family: "Josefin Sans";
+    font-size: 20px;
+    text-shadow: 2px 2px 2px #333;
+}
+

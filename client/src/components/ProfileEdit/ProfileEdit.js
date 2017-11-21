@@ -62,6 +62,14 @@ const ProfileEdit = props =>{
             Add more skills
             </button>
 
+            <button
+            type='submit'
+            className="btn btn-success"
+            onClick={props.handleSubmit}
+          >
+          Save Changes
+          </button>
+
           </div>
         </form>
       </div>

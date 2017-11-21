@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Col, Container, Row } from '../../components/Grid'
 import Jumbotron from '../../components/Jumbotron'
+import Navbar from '../../components/Navbar';
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
@@ -16,7 +19,9 @@ class Profile extends Component {
         firstName: "",
         lastName: "",
         about:"",
+        username: "",
         displayName: "",
+        email: "",
         pic: "",
         edit: false,
         canEdit: false,
@@ -42,9 +47,10 @@ class Profile extends Component {
             console.log("PROFILE RES:", res)
             let data = res.data
             this.setState({
-                displayName: data.username,
+                username: data.username,
                 firstName: data.firstName,
                 lastName: data.lastName,
+                displayName: data.displayName || data.username,
                 email: data.email,
                 id: data._id,
                 skills: data.skills,
@@ -64,20 +70,40 @@ class Profile extends Component {
 
 
     handleSubmit = event => {
+        console.log("submitting")
         event.preventDefault()
+        let userId = localStorage.getItem("id")
+        let queryString = "/api/user/profile/" + userId
+        console.log("queryString", queryString)
         this.setState({
-            About: this.state.about || null,
+            about: this.state.about || "",
             pic: this.state.pic || null,
-            displayName: this.state.displayName || "Enter Name",
+            displayName: this.state.displayName || this.state.username,
+            email: this.state.email,
             projects: this.state.projects || null,
             joined: this.state.joined || null,
             pic: this.state.pic || null,
             skills: this.state.skills || null,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            edit: true
+            edit: !this.state.edit
             
         })
+        axios.post(queryString, {
+            about: this.state.about,
+            pic: this.state.pic,
+            displayName: this.state.displayName,
+            email: this.state.email,
+            projects: this.state.projects,
+            joined: this.state.joined,
+            pic: this.state.pic,
+            skills: this.state.skills,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+        })
+        .then(res => console.log(res))
+           
+        .catch(err => console.log(err))
     }
 
     handleInputChange = event => {
@@ -143,6 +169,9 @@ class Profile extends Component {
 
     render(){
         return(
+            <div>
+            <Navbar />
+            <Header />
             <Container>
                     <div className="row jumbotron d-flex">
                         <div className="row mx-auto profileHead">
@@ -151,12 +180,11 @@ class Profile extends Component {
                             </div>
                         </div>
                         <Col size="sm-12">
-                            <Row>
-                            
+                            <Row>          
                                 <Col size="sm-5">
                                     <div className="row infoContainer">
                                         <Col size="sm-12">
-                                            <ProfileCard state={this.state} editPage={this.editPage} />
+                                            <ProfileCard state={this.state} handleSubmit={this.handleSubmit} editPage={this.editPage} />
     
                                             <Row>
                                                 <Skills state={this.state} removeSkill={this.removeSkill} />
@@ -168,13 +196,14 @@ class Profile extends Component {
                                 <Col size="sm-1">
                                 </Col>
                                 <Col size="sm-6">
-                                {this.renderPage()}
-                                    
+                                {this.renderPage()}           
                                 </Col>
                             </Row>
                             </Col>
                     </div>
             </Container>
+            <Footer/>
+            </div>
         )
     }
 

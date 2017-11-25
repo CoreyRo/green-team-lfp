@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserHistory, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import ReduxPromise from "redux-promise";
 import logo from './logo.svg';
 import './App.css';
 import Profile from './pages/Profile';
@@ -13,9 +16,14 @@ import SignIn from "./pages/Sign-In";
 import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
 
+import reducers from "./store";
+
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+
 class App extends Component {
   render() {
     return (
+        <Provider store={createStoreWithMiddleware(reducers)}>
           <Router>
             <Wrapper>
               <Route exact path="/" component={Splash} />
@@ -26,6 +34,7 @@ class App extends Component {
               <Route exact path="/Logout" component={Logout} />
             </Wrapper>           
           </Router>
+        </Provider>
         
     );
   }

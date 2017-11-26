@@ -15,11 +15,11 @@ module.exports = {
 	},
 
 	findOne : function(req, res) {
-		console.log("HERE");
+		console.log("HERE", req.user._id);
 		db.User.findOne({ _id: req.user._id})
 		.then((result) => {
 			console.log("FIND ONE RESULT  " , result)
-			return result;
+			res.json(result);
 		})
 		.catch((err) => {
 			console.log(err);
@@ -40,16 +40,16 @@ module.exports = {
 		// 	});
 					
 	},
-	findOne: function(req,res) {
-		console.log("FINDONE REQ:",req.user)
-		console.log("REQ PARAMAS", req.params.id)
-		db.User.findOne({ _id: req.params.id})
-		.then(function(result) {
-			console.log("FINDONE RES: " + result)
-			return res.json(result)
-		})
-		.catch(err => console.log("FIND ONE err ", err.body))
-	},
+	// findOne: function(req,res) {
+	// 	console.log("FINDONE REQ:",req.user)
+	// 	console.log("REQ PARAMAS", req.params.id)
+	// 	db.User.findOne({ _id: req.params.id})
+	// 	.then(function(result) {
+	// 		console.log("FINDONE RES: " + result)
+	// 		return res.json(result)
+	// 	})
+	// 	.catch(err => console.log("FIND ONE err ", err.body))
+	// },
 
 // Go to login page
 	login : function(req, res) {

@@ -18,12 +18,12 @@ var db = require("../../models");
 
   router
   .route("/browse")
-  .get(posts.findAll)
+  .get(posts.findPosts)
   .post(posts.create)
 
   router
   .route("/browse/get-all")
-  .get(posts.findAllUsers)
+  .get(posts.findThreeUsers)
 
   router 
   .route("/profile")

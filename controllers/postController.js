@@ -11,10 +11,28 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findPosts: function(req, res) {
+    db.Post
+      .find({})
+      .sort({ date: -1 })
+      .limit(5)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   findAllUsers: function(req, res)
   {
     db.User
       .find({})
+      .then(model => res.json(model))
+      .catch(err => res.status(422).json(err));
+  },
+
+  findThreeUsers: function(req, res)
+  {
+    db.User
+      .find({})
+      .limit(2)
       .then(model => res.json(model))
       .catch(err => res.status(422).json(err));
   },

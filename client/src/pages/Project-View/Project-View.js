@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Container } from "../../components/Grid";
+import { Row, Col, Container } from "../../components/Grid";
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -25,7 +25,10 @@ class Project extends Component {
     render() {
         return (
             <Container>
-                
+                <Row>
+                <Col size="md-4" className="left-col">Left</Col>
+                <Col size="md-8" className="right-col">Right</Col>
+                </Row>
             </Container>
         )
     }

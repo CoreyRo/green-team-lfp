@@ -14,7 +14,7 @@ const LoginForm = props => {
             <div className="form-group">
                 <div className="form-group">
                     <label htmlFor="username" className="form-control-label">Username:</label>
-                    <input type="text" value={props.username} className="form-control" name="username" id="username" onChange={props.handleInputChange} placeholder="Username" required/>
+                    <input type="text" value={props.username} className="form-control" name="email" id="username" onChange={props.handleInputChange} placeholder="Username" required/>
                 </div>
 
                 <div className="form-group">

@@ -18,7 +18,7 @@ router
 //Route for signing in
 router
   .route("/sign-in")
-  .post(auth.doLogin);
+  .post(auth.doLogin)
 
 
 //Passport checks for logged in

@@ -20,11 +20,7 @@ const isLoggedIn =(req,res,next) => {
     router.use(isLoggedIn)
 
     router
-<<<<<<< HEAD
-    .route("/profile/:id")//path /api/user/profile/:id
-=======
     .route("/profile/")//path /api/user/sign-up
->>>>>>> master
     .get(auth.findOne)
     .post(posts.updateUser)
 

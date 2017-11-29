@@ -6,34 +6,44 @@ const isLoggedIn =(req,res,next) => {
   return req.isAuthenticated() ? next() : res.send(403, "not authenticated")
 }
 
-// Matches with "/api/user"
+// Prefix is with "/api/user/"
 
-  router
-    .route("/sign-up")//path /api/user/sign-up
-    .get(auth.register)
-    .post(auth.doRegister)
-
-  router
-    .route("/sign-in")
-    .post(auth.doLogin);
-
-    router.use(isLoggedIn)
-
-  router
-    .route("/myProfile/")//path /api/user/sign-up
-    .get(auth.findOne)
-    .post(posts.updateUser)
-
-  router
-    .route("/profile/:id") //path /api/user/sign-up
-    .get(auth.viewOne)
+//Route for signing up
+router
+  .route("/sign-up")//path /api/user/sign-up
+  .get(auth.register)
+  .post(auth.doRegister)
 
 
+//Route for signing in
+router
+  .route("/sign-in")
+  .post(auth.doLogin);
 
-  router
-    .route("/browse")
-    .get(posts.findAll)
-    .post(posts.create)
+
+//Passport checks for logged in
+router.use(isLoggedIn)
+
+//Routes under this are passport protected routes
+
+//Route for your profile
+router
+  .route("/myProfile/")
+  .get(auth.findOne)
+  .post(posts.updateUser)
+
+
+//Route for other users profiles
+router
+  .route("/profile/:id")
+  .get(auth.viewOne)
+
+
+//Route for browsing posted projects
+router
+  .route("/browse")
+  .get(posts.findAll)
+  .post(posts.create)
 
 
 

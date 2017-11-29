@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import SignIn from "./pages/Sign-In";
 import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
+import Project from "./pages/Project-View";
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/sign-up" component={Login} />
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/Logout" component={Logout} />
+          <Route exact path="/project-view" component={Project} />
         </Wrapper>
       </Router>;
   }

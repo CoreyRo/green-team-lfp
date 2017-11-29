@@ -19,16 +19,21 @@ const isLoggedIn =(req,res,next) => {
 
     router.use(isLoggedIn)
 
-    router
-    .route("/profile/")//path /api/user/sign-up
+  router
+    .route("/myProfile/")//path /api/user/sign-up
     .get(auth.findOne)
     .post(posts.updateUser)
 
+  router
+    .route("/profile/:id") //path /api/user/sign-up
+    .get(auth.viewOne)
 
-    router
-      .route("/browse")
-      .get(posts.findAll)
-      .post(posts.create)
+
+
+  router
+    .route("/browse")
+    .get(posts.findAll)
+    .post(posts.create)
 
 
 

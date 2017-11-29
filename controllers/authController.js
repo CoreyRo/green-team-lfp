@@ -31,7 +31,7 @@ module.exports = {
 		//registers the user with passport
 		db.User
 			passport.authenticate('local-signup')(req, res, function () {
-			return res.json(req.user)
+				return res.json(req.user)
 					
 			})
 		// process.on('unhandledRejection', (reason, p) => {
@@ -40,16 +40,16 @@ module.exports = {
 		// 	});
 					
 	},
-	// findOne: function(req,res) {
-	// 	console.log("FINDONE REQ:",req.user)
-	// 	console.log("REQ PARAMAS", req.params.id)
-	// 	db.User.findOne({ _id: req.params.id})
-	// 	.then(function(result) {
-	// 		console.log("FINDONE RES: " + result)
-	// 		return res.json(result)
-	// 	})
-	// 	.catch(err => console.log("FIND ONE err ", err.body))
-	// },
+	viewOne: function(req,res) {
+		console.log("FINDONE REQ:",req.user)
+		console.log("REQ PARAMAS", req.params.id)
+		db.User.findOne({ _id: req.params.id})
+		.then(function(result) {
+			console.log("FINDONE RES: " + result)
+			return res.json(result)
+		})
+		.catch(err => console.log("FIND ONE err ", err.body))
+	},
 
 // Go to login page
 	login : function(req, res) {

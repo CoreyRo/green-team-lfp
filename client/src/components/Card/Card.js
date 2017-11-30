@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link  } from 'react-router-dom'
 import Button from "../Button"
 import "./Card.css"
 
 const Card = ({title, subtitle, text, handleFirstClick, 
-               handleSecondClick, firstText, secondText,
+               link, firstText, secondText,
                firstVal, secondVal}) =>
     <div className="card" id="main">
         <div className="card-block">
@@ -13,9 +14,9 @@ const Card = ({title, subtitle, text, handleFirstClick,
             <Button onClick={handleFirstClick} className="card-link button-color" type="primary">
                 {firstText}
             </Button>
-            <Button onClick={handleFirstClick} className="card-link button-color" type="primary">
+            <Link to={"/profile/"+link} className="card-link button-color" type="primary">
                 {secondText}
-            </Button>
+            </Link>
         </div>
     </div>
 

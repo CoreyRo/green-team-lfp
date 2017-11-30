@@ -25,6 +25,8 @@ const isLoggedIn =(req,res,next) => {
   router 
   .route("/profile")
   .get(auth.findOne);
+
+  router
     .route("/sign-in")
     .post(auth.doLogin);
 

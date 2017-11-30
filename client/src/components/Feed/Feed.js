@@ -27,11 +27,10 @@ class Feed extends Component {
         })
     }
 
-    projectLink = e =>
-    {
-        e.preventDefault();
-
-    }
+    // profileLink = (id) =>
+    // {
+    //     return window.location.replace('/profile/'+id)
+    // }
 
     render() {
         return (
@@ -42,7 +41,8 @@ class Feed extends Component {
                 (
 
                     <Card key={e._id} title={e.title} subtitle={e.author}
-                        text={e.description} firstText="View Project" secondText="View Profile"/>
+                        text={e.description} firstText="View Project" secondText="View Profile"
+                        link={e._id}/>
                 ))
                 :
                 (<h1 id="nan">No Projects Available</h1>)

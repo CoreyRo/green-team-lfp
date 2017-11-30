@@ -10,10 +10,10 @@ var db = require("../../models");
     .get(auth.register)
     .post(auth.doRegister)
 
-    router
-    .route("/profile/:id")//path /api/user/sign-up
-    .get(auth.findOne)
-    .post(posts.updateUser)
+  router
+  .route("/profile/:id")//path /api/user/sign-up
+  .get(auth.findOne)
+  .post(posts.updateUser)
 
 
   router

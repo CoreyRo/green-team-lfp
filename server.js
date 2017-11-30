@@ -45,6 +45,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(function(req, res, next){
   res.locals.isAuthenticated = req.isAuthenticated();
+  
   console.log(req.isAuthenticated());
   console.log(req.user);
   next();

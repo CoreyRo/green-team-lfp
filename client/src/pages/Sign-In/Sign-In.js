@@ -10,7 +10,7 @@ import './Sign-In.css';
 class SignIn extends Component {
 
     state = {
-        username: "",
+        email: "",
         password: ""
     }
 
@@ -22,31 +22,22 @@ class SignIn extends Component {
         });
     };
 
-
-    handleNewUser = event => {
-        event.preventDefault();
-        return window.location("/sign-up");
-    }
-
     handleFormSubmit = event => {
         console.log("In handle form submit")
         event.preventDefault();
         axios.post("/api/user/sign-in", {
-            username: this.state.username,
+            email: this.state.email,
             password: this.state.password
         })
         .then((res) => {
-            console.log("SIgn-IN RESSSSS", res)
             localStorage.setItem('id', res.data._id)
             localStorage.setItem('loggedIn', true)
+            window.location.replace("/myProfile/");
         })
         .catch((err) => {
             console.log(err);
         })
     }
-
-
-
 
 
     render() {
@@ -55,7 +46,10 @@ class SignIn extends Component {
                 <Navbar />
                 <Header />
                 <Container>
-                    <Login />
+                    <Login 
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
+                    />
                 </Container>
                 <Footer/>
             </div>

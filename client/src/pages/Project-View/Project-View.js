@@ -54,7 +54,8 @@ class Project extends Component {
                 </Col>
 
 
-                <Col size="md-5 right-col">
+                <Col size="md-5 outer-col">
+                <Col size="md-12 right-col">
                 <h3>Project Owner: <a className="username" href="/profile/">Username</a></h3>
                     <h6 className="small-headers">Bio</h6>
                     <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
@@ -63,7 +64,13 @@ class Project extends Component {
                     <span className="skills">C#</span>
                     <span className="skills">HTML</span>
                     <span className="skills">CSS</span>
+                    </Col>
+
+                    <Col size="md-12 browse-col">
+                    <a href="/browse">Back To Browsing</a>
+                    </Col>
                 </Col>
+            
                 </Row>
             </Container>
             </div>

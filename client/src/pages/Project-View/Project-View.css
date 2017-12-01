@@ -21,7 +21,8 @@
     padding: 30px;
     border: 2px solid #fff;
     background: #A7C4E5;
-    height: 90%;
+    height: 85%;
+    margin-bottom: 8%;
 }
 
 .skills {
@@ -58,4 +59,18 @@
     margin-top: 20px;
     border: 2px solid black;
     padding: 8px;
+}
+
+.col-browse-col {
+    border: 2px solid #fff;
+    background: #A7C4E5;
+    padding: 20px;
+    text-align: center;
+}
+
+.col-browse-col a {
+    color: black;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-decoration: none;
+    font-size: 20px;
 }

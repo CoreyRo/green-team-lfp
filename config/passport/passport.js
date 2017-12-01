@@ -94,29 +94,30 @@ module.exports = function(passport, user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
        function(req, email, password, done) {
-           console.log("Heeerrree")
-           var User = user;
-           var isValidPassword = function(userpass, password) {
-               return bCrypt.compareSync(password, userpass);
-           }
+        console.log("This is the sign in", req.body);
+        console.log("email", email);
+        console.log("password", password);
+        var User = user;
+        var isValidPassword = function(userpass, password) {
+            return bCrypt.compareSync(password, userpass);
+        }
     
-           User.findOne({
-               where: {
-                   email: email
-               }
-           }).then(function(user) {
-
+           User.findOne({email})
+           .then(function(user) {
+                console.log("tried to find user");
+                console.log(user);
                if (!user) {
-    
-                   return done(null, false, req.flash('error', 'Email does not exist'));
+                    console.log("didnt find user")
+                    console.log(user);
+                   return done(null, false);
                }
                if (!isValidPassword(user.password, password)) {
 
                    return done(null, false, req.flash('error', 'Incorrect Password'));
                }
                console.log("HERRRREEEE")
-               var userinfo = user.get();
-               return done(null, userinfo);
+            //    var userinfo = user.get();
+               return done(null, user);
     
            }).catch(function(err) {
                console.log("Error:", err);

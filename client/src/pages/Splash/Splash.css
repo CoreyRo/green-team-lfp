@@ -2,8 +2,24 @@
     color: #fff;
     font-size: 25px;
     position: absolute;
-    bottom: 35%;
+    bottom: 30%;
     left: 45%;
-    padding: 20px;
-    background-color: #A7C4E5;
+    width: 7%;
+    height: 0;
+    padding-bottom: 7%;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 3px gray;
+    box-shadow: inset  0px 0px 15px rgba(0, 0, 0, 0.9);
+}
+
+.btn-icon {
+    color: #A7C4E5;
+    text-decoration: none;
+    position: absolute;
+    text-shadow: 3px 2px 4px rgb(80, 79, 79);
+    top: 15%;
+    left: 20%;
 }

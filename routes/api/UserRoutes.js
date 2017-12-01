@@ -6,12 +6,13 @@ const isLoggedIn =(req,res,next) => {
   return req.isAuthenticated() ? next() : res.send(403, "not authenticated")
 }
 
-// Matches with "/api/user"
+// Prefix is with "/api/user/"
 
-  router
-    .route("/sign-up")//path /api/user/sign-up
-    .get(auth.register)
-    .post(auth.doRegister)
+//Route for signing up
+router
+  .route("/sign-up")//path /api/user/sign-up
+  .get(auth.register)
+  .post(auth.doRegister)
 
   router
   .route("/browse")
@@ -26,19 +27,28 @@ const isLoggedIn =(req,res,next) => {
   .route("/profile")
   .get(auth.findOne);
 
-  router
-    .route("/sign-in")
-    .post(auth.doLogin);
-
-    router.use(isLoggedIn)
-
-    router
-    .route("/profile/")//path /api/user/sign-up
-    .get(auth.findOne)
-    .post(posts.updateUser)
+//Route for signing in
+router
+  .route("/sign-in")
+  .post(auth.doLogin)
 
 
+//Passport checks for logged in
+router.use(isLoggedIn)
 
+//Routes under this are passport protected routes
+
+//Route for your profile
+router
+  .route("/myProfile/")
+  .get(auth.findOne)
+  .post(posts.updateUser)
+
+
+//Route for other users profiles
+router
+  .route("/profile/:id")
+  .get(auth.viewOne)
 
 module.exports = router;
 

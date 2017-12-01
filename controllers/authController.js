@@ -29,37 +29,27 @@ module.exports = {
 // Post registration
 	doRegister : function(req, res) {
 		//registers the user with passport
-		db.User
 			passport.authenticate('local-signup')(req, res, function () {
-			return res.json(req.user)
+				return res.json(req.user)
 					
 			})
-		// process.on('unhandledRejection', (reason, p) => {
-		// 	console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
-		// 	// application specific logging, throwing an error, or other logic here
-		// 	});
-					
-	},
-	// findOne: function(req,res) {
-	// 	console.log("FINDONE REQ:",req.user)
-	// 	console.log("REQ PARAMAS", req.params.id)
-	// 	db.User.findOne({ _id: req.params.id})
-	// 	.then(function(result) {
-	// 		console.log("FINDONE RES: " + result)
-	// 		return res.json(result)
-	// 	})
-	// 	.catch(err => console.log("FIND ONE err ", err.body))
-	// },
 
-// Go to login page
-	login : function(req, res) {
-		// res.render('login');
+	},
+	viewOne: function(req,res) {
+		console.log("FINDONE REQ:",req.user)
+		console.log("REQ PARAMAS", req.params.id)
+		db.User.findOne({ _id: req.params.id})
+		.then(function(result) {
+			console.log("FINDONE RES: " + result)
+			return res.json(result)
+		})
+		.catch(err => console.log("FIND ONE err ", err.body))
 	},
 
 // Post login
 	doLogin : function(req, res) {
-		console.log("In dologin")
-		db.User
+		console.log("In do login")
+		console.log("req body", req.body);
 		passport.authenticate('local-signin')(req, res, function () {
 			console.log("do login req", req.body)
 			return res.json(req.user)
@@ -68,8 +58,12 @@ module.exports = {
 
 // logout
 	logout : function(req, res) {
-		req.logout();
-		res.redirect('/');
+		req.session.destroy(function(err) {
+			if(err) {
+				return console.log(err);
+			}
+			res.redirect('/');
+		});
 	}
 }
 

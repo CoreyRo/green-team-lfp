@@ -6,43 +6,34 @@ import './Footer.css'
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Footer = props =>{
 	return (
-		<div>
-			<div className="footer-div"></div>
-		<footer className="footer">
-			<div className="footerTop">
-			<Row>
-			<Col size="sm-1" />
-			<Col size="sm-2">
+			<footer className="footer col-sm-12">
 				<Row>
-					<img src="http://starcolon.com/IMG/github-white.png" className="" style={{height: 35}} />
-					<img src="http://starcolon.com/IMG/github-white.png" className="" style={{height: 35}} />
-					<img src="http://starcolon.com/IMG/github-white.png" className="" style={{height: 35}} />
-				</Row>
-			</Col>
-			<Col size="sm-6">
-				<Row>
-					<div className="col-sm-12 mx-auto text-center footer-nav">
-						<span className={window.location.pathname === '/Profile' ? 'active footer-item' : 'footer-item'}>
-							<Link className='footer-link' to='/Profile'>Profile</Link>{` | `}
-						</span>
-						<span className={window.location.pathname === '/Link2' ? 'active footer-item' : 'footer-item'}>
-							<Link className='footer-link' to='/Link2'>Link2</Link>{` | `}
-						</span>
-						<span className={window.location.pathname === '/Link3' ? 'active footer-item' : 'footer-item'}>
-							<Link className='footer-link' to='/Link3'>Link3</Link>{` | `}
-						</span>
-						<span className={window.location.pathname === '/Link4' ? 'active footer-item' : 'footer-item'}>
-							<Link className='footer-link' to='/Link4'>Link4</Link>
-						</span>
-					</div>
+						<div className="footerTop col-sm-12">
+						<Row>
+							<div className="col-sm-6">
+							<h3> Subscribe to our mailer </h3>
+							</div>
 
+							<div className="col-sm-6">
+								<form>
+									<div className="form-group">
+									<label htmlFor="mailerReg" className="form-control-label" />
+									<input type="password" value={props.password} className="form-control" name="password" id="password" onChange={props.handleInputChange} placeholder="Password" required />
+									</div>
+									<button type="submit" className="btn" onClick={props.handleFormSubmit} id="login-submit">
+									Sign-Up
+									</button>
+								</form>
+							</div>
+						</Row>
+						</div>
 				</Row>
-			</Col>
-		</Row>
-	</div>
-			
-		</footer>
-		</div>
+
+				
+				<Row>
+					<div className="footerBot">footer bot</div>
+				</Row>
+			</footer>
 )
 }
 

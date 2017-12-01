@@ -36,13 +36,7 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-        // console.log("WINDOW LOCATION", window.location.href)
-        // let urlID = window.location.href
-        // let getId = urlID.split("/profile/")
-        // let id = getId[1]
-        // console.log("get ID ", getId)
-        // console.log("PROFILE DIDMOUNT")
-        axios.get('/api/user/profile/')
+        axios.get('/api/user/myProfile/')
         .then(res => {
             console.log("PROFILE RES:", res)
             let data = res.data
@@ -72,7 +66,7 @@ class Profile extends Component {
     handleSubmit = event => {
         console.log("submitting")
         event.preventDefault()
-        let queryString = "/api/user/profile/"
+        let queryString = "/api/user/myProfile/"
         console.log("queryString", queryString)
         this.setState({
             about: this.state.about || "",

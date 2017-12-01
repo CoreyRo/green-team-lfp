@@ -50,6 +50,7 @@ app.use(function(req, res, next){
   console.log(req.user);
   next();
 });
+
 app.use(flash()) // use connect-flash for flash messages stored in session
 
 // Routes

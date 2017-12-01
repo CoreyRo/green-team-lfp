@@ -19,8 +19,7 @@ class Login extends Component {
     }
 
     handleRedirect = (result) => {
-        let id = result.data._id
-        return window.location.replace("/profile/" + id)
+        return window.location.replace("/myProfile/")
                     
     }
 

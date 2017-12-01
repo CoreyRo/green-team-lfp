@@ -36,13 +36,13 @@ class Feed extends Component {
         return (
 
             <div id="main-feed">
-                <h1 id="title">Projects Nearby</h1>
+                <h1 id="title-feed">Projects Nearby</h1>
                 {this.state.posts ? this.state.posts.map(e =>
                 (
 
                     <Card key={e._id} title={e.title} subtitle={e.author}
                         text={e.description} firstText="View Project" secondText="View Profile"
-                        link={e._id}/>
+                        profile={e._id} project="HELLO"/>
                 ))
                 :
                 (<h1 id="nan">No Projects Available</h1>)

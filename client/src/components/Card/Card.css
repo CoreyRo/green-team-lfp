@@ -21,14 +21,13 @@
 
 .button-color
 {
-    margin: 15px;
     background-color: #A7C4E5;
     color: black;
+    padding: 8px;
 }
 
 .button-color:hover
 {
-    margin: 15px;
     background-color: rgb(5, 36, 70);
     color: white;
 }

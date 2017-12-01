@@ -5,36 +5,49 @@ import { Col, Container, Row } from '../Grid'
 import './Footer.css'
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Footer = props =>{
-	return (
-			<footer className="footer col-sm-12">
-				<Row>
-						<div className="footerTop col-sm-12">
-						<Row>
-							<div className="col-sm-6">
-							<h3> Subscribe to our mailer </h3>
-							</div>
+	return <footer className="footer col-sm-12">
+      <Row>
+        <div className="footerTop col-sm-12">
+          <form className="form-inline">
+            <div className="form-group mx-auto">
+              <label htmlFor="regEmail" id="regEmailLabel" className="form-control-label">
+                Subscribe to our mailer
+              </label>
+              <input type="email" value={props.password} className="form-control" name="regEmail" id="regEmail" onChange={props.handleInputChange} placeholder="enter your email" required />
+              <button type="submit" className="btn" onClick={props.handleFormSubmit} id="regEmail-submit">
+                Sign-Up
+              </button>
+            </div>
+          </form>
+        </div>
+      </Row>
 
-							<div className="col-sm-6">
-								<form>
-									<div className="form-group">
-									<label htmlFor="mailerReg" className="form-control-label" />
-									<input type="password" value={props.password} className="form-control" name="password" id="password" onChange={props.handleInputChange} placeholder="Password" required />
-									</div>
-									<button type="submit" className="btn" onClick={props.handleFormSubmit} id="login-submit">
-									Sign-Up
-									</button>
-								</form>
-							</div>
-						</Row>
-						</div>
-				</Row>
+      <Row>
+		<div className="footerBot text-center mx-auto">
+		<p id="appCreators">Creators of Project LFP</p>
+          <a href="https://github.com/JakeGreer" target="_blank">
+            <span className="githubLink" id="jake">
+              <img className="githubIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
+              Jake Greer
+            </span>
+          </a>
 
-				
-				<Row>
-					<div className="footerBot">footer bot</div>
-				</Row>
-			</footer>
-)
+          <a href="https://github.com/coreyro" target="_blank">
+            <span className="githubLink" id="jake">
+              <img className="githubIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
+              Corey Rodems
+            </span>
+          </a>
+
+          <a href="https://github.com/theRealScoobaSteve" target="_blank">
+            <span className="githubLink" id="jake">
+              <img className="githubIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
+              Stephen Simone
+            </span>
+          </a>
+        </div>
+      </Row>
+    </footer>;
 }
 
 export default Footer

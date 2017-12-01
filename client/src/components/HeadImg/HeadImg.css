@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  margin-bottom: 100px;
 }
 
 .HeadImg::after {

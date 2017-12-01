@@ -1,19 +1,23 @@
 import React from 'react'
+import { Link  } from 'react-router-dom'
 import Button from "../Button"
+import "./Card.css"
 
 const Card = ({title, subtitle, text, handleFirstClick, 
-               handleSecondClick, firstText, secondText,
+               profile, project, firstText, secondText, 
                firstVal, secondVal}) =>
-    <div class="card" id="main">
-        <div class="card-block">
-            <h4 class="card-title">{title}</h4>
-            <h6 class="card-subtitle mb-2 text-muted">{subtitle}</h6>
-            <p class="card-text">{text}</p>
-            <Button onClick={handleFirstClick} class="card-link">
+    <div className="card" id="main">
+        <div className="card-block">
+            <h4 className="card-title" id="header">{title}</h4>
+            <h6 id="text" className="card-subtitle mb-2 text-muted">{subtitle}</h6>
+            <p className="card-text">{text}</p>
+            <Link to={"/profile/"+project} className="card-link button-color">
                 {firstText}
-            </Button>
-            <Button onClick={handleFirstClick} class="card-link">
+            </Link>
+            <Link to={"/profile/"+profile} className="card-link button-color" >
                 {secondText}
-            </Button>
+            </Link>
         </div>
     </div>
+
+export default Card

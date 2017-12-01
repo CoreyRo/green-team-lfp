@@ -6,6 +6,8 @@ import Footer from "../../components/Footer";
 import "./Browse.css";
 // import ProfileCard from "../../components/ProfileCard";
 import axios from 'axios';
+import Related from "../../components/Related"
+import Feed from "../../components/Feed"
 
 
 class Browse extends Component {
@@ -39,25 +41,22 @@ class Browse extends Component {
 
     render() {
         return (
-            <div>
-            <Navbar />
+        <div>
             <Header />
-            <Container>
-                <Row>
-                    {this.state.posts.map((post, index) => 
-                    <Col size="md-12" key={post._id}>
-                        <h3 className="post-header">{post.title}</h3>
-                        <p></p>
-                        <span className="post-author">Posted By: <a href={"/user/" + post.author}>{post.author}</a></span>
-                        <p className="post-description">{post.description}</p>
-                    </Col>
-                    )}
-                </Row>
-            </Container>
-            <Footer/>
-            </div>
+            <Row>
+                <Col size="md-3">
+                    <Related />
+                </Col>
+                <Col size="md-9">
+                    <Feed />
+                </Col>
+            </Row>
+            <Footer /> 
+        </div>
         )
     }
+
+
 }
 
 export default Browse;

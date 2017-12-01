@@ -1,19 +1,25 @@
 #Related 
 {
     margin-top: 100px;
-    background-color: #A7C4E5 !important;
-    height: 175%;
+    background-color: #A7C4E5 !important;   
     border-radius: 25px;
     box-shadow: 10px 10px 5px black;
+    margin-left: 15%;
+    padding: 15px;
+    padding-bottom: 30px;
+    
 }
 
 #title-div 
 {
     padding-top: 1px;
     text-align: center;
+    
 }
 
-#title 
+#title-related 
 {
     color: #161A2D;   
+    text-shadow: 3px 3px 3px black !important;
+    font-size: 28px !important;
 }

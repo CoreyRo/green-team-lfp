@@ -1,45 +1,48 @@
 import React, {Component} from 'react'
 import {Row, Col} from "../Grid"
+import axios from "axios"
 import "./Feed.css"
 import Card from "../Card"
 
 class Feed extends Component {
-    constructor()
-    {
-        super()
-        this.state = 
-        { 
-            // feedData: [{
-            //     title: "Test Title",
-            //     subtitle: "Test Subtitle",
-            //     text: "Test Text"
-            // }, {
-            //     title: "Test Title2",
-            //     subtitle: "Test Subtitle2",
-            //     text: "Test Text2"
-            // }]
-           
-        }
+    
+    state = 
+    { 
+        posts: []
+        
     }
 
     componentDidMount() {
-
+        axios.get("/api/user/browse")
+        .then((res) => {
+            let data = res.data;
+            console.log(data)
+            this.setState({
+                posts: data
+            });
+            console.log("State: ", this.state);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 
-    projectLink = e =>
-    {
-        e.preventDefault();
-
-    }
+    // profileLink = (id) =>
+    // {
+    //     return window.location.replace('/profile/'+id)
+    // }
 
     render() {
         return (
 
             <div id="main-feed">
-                {this.state.feedData ? this.state.feedData.map(e =>
+                <h1 id="title-feed">Projects Nearby</h1>
+                {this.state.posts ? this.state.posts.map(e =>
                 (
-                    <Card title={e.title} subtitle={e.subtitle}
-                        text={e.text} firstText="View Project" secondText="View Profile"/>
+
+                    <Card key={e._id} title={e.title} subtitle={e.author}
+                        text={e.description} firstText="View Project" secondText="View Profile"
+                        profile={e._id} project="HELLO"/>
                 ))
                 :
                 (<h1 id="nan">No Projects Available</h1>)

@@ -66,7 +66,7 @@ class Profile extends Component {
     handleSubmit = event => {
         console.log("submitting")
         event.preventDefault()
-        let queryString = "/api/user/profile/"
+        let queryString = "/api/user/myProfile/"
         console.log("queryString", queryString)
         this.setState({
             about: this.state.about || "",

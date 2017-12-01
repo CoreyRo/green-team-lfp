@@ -6,6 +6,7 @@
     width: 80%;
     border-radius: 25px;
     box-shadow: 10px 10px 5px black;
+    padding: 45px !important;
 }
 
 #nan 
@@ -13,4 +14,15 @@
     text-align: center !important;
     padding-top: 10px;
     color: #161A2D
+}
+
+#title-feed
+{
+    color: white !important;
+    text-align: center;
+    margin-top: -20px;
+    font-size: 25px !important;
+    color: #161A2D;   
+    text-shadow: 3px 3px 3px black !important;
+    font-size: 28px !important;
 }

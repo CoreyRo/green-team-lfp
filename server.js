@@ -21,8 +21,7 @@ const PORT = process.env.PORT || 3001;
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://127.0.0.1/project-lfg",
+mongoose.connect("mongodb://admin:admin@ds121686.mlab.com:21686/lfg",
   {
     useMongoClient: true
   }

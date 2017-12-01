@@ -14,6 +14,18 @@ router
   .get(auth.register)
   .post(auth.doRegister)
 
+  router
+  .route("/browse")
+  .get(posts.findPosts)
+  .post(posts.create)
+
+  router
+  .route("/browse/get-all")
+  .get(posts.findThreeUsers)
+
+  router 
+  .route("/profile")
+  .get(auth.findOne);
 
 //Route for signing in
 router
@@ -37,16 +49,6 @@ router
 router
   .route("/profile/:id")
   .get(auth.viewOne)
-
-
-//Route for browsing posted projects
-router
-  .route("/browse")
-  .get(posts.findAll)
-  .post(posts.create)
-
-
-
 
 module.exports = router;
 

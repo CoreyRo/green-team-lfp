@@ -1,4 +1,33 @@
-#main 
+#main
 {
-    background-color: #A7C4E5 !important;
+    background-color: #161A2D !important;
+    color: white !important;
+    box-shadow: 4px 4px 5px 6px black;
+    margin: 20px;
+    padding: 15px;
+}
+
+#header 
+{
+    border-bottom: 2px solid white;
+    padding: 10px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#text 
+{
+    padding-top: 10px !important;
+}
+
+.button-color
+{
+    background-color: #A7C4E5;
+    color: black;
+    padding: 8px;
+}
+
+.button-color:hover
+{
+    background-color: rgb(5, 36, 70);
+    color: white;
 }

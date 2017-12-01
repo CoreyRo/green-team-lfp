@@ -11,7 +11,8 @@ import axios from 'axios';
 class Browse extends Component {
 
     state = {
-        posts: []
+        posts: [],
+        index: 0
     }
 
     componentDidMount() {
@@ -26,6 +27,14 @@ class Browse extends Component {
         .catch((err) => {
             console.log(err);
         })
+    }
+
+    handlePageTurn = (e) => {
+        e.preventDefault();
+        this.state.index+=5
+        this.setState({
+            index: this.state.index
+        });
     }
 
     render() {

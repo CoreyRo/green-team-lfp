@@ -5,3 +5,11 @@
 .post-description {
     color: #fff;
 }
+
+.post-header {
+    border-bottom:  4px solid #fff;
+    color: #FFF !important;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-shadow: 1px 1px 5px #161A2D;
+    font-size: 30pt;
+}

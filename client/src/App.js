@@ -14,6 +14,8 @@ import SignIn from "./pages/Sign-In";
 import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
 import Project from "./pages/Project-View";
+import CreatePost from "./pages/CreatePost";
+import { create } from 'domain';
 
 class App extends Component {
   render() {
@@ -27,6 +29,7 @@ class App extends Component {
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/Logout" component={Logout} />
           <Route exact path="/project-view" component={Project} />
+          <Route exact path="/create-project" component={CreatePost} />
         </Wrapper>
       </Router>;
   }

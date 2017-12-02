@@ -11,7 +11,11 @@ class Splash extends Component {
         return (
                 <div>
                     <img src={Pic} alt="no Image found" className="img-fluid"/>
-                    <a href="/sign-in" className="splash-btn">Sign In</a>
+                    <div className="splash-btn">
+                        <a href="/sign-in">
+                            <i className="fa fa-3x fa-user btn-icon" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
         )
     }

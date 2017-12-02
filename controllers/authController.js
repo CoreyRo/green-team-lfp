@@ -6,7 +6,7 @@ var formidable = require('formidable')
 
 // Restrict access to root page
 module.exports = {  
-	userAvi : function(req, res){
+	uploadImage : function(req, res){
 		 let form = new formidable.IncomingForm()
 		 
 		 form.parse(req, function(err, fields, files){

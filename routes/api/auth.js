@@ -10,29 +10,34 @@ const isLoggedIn =(req,res,next) => {
 router.use(isLoggedIn)
 
 router
-.route("/browse")
-.get(posts.findPosts)
-.post(posts.create)
+  .route("/browse")
+  .get(posts.findPosts)
+  .post(posts.create)
 
 router
-.route("/browse/get-all")
-.get(posts.findThreeUsers)
+  .route("/browse/get-all")
+  .get(posts.findThreeUsers)
 
 router 
-.route("/profile")
-.get(auth.findOne);
+  .route("/profile")
+  .get(auth.findOne);
 
 //Route for your profile
 router
-.route("/myProfile/")
-.get(auth.findOne)
-.post(posts.updateUser)
+  .route("/myProfile/")
+  .get(auth.findOne)
+  .post(posts.updateUser)
 
+//Route for uploading image
+router
+  .route("/imageUpload/")
+  .get(auth.findOne)
+  .post(auth.uploadImage)
 
 //Route for other users profiles
 router
-.route("/profile/:id")
-.get(auth.viewOne)
+  .route("/profile/:id")
+  .get(auth.viewOne)
 
 
 module.exports = router

@@ -111,6 +111,9 @@ class Profile extends Component {
 
     handleUpload = event => {
         event.preventDefault()
+        axios.post("/api/user/imageUpload")
+        .then(res => console.log("ImgUp res", res))
+        .catch(err => console.log("ImgUp err", err))
         
     }
 
@@ -182,7 +185,7 @@ class Profile extends Component {
                                 <Col size="sm-5">
                                     <div className="row infoContainer">
                                         <Col size="sm-12">
-                                            <ProfileCard state={this.state} handleSubmit={this.handleSubmit} editPage={this.editPage} />
+                                            <ProfileCard state={this.state} handleUpload={this.handleUpload} handleSubmit={this.handleSubmit} editPage={this.editPage} />
     
                                             <Row>
                                                 <Skills state={this.state} removeSkill={this.removeSkill} />

@@ -1,18 +1,18 @@
 import React from 'react'
-import './EditButton.css'
+import './UploadImg.css'
 
 
-const EditButton = props => {
+const UploadImg = props => {
     console.log("editbutton", props)
     let prop = props.props
     return <div className="row text-center mx-auto">
         {prop.state.edit === true ? 
             <form>
-            <div class="form-group text-center">
+            <div className="form-group text-center">
             <label className="exampleInputFile">Change Picture</label>
-            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" />
-            <button type="submit" className="btn btn-default">Upload Picture</button>
-            <small id="fileHelp" class="form-text text-muted">
+            <input type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" />
+            <button type="submit" onClick={props.handleUpload} className="btn btn-default">Upload Picture</button>
+            <small id="fileHelp" className="form-text text-muted">
               Upload a new picture
             </small>
           </div>
@@ -24,7 +24,7 @@ const EditButton = props => {
           </button> : ""}
       </div>;
 }
-export default EditButton
+export default UploadImg
 
 
 

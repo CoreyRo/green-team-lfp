@@ -33,6 +33,7 @@ class Related extends Component {
                         this.state.users ?
                         this.state.users.map((e, index)=> 
                         (
+                            // To Do: Update the propper tags for view and follow
                             <Card key={e._id} title={e.username}
                             subtitle={e.firstName + ' ' + e.lastName}
                             text={e.skills[0] + ", " + e.skills[1] + ", " + e.skills[2]}

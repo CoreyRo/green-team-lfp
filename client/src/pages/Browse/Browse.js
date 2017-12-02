@@ -36,6 +36,7 @@ class Browse extends Component {
     render() {
         return (
         <div>
+            <Navbar />
             <Header />
             <Row>
                 <Col size="md-3">

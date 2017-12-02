@@ -10,10 +10,10 @@ import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
 
 import axios from 'axios'
-import './viewProfile.css'
+import './ViewProfile.css'
 
 
-class viewProfile extends Component {
+class ViewProfile extends Component {
     state = {
         id: "",
         firstName: "",
@@ -102,4 +102,4 @@ class viewProfile extends Component {
 
 }
 
-export default viewProfile
+export default ViewProfile

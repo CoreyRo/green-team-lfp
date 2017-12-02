@@ -1,5 +1,6 @@
 import React from "react"
 import "./Login-form.css"
+import { Link } from 'react-router-dom'
 import {Container, Col, Row} from "../Grid"
 
 const LoginForm = props => {
@@ -26,9 +27,9 @@ const LoginForm = props => {
 
             <button type="submit" className="btn" onClick={props.handleFormSubmit} id="login-submit">Sign-In</button>
 
-            <a type="submit" className="btn"  href="/sign-up" id="register-submit">Register</a>
+            <Link type="submit" className="btn"  to="/sign-up" id="register-submit">Register</Link>
 
-            <a type="submit" className="btn" href="/recover/user"  id="forgot-submit">Forgot Password?</a>
+            <Link type="submit" className="btn" to="/user"  id="forgot-submit">Forgot Password?</Link>
         </form>
 
     </div>

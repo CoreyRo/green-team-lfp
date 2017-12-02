@@ -27,6 +27,8 @@ const LoginForm = props => {
             <button type="submit" className="btn" onClick={props.handleFormSubmit} id="login-submit">Sign-In</button>
 
             <a type="submit" className="btn"  href="/sign-up" id="register-submit">Register</a>
+
+            <a type="submit" className="btn" href="/recover/user"  id="forgot-submit">Forgot Password?</a>
         </form>
 
     </div>

@@ -109,6 +109,11 @@ class Profile extends Component {
 
     }
 
+    handleUpload = event => {
+        event.preventDefault()
+        
+    }
+
     handleArraySubmit = event => {
         event.preventDefault()
         this.state.skills.push(this.state.skillInput)

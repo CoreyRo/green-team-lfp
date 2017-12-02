@@ -20,7 +20,7 @@ const ProfileCard = props => {
                 <div className="row text-center mx-auto">
                     
                 </div>
-                {props.state.canEdit === true ? <EditButton props={props} handleSubmit={props.handleSubmit} editPage={props.editPage}/> : "" }
+                {props.state.canEdit === true ? <EditButton props={props} handleUpload={props.handleUpload} editPage={props.editPage}/> : "" }
             </Col>
         </Row>
     )

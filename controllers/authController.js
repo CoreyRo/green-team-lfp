@@ -1,17 +1,24 @@
 const mongoose = require("mongoose");
 const passport = require("passport");
 const db = require("../models");
+var formidable = require('formidable')
 
 
 // Restrict access to root page
 module.exports = {  
-	home : function(req, res) {
-		// res.render('index', { user : req.user });
-	},
+	userAvi : function(req, res){
+		 let form = new formidable.IncomingForm()
+		 
+		 form.parse(req, function(err, fields, files){
+			 db.User.findOneAndUpdate({ _id: req.user._id }, {img: files.imageURL.name})
+			 .then(function(dbModel){
+				console.log(dbModel)
+				res.json(dbModel)
+			 })
+			 .catch(function(err){
 
-// Go to registration page
-	register : function(req, res) {
-		res.redirect('/sign-up');
+			 })
+		 })
 	},
 
 	findOne : function(req, res) {

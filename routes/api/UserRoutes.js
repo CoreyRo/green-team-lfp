@@ -1,7 +1,6 @@
 const router = require("express").Router();
 var auth = require('../../controllers/authController.js');
 var posts = require("../../controllers/postController.js");
-var db = require("../../models");
 const isLoggedIn =(req,res,next) => {
   return req.isAuthenticated() ? next() : res.send(403, "not authenticated")
 }
@@ -11,7 +10,6 @@ const isLoggedIn =(req,res,next) => {
 //Route for signing up
 router
   .route("/sign-up")//path /api/user/sign-up
-  .get(auth.register)
   .post(auth.doRegister)
 
   router
@@ -43,6 +41,11 @@ router
   .route("/myProfile/")
   .get(auth.findOne)
   .post(posts.updateUser)
+  
+//Route for uploading profile picture
+router
+  .route("/myProfile/profileImage/")
+  .post(auth.userAvi)
 
 
 //Route for other users profiles

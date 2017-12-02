@@ -16,11 +16,13 @@
     color: #161A2D
 }
 
-#title 
+#title-feed
 {
     color: white !important;
     text-align: center;
-    padding: 10px;
     margin-top: -20px;
-    font-size: 50px;
+    font-size: 25px !important;
+    color: #161A2D;   
+    text-shadow: 3px 3px 3px black !important;
+    font-size: 28px !important;
 }

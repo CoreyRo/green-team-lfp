@@ -14,11 +14,23 @@ router
   .get(auth.register)
   .post(auth.doRegister)
 
+  router
+  .route("/browse")
+  .get(posts.findPosts)
+  .post(posts.create)
+
+  router
+  .route("/browse/get-all")
+  .get(posts.findThreeUsers)
+
+  router 
+  .route("/profile")
+  .get(auth.findOne);
 
 //Route for signing in
 router
   .route("/sign-in")
-  .post(auth.doLogin);
+  .post(auth.doLogin)
 
 
 //Passport checks for logged in
@@ -38,16 +50,6 @@ router
   .route("/profile/:id")
   .get(auth.viewOne)
 
-
-//Route for browsing posted projects
-router
-.route("/browse")
-.get(posts.findPosts)
-.post(posts.create)
-
-router
-.route("/browse/get-all")
-.get(posts.findThreeUsers)
 
 
 

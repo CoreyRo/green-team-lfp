@@ -1,19 +1,11 @@
 const mongoose = require("mongoose");
 const passport = require("passport");
 const db = require("../models");
+const fs = require("fs");
 
 
 // Restrict access to root page
 module.exports = {  
-	home : function(req, res) {
-		// res.render('index', { user : req.user });
-	},
-
-// Go to registration page
-	register : function(req, res) {
-		res.redirect('/sign-up');
-	},
-
 	findOne : function(req, res) {
 		console.log("HERE", req.user._id);
 		db.User.findOne({ _id: req.user._id})
@@ -49,7 +41,6 @@ module.exports = {
 // Post login
 	doLogin : function(req, res) {
 		console.log("In do login")
-		console.log("req body", req.body);
 		passport.authenticate('local-signin')(req, res, function () {
 			console.log("do login req", req.body)
 			return res.json(req.user)

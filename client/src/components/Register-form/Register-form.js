@@ -2,7 +2,8 @@ import React from "react"
 import "./Register-form.css"
 import {Container, Col, Row} from "../Grid"
 
-const RegisterForm = ({first, last, email, userName, pass, confPass, location, handleChange, handleLogin, handleNewUser}) =>
+const RegisterForm = ({first, last, email, userName, pass, confPass, location, handleChange, handleLogin, handleNewUser}) => {
+    return(
     <div id="form-style">
 
         <form method="POST" action="/sign-up">
@@ -53,6 +54,8 @@ const RegisterForm = ({first, last, email, userName, pass, confPass, location, h
         </form>
 
     </div>
+    )
+}
 
 
 export default RegisterForm

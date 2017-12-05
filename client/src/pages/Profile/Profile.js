@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Col, Container, Row } from '../../components/Grid'
-import Jumbotron from '../../components/Jumbotron'
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -22,7 +21,7 @@ class Profile extends Component {
         username: "",
         displayName: "",
         email: "",
-        pic: "",
+        imageURL: "",
         edit: false,
         canEdit: false,
         skillInput: "",
@@ -32,7 +31,7 @@ class Profile extends Component {
     }
 
     componentWillMount(){
-        
+
     }
 
     componentDidMount(){
@@ -49,14 +48,20 @@ class Profile extends Component {
                 id: data._id,
                 skills: data.skills,
                 joined: data.joined,
-                projects: data.projects
+                projects: data.projects,
+                userId: data._id,
+                imageURL: data.imageURL
 
             })
             this.validUser()
+            console.log("THIS.STATE", this.state)
             
 
         })
-        .catch(err => console.log("PROFILE DIDMOUNT err",err))
+        .catch(err => {
+            console.log("PROFILE DIDMOUNT err",err)
+            window.location.replace("/logout/")
+        })
     }
 
 
@@ -70,12 +75,11 @@ class Profile extends Component {
         console.log("queryString", queryString)
         this.setState({
             about: this.state.about || "",
-            pic: this.state.pic || null,
+            imageURL: this.state.imageURL,
             displayName: this.state.displayName || this.state.username,
             email: this.state.email,
             projects: this.state.projects || null,
             joined: this.state.joined || null,
-            pic: this.state.pic || null,
             skills: this.state.skills || null,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -84,12 +88,11 @@ class Profile extends Component {
         })
         axios.post(queryString, {
             about: this.state.about,
-            pic: this.state.pic,
             displayName: this.state.displayName,
             email: this.state.email,
             projects: this.state.projects,
             joined: this.state.joined,
-            pic: this.state.pic,
+            imageURL: this.state.imageURL,
             skills: this.state.skills,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -102,11 +105,23 @@ class Profile extends Component {
     handleInputChange = event => {
         let value =  event.target.value
         let name = event.target.name
-
+        console.log("name", name)
+        console.log("value", value)
         this.setState({
             [name] :value
         })
+        console.log(this.state)
+    }
 
+    handleUpload = event => {
+        event.preventDefault()
+        console.log("handleUpload")
+        axios.post("/api/user/imageUpload", 
+            {id: this.state._id}, this.state.imageURL
+        )
+        .then(res => console.log("ImgUp res", res))
+        .catch(err => console.log("ImgUp err", err))
+        
     }
 
     handleArraySubmit = event => {
@@ -120,6 +135,7 @@ class Profile extends Component {
     }
 
     editPage = event => {
+        console.log("edit page")
         event.preventDefault()
         this.setState({
             edit: !this.state.edit 
@@ -131,7 +147,7 @@ class Profile extends Component {
         console.log("Validating User")
         let stateId = this.state.id
         let userId = localStorage.getItem("id")
-        if(userId == stateId){
+        if(userId === stateId){
             this.setState({
                 canEdit: true
             })
@@ -161,43 +177,40 @@ class Profile extends Component {
     }
 
     render(){
-        return(
-            <div>
+        return <div>
             <Navbar />
             <Header />
             <Container>
-                    <div className="row jumbotron d-flex">
-                        <div className="row mx-auto profileHead">
-                            <div className="col-sm-12">
-                                <h1 className="text-center mx-auto profileHeadText"> PROFILE </h1>
-                            </div>
-                        </div>
+              <div className="row jumbotron d-flex">
+                <div className="row mx-auto profileHead">
+                  <div className="col-sm-12">
+                    <h1 className="text-center mx-auto profileHeadText">
+                      {" "}
+                      PROFILE{" "}
+                    </h1>
+                  </div>
+                </div>
+                <Col size="sm-12">
+                  <Row>
+                    <Col size="sm-5">
+                      <div className="row infoContainer">
                         <Col size="sm-12">
-                            <Row>          
-                                <Col size="sm-5">
-                                    <div className="row infoContainer">
-                                        <Col size="sm-12">
-                                            <ProfileCard state={this.state} handleSubmit={this.handleSubmit} editPage={this.editPage} />
-    
-                                            <Row>
-                                                <Skills state={this.state} removeSkill={this.removeSkill} />
-                                            </Row>
-                                        </Col>
-                                        
-                                    </div>
-                                </Col>
-                                <Col size="sm-1">
-                                </Col>
-                                <Col size="sm-6">
-                                {this.renderPage()}           
-                                </Col>
-                            </Row>
-                            </Col>
-                    </div>
+                          <ProfileCard state={this.state} handleUpload={this.handleUpload} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} editPage={this.editPage} />
+
+                          <Row>
+                            <Skills state={this.state} removeSkill={this.removeSkill} />
+                          </Row>
+                        </Col>
+                      </div>
+                    </Col>
+                    <Col size="sm-1" />
+                    <Col size="sm-6">{this.renderPage()}</Col>
+                  </Row>
+                </Col>
+              </div>
             </Container>
-            <Footer/>
-            </div>
-        )
+            <Footer />
+          </div>;
     }
 
 }

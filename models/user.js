@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 var passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 const UserSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
@@ -13,7 +17,7 @@ const UserSchema = new Schema({
   skills: {type: Array},
   joined: {type: Array},
   projects: {type: Array},
-  pic: {type: String},
+  imageURL: {type: String},
   about: {type: String}
 });
 

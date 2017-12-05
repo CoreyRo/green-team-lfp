@@ -7,44 +7,45 @@ import axios from "axios/index";
 
 class Recovery extends Component {
 
-    state = {
-        email: ""
+    constructor(props)
+    {
+        super(props)
+        this.state =
+        {
+            email: ""
+        }
     }
 
-    handleRedirect = (result) => {
-        return window.location.replace("/myProfile/")
+    handleRedirect = (result) =>
+    {
+        return window.location.replace("/")
 
     }
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
+    handleInputChange = event =>
+    {
+        const { name, value } = event.target
+        this.setState(
+        {
             [name]: value
-        });
-    };
+        })
+    }
 
-    handleFormSubmit = event => {
-        this.setState({ errors: {} });
-        event.preventDefault();
-        console.log("STATE", this.state);
-        axios.post('/api/user/sign-up',
-            {
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                email: this.state.email,
-                username: this.state.username,
-                password: this.state.password
-            })
-            .then((res) => {
-                console.log("RES", res)
-                localStorage.setItem('id', res.data._id)
-                localStorage.setItem('loggedIn', true)
-                this.handleRedirect(res)
-
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+    handleFormSubmit = event =>
+    {
+        event.preventDefault()
+        axios.post('/api/recovery/send-email',
+        {
+            email: this.state.email
+        })
+        .then((res) =>
+        {
+            this.handleRedirect(res)
+        })
+        .catch((err) =>
+        {
+            console.log(err)
+        })
     }
 
 
@@ -55,7 +56,7 @@ class Recovery extends Component {
           <Navbar/>
           <Header/>
           <div className="container">
-            <ForgotForm/>
+            <ForgotForm handleSubmit={this.handleFormSubmit} handleChange={this.handleInputChange}/>
           </div>
           <Footer/>
       </div>

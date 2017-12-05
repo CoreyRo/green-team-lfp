@@ -10,12 +10,7 @@ import SignIn from "./pages/Sign-In";
 import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
 import Project from "./pages/Project-View";
-<<<<<<< HEAD
-import CreatePost from "./pages/CreatePost";
-import { create } from 'domain';
-=======
 import Recovery from './pages/Recovery'
->>>>>>> master
 
 class App extends Component {
   render() {

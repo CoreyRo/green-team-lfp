@@ -8,15 +8,14 @@ const auth = require("../../controllers/authController.js")
 //Route for signing up
 router
   .route("/sign-up")//path /api/sign-up
-  .get(auth.register)
   .post(auth.doRegister)
-
   
-
 //Route for signing in
 router
   .route("/sign-in")
   .post(auth.doLogin)
+
+
 
 module.exports = router;
 

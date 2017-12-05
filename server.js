@@ -30,6 +30,7 @@ mongoose.connect(
 
 // Sets up the Express App
 // =============================================================
+app.use('/public', express.static('public')) // Static directory
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,7 +52,6 @@ app.use(function(req, res, next){
   console.log(req.user);
   next();
 });
-
 app.use(flash()) // use connect-flash for flash messages stored in session
 
 // Routes
@@ -59,7 +59,6 @@ app.use(flash()) // use connect-flash for flash messages stored in session
 require('./config/passport/passport.js')(passport, db.User);
 const routes = require("./routes")
 app.use(routes);
-// var authRoute = require('./routes/api/posts.js')(app,passport);
 
 // Send every request to the React app
 // Define any API routes before this runs

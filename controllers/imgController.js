@@ -11,6 +11,7 @@ const path = require('path')
         form.parse(req, function(err, fields, files) {
             db.User.findOneAndUpdate({_id: req.user._id}, {imageURL: files.profileAvi.name})
             .then(function(dbUser){
+                res.json(dbUser)
                 console.log(dbUser)
             })
             .catch(err => console.log(err))

@@ -136,6 +136,7 @@ class Profile extends Component {
     }
 
     editPage = event => {
+        console.log("edit page")
         event.preventDefault()
         this.setState({
             edit: !this.state.edit 

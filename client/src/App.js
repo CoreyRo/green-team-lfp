@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserHistory, BrowserRouter as Router, Route } from 'react-router-dom';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Profile from './pages/Profile';
 import ViewProfile from "./pages/ViewProfile";
 import Browse from './pages/Browse';
-import Navbar from './components/Navbar';
 import Wrapper from './components/Wrapper';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Login from './pages/Login';
 import SignIn from "./pages/Sign-In";
 import Splash from "./pages/Splash";

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Container, Row } from '../../components/Grid';
+import { Container } from '../../components/Grid';
 import Header from '../../components/Header';
 import Navbar from "../../components/Navbar";
 import Login from "../../components/Login-form";

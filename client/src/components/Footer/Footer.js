@@ -1,7 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-
-import { Col, Container, Row } from '../Grid'
+import { Row } from '../Grid'
 import './Footer.css'
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Footer = props =>{
@@ -23,25 +21,25 @@ const Footer = props =>{
       </Row>
 
       <Row>
-		<div className="footerBot text-center mx-auto">
-		<p id="appCreators">Creators of Project LFP</p>
-          <a href="https://github.com/JakeGreer" target="_blank">
+        <div className="footerBot text-center mx-auto">
+          <p id="appCreators">Creators of Project LFP</p>
+          <a href="https://github.com/JakeGreer" rel="noopener noreferrer" target="_blank">
             <span className="githubLink" id="jake">
-              <img className="githubIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
+              <img className="githubIcon" alt="github logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
               Jake Greer
             </span>
           </a>
 
-          <a href="https://github.com/coreyro" target="_blank">
+          <a href="https://github.com/coreyro" rel="noopener noreferrer" target="_blank">
             <span className="githubLink" id="jake">
-              <img className="githubIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
+              <img className="githubIcon" alt="github logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
               Corey Rodems
             </span>
           </a>
 
-          <a href="https://github.com/theRealScoobaSteve" target="_blank">
+          <a href="https://github.com/theRealScoobaSteve" rel="noopener noreferrer" target="_blank">
             <span className="githubLink" id="jake">
-              <img className="githubIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
+              <img className="githubIcon" alt="github logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ei-sc-github.svg/768px-Ei-sc-github.svg.png" />
               Stephen Simone
             </span>
           </a>

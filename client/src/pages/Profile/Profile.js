@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Col, Container, Row } from '../../components/Grid'
-import Jumbotron from '../../components/Jumbotron'
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -148,7 +147,7 @@ class Profile extends Component {
         console.log("Validating User")
         let stateId = this.state.id
         let userId = localStorage.getItem("id")
-        if(userId == stateId){
+        if(userId === stateId){
             this.setState({
                 canEdit: true
             })

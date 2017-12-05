@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container, Row } from '../Grid'
+import { Col, Row } from '../Grid'
 import './MyInfo.css'
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import './ProfileCard.css'
-import { Col, Container, Row } from '../Grid'
+import { Col, Row } from '../Grid'
 import UploadImg from '../UploadImg'
 
 const ProfileCard = props => {
@@ -8,7 +8,7 @@ const ProfileCard = props => {
     return <Row>
         <Col size="sm-12">
           <div className="text-center mx-auto profileImgDiv">
-            <img className="profileAvi object-fit_fill" src={`../public/uploads/users/${props.state.imageURL}` || "https://projects.scpr.org/static-files/_v4/images/default_avatar.png"} />
+            <img className="profileAvi object-fit_fill" alt="profile-img" src={`../public/uploads/users/${props.state.imageURL}` || "https://projects.scpr.org/static-files/_v4/images/default_avatar.png"} />
           </div>
           <div className="row text-center mx-auto">
             <h2 className="text-center mx-auto">

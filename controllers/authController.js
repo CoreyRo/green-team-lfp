@@ -1,26 +1,11 @@
 const mongoose = require("mongoose");
 const passport = require("passport");
 const db = require("../models");
-var formidable = require('formidable')
+const fs = require("fs");
 
 
 // Restrict access to root page
 module.exports = {  
-	uploadImage : function(req, res){
-		 let form = new formidable.IncomingForm()
-		 
-		 form.parse(req, function(err, fields, files){
-			 db.User.findOneAndUpdate({ _id: req.user._id }, {img: files.imageURL.name})
-			 .then(function(dbModel){
-				console.log(dbModel)
-				res.json(dbModel)
-			 })
-			 .catch(function(err){
-
-			 })
-		 })
-	},
-
 	findOne : function(req, res) {
 		console.log("HERE", req.user._id);
 		db.User.findOne({ _id: req.user._id})
@@ -56,7 +41,6 @@ module.exports = {
 // Post login
 	doLogin : function(req, res) {
 		console.log("In do login")
-		console.log("req body", req.body);
 		passport.authenticate('local-signin')(req, res, function () {
 			console.log("do login req", req.body)
 			return res.json(req.user)

@@ -32,7 +32,7 @@ class SignIn extends Component {
         .then((res) => {
             localStorage.setItem('id', res.data._id)
             localStorage.setItem('loggedIn', true)
-            window.location.replace("/myProfile/");
+            window.location.replace("/myProfile/", res);
         })
         .catch((err) => {
             console.log(err);

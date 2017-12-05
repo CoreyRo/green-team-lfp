@@ -28,12 +28,6 @@ router
   .get(auth.findOne)
   .post(posts.updateUser)
 
-//Route for uploading image
-router
-  .route("/imageUpload/")
-  .get(auth.findOne)
-  .post(auth.uploadImage)
-
 //Route for other users profiles
 router
   .route("/profile/:id")

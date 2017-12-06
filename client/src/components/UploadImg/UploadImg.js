@@ -91,6 +91,10 @@ class UploadImg extends Component {
 		
 	}
 
+	resetCrop = (e) => {
+		this.refs.cropper.reset();
+	}
+
 
   render() {
     let { imagePreviewUrl } = this.state;
@@ -102,10 +106,20 @@ class UploadImg extends Component {
 			  className="btn btn-warning" 
 			  onClick={this.cropAndSave}>Save Crop
 			</button>
+			<button 
+			  className="btn btn-primary" 
+			  onClick={this.resetCrop}>Reset Crop
+			</button>
+
+
+			
 			<Cropper 
 				ref="cropper" 
 				src={this.state.imagePreviewUrl} 
 				style={{ height: 400, width: "100%" }} 
+				viewMode={3}
+				cropBoxMovable={true}
+				dragMode='move'
 				aspectRatio={
 					1 / 1 // Cropper.js options
 				} 

@@ -97,7 +97,7 @@ class UploadImg extends Component {
 		};
     return axios.post(url, formData, config)
     .then(res => {
-      
+      window.location.reload()
     })
 		
 	}
@@ -149,9 +149,7 @@ class UploadImg extends Component {
         <form onSubmit={e => this._handleSubmit(e)}>
           <input className="fileInput" accept="image/*" name="profileImg" id="profile-img" ref="upload" type="file" onChange={e => this._handleImageChange(e)} />
           <input id="id" name="user-id" type="hidden" value={this.state.id} />
-          <button className="submitButton" type="submit" onClick={e => this._handleSubmit(e)}>
-            Upload Image
-          </button>
+          
         </form>
         {$imagePreview}
       </div>;

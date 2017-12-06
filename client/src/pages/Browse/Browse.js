@@ -48,7 +48,7 @@ class Browse extends Component {
             <Header />
             <Container>
             <Row>
-                {this.state.create ?
+                {this.state.create === false ?
                 <Col size="md-12">
                 <a onClick={this.handlePostClick}><h4 className="post-project">Post a project <i class="fa fa-sort-desc" aria-hidden="true"></i></h4></a>
                 </Col>

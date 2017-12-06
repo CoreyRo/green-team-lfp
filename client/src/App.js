@@ -10,7 +10,6 @@ import SignIn from "./pages/Sign-In";
 import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
 import Project from "./pages/Project-View";
-import CreatePost from "./pages/CreatePost";
 import { create } from 'domain';
 import Recovery from './pages/Recovery'
 import UploadImg from "./components/UploadImg";
@@ -29,7 +28,6 @@ class App extends Component {
           <Route exact path="/Logout" component={Logout} />
           <Route exact path="/recovery" component={Recovery} />
           <Route exact path="/project-view" component={Project} />
-          <Route exact path="/create-project" component={CreatePost} />
         </Wrapper>
       </Router>;
   }

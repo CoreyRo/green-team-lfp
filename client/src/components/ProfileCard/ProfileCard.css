@@ -1,0 +1,25 @@
+.profileImgDiv {
+ 
+    height: 200px !important;
+    overflow: hidden !important;
+    margin: 10px !important;
+    position: relative !important;
+}
+/* 
+.object-fit_fill {
+  object-fit: fill
+} */
+.profileAvi {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   height: 100%;
+   width: auto;
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+}
+
+.editProfileButton{
+  margin: 30px 0 0 0;
+}

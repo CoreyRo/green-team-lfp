@@ -1,7 +1,19 @@
 const router = require("express").Router();
-const UserRoutes = require("./UserRoutes");
+const authRoutes = require("./auth");
+const userRoutes = require("./user");
+const postRoutes = require("./post");
+const recoveryRoutes = require("./recovery");
 
-//appends /user to UserRoutes
-router.use("/user", UserRoutes);
+//appends /user to routes
+//route looks like /api/user/
+// TO DO: fix the all the axios posts to 
+// more logically named routes
+router.use("/user", userRoutes);
 
-module.exports = router;
+router.use("/user", authRoutes);
+
+// router.use("/user", postRoutes);
+
+// router.use("/user", recoveryRoutes);
+
+module.exports = router

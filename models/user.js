@@ -13,7 +13,7 @@ const UserSchema = new Schema({
   skills: {type: Array},
   joined: {type: Array},
   projects: {type: Array},
-  pic: {type: String},
+  imageURL: {type: String},
   about: {type: String}
 });
 

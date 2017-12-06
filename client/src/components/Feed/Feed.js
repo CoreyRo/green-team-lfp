@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col} from "../Grid"
+// import {Row, Col} from "../Grid"
 import axios from "axios"
 import "./Feed.css"
 import Card from "../Card"

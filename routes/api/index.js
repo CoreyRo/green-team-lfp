@@ -12,7 +12,7 @@ router.use("/user", userRoutes);
 
 router.use("/user", authRoutes);
 
-// router.use("/user", postRoutes);
+router.use("/user", postRoutes);
 
 // router.use("/user", recoveryRoutes);
 

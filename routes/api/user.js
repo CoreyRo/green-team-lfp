@@ -15,6 +15,11 @@ router
   .route("/sign-in")
   .post(auth.doLogin)
 
+  router
+  .route("/logout")
+  .get(auth.logout)
+
+
 
 
 module.exports = router;

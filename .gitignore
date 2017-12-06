@@ -4,11 +4,6 @@
 /node_modules
 /client/node_modules
 
-
-#local images
-/public/uploads/users
-/public/uploads/projects
-
 # testing
 /coverage
 

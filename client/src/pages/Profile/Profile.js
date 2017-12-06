@@ -185,8 +185,7 @@ class Profile extends Component {
                 <div className="row mx-auto profileHead">
                   <div className="col-sm-12">
                     <h1 className="text-center mx-auto profileHeadText">
-                      {" "}
-                      PROFILE{" "}
+                      {`${this.state.displayName}'s Profile`}
                     </h1>
                   </div>
                 </div>

@@ -44,6 +44,9 @@ router
   .get(auth.findOne)
   .post(posts.updateUser)
 
+router
+  .route("/current")
+  .get(auth.findOne)
 
 //Route for other users profiles
 router

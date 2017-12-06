@@ -9,7 +9,18 @@
 .post-header {
     border-bottom:  4px solid #fff;
     color: #FFF !important;
-    font-family: 'Josefin Sans', sans-serif !important;
+    font-family: 'Josefin Sans', sans-serif;
     text-shadow: 1px 1px 5px #161A2D;
     font-size: 30pt;
 }
+
+.post-project {
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 25pt;
+    display: inline-block;
+    border-bottom: 4px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+

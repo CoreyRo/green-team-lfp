@@ -1,34 +1,22 @@
 import React, { Component } from 'react';
-import { Col, Row } from "../../components/Grid";
+import { Col, Row, Container } from "../../components/Grid";
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import {Link} from 'react-router-dom'
 import "./Browse.css";
-// import ProfileCard from "../../components/ProfileCard";
 import axios from 'axios';
 import Related from "../../components/Related"
 import Feed from "../../components/Feed"
+import CreatePost from "../../components/CreatePost";
 
 
 class Browse extends Component {
 
     state = {
         posts: [],
-        index: 0
-    }
-
-    componentDidMount() {
-        axios.get("/api/user/browse")
-        .then((res) => {
-            let data = res.data;
-            this.setState({
-                posts: data
-            });
-            console.log("State: ", this.state);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+        index: 0,
+        create: false
     }
 
     handlePageTurn = (e) => {
@@ -39,11 +27,39 @@ class Browse extends Component {
         });
     }
 
+    handlePostClick = (e) => {
+        e.preventDefault();
+        if(this.state.create === false) {
+            this.setState({
+                create: true
+            })
+        }
+        else {
+            this.setState({
+                create: false
+            })
+        }
+    }
+
     render() {
         return (
         <div>
             <Navbar />
             <Header />
+            <Container>
+            <Row>
+                {this.state.create ?
+                <Col size="md-12">
+                <a onClick={this.handlePostClick}><h4 className="post-project">Post a project <i class="fa fa-sort-desc" aria-hidden="true"></i></h4></a>
+                </Col>
+                :
+                <Col size="md-12">
+                <a onClick={this.handlePostClick}><h4 className="post-project">Post a project <i class="fa fa-sort-asc" aria-hidden="true"></i></h4></a>
+                <CreatePost />
+                </Col>
+
+                }
+            </Row>
             <Row>
                 <Col size="md-3">
                     <Related />
@@ -52,6 +68,7 @@ class Browse extends Component {
                     <Feed />
                 </Col>
             </Row>
+            </Container>
             <Footer /> 
         </div>
         )

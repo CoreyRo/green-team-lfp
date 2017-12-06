@@ -29,8 +29,8 @@ class Project extends Component {
     render() {
         return (
             <div>
-            <Navbar />
-            <Container>
+                <Navbar />
+                <Header />
                 <Row>
                 <Col size="md-6 left-col">
                 <h3>Project Title</h3>
@@ -45,7 +45,7 @@ class Project extends Component {
                     <span className="skills">Passport</span>
 
                     <h6 className="small-headers">Contact</h6>
-                    <a className="icons" href="#">
+                    <a className="icons">
                         <i className="fa fa-2x fa-envelope-o"></i>
                     </a>
                     <a className="icons" href="#">
@@ -55,7 +55,7 @@ class Project extends Component {
 
 
                 <Col size="md-5 outer-col">
-                <Col size="md-12 right-col">
+                <div className="col-right-col">
                 <h3>Project Owner: <a className="username" href="/profile/">Username</a></h3>
                     <h6 className="small-headers">Bio</h6>
                     <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
@@ -64,15 +64,14 @@ class Project extends Component {
                     <span className="skills">C#</span>
                     <span className="skills">HTML</span>
                     <span className="skills">CSS</span>
-                    </Col>
+                    </div>
 
-                    <Col size="md-12 browse-col">
+                    <div className="col-browse-col">
                     <a href="/browse">Back To Browsing</a>
-                    </Col>
-                </Col>
-            
+                    </div>
+                </Col> 
                 </Row>
-            </Container>
+                <Footer />
             </div>
         )
     }

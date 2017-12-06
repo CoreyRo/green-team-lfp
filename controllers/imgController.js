@@ -7,9 +7,11 @@ const path = require('path')
 
   module.exports ={
     imgUpload: function(req, res, next){
+        
         let form = new formidable.IncomingForm();
         form.parse(req, function(err, fields, files) {
-            db.User.findOneAndUpdate({_id: req.user._id}, {imageURL: files.profileAvi.name})
+            console.log("FILES",files);
+            db.User.findOneAndUpdate({_id: req.user._id}, {imageURL: files.profileAvi.name + req.user._id})
             .then(function(dbUser){
                 res.json(dbUser)
                 console.log(dbUser)
@@ -18,7 +20,9 @@ const path = require('path')
         });
 
         form.on('fileBegin', function (name, file){
-        file.path = path.basename(path.dirname('../')) + '/public/uploads/users/' + file.name;
+            console.log("Name", name)
+            console.log("FILE", file)
+        file.path = path.basename(path.dirname('../')) + '/public/uploads/users/' + file.name + req.user._id;
         console.log("file.path", file.path)     
         });
 

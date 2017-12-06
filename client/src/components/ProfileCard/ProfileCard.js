@@ -4,7 +4,7 @@ import { Col, Row } from '../Grid'
 import UploadImg from '../UploadImg'
 
 const ProfileCard = props => {
-
+    console.log("Props", props.state)
     return <Row>
         <Col size="sm-12">
           <div className="text-center mx-auto profileImgDiv">
@@ -23,10 +23,11 @@ const ProfileCard = props => {
             </span>
           </div>
           <div className="row text-center mx-auto" />
-          {props.state.edit === true ? <UploadImg editPage={props.editPage}/> : 
+          {props.state.canEdit ?
+          props.state.edit === true ? <UploadImg editPage={props.editPage}/> : 
             <Row>
         <button className="btn btn-primary mx-auto text-center editProfileButton" onClick={props.editPage}>Edit Profile</button>
-            </Row>}
+            </Row> : ""}
         </Col>
       </Row>;
 }

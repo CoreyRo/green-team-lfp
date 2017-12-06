@@ -6,8 +6,7 @@
 
 
 #local images
-/public/uploads/users
-/public/uploads/projects
+
 
 # testing
 /coverage

@@ -28,7 +28,7 @@ class Navbar extends Component {
       <div className='container'>
         <div className='navbar-header'>
           <Link className='navbar-brand' to='/'>
-            Brand
+            Project LFP
           </Link>
         </div>
         <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarText' aria-controls='navbarText' aria-expanded='false' aria-label='Toggle navigation'>
@@ -37,13 +37,16 @@ class Navbar extends Component {
         <div className='collapse navbar-collapse' id='navbarText'>
         {this.state.loggedIn === true ?
           <ul className='navbar-nav mr-auto'>
-            <li className={window.location.pathname === '/' || window.location.pathname === '/Link1' ? 'active nav-item' : 'nav-item'}>
-              <Link className='nav-link' to='/'>Link 1</Link>
+            <li className={window.location.pathname === '/myProfile/' || window.location.pathname === '/myProfile' ? 'active nav-item' : 'nav-item'}>
+              <Link className='nav-link' to='/myProfile'>My Profile</Link>
             </li>
-            <li className={window.location.pathname === '/Link2' ? 'active nav-item' : 'nav-item'}>
-              <Link className='nav-link' to='/Link2'>Link2</Link>
+            <li className={window.location.pathname === '/createProject/' || window.location.pathname === '/createProject' ? 'active nav-item' : 'nav-item'}>
+              <Link className='nav-link' to='/createProject'>New Project</Link>
             </li>
-            <li className={window.location.pathname === '/Logout' ? 'active nav-item' : 'nav-item'}>
+            <li className={window.location.pathname === '/browse/' || window.location.pathname === '/browse' ? 'active nav-item' : 'nav-item'}>
+              <Link className='nav-link' to='/browse'>Browse Projects</Link>
+            </li>
+            <li className={window.location.pathname === '/Logout/' ? 'active nav-item' : 'nav-item'}>
               <Link className='nav-link' to='/Logout'>Logout</Link>
             </li>
           </ul>

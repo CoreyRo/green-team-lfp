@@ -13,25 +13,25 @@ import Project from "./pages/Project-View";
 import CreatePost from "./pages/CreatePost";
 import { create } from 'domain';
 import Recovery from './pages/Recovery'
+import UploadImg from "./components/UploadImg";
 
 class App extends Component {
   render() {
-    return (
-    <Router>
+    return <Router>
         <Wrapper>
           <Route exact path="/" component={Splash} />
-          <Route exact path="/myProfile/" component={Profile} />
+          <Route path="/myProfile/" component={Profile} />
+          <Route exact path="/myProfile/uploadImage" component={UploadImg} />
           <Route path="/profile/" component={ViewProfile} />
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/sign-up" component={Login} />
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/Logout" component={Logout} />
-          <Route exact path='/recovery' component={ Recovery } />
+          <Route exact path="/recovery" component={Recovery} />
           <Route exact path="/project-view" component={Project} />
           <Route exact path="/create-project" component={CreatePost} />
         </Wrapper>
-      </Router>
-    )
+      </Router>;
   }
 }
 

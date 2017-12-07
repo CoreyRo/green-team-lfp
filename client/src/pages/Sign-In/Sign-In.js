@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Container, Row } from '../../components/Grid';
+import { Container } from '../../components/Grid';
 import Header from '../../components/Header';
 import Navbar from "../../components/Navbar";
 import Login from "../../components/Login-form";
@@ -32,7 +32,7 @@ class SignIn extends Component {
         .then((res) => {
             localStorage.setItem('id', res.data._id)
             localStorage.setItem('loggedIn', true)
-            window.location.replace("/myProfile/");
+            window.location.replace("/myProfile/", res);
         })
         .catch((err) => {
             console.log(err);

@@ -12,8 +12,8 @@ router.use("/user", userRoutes);
 
 router.use("/user", authRoutes);
 
-// router.use("/user", postRoutes);
+router.use("/user", postRoutes);
 
 router.use("/recovery", recoveryRoutes);
 
-module.exports = router;
+module.exports = router

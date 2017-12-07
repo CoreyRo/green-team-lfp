@@ -1,0 +1,60 @@
+.profileImgDiv {
+ 
+    height: 200px !important;
+    overflow: hidden !important;
+    margin: 10px !important;
+    position: relative !important;
+}
+/* 
+.object-fit_fill {
+  object-fit: fill
+} */
+.profileAvi {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   height: 100%;
+   width: auto;
+   border-radius: 50%;
+   box-shadow: 2px 2px 2px 2px #000;
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+}
+
+.editProfileButton{
+  border: 2px solid #000;
+  border-radius: 5px;
+  background-color: #A7C4E5 !important;
+  /* IE10+ */
+  background-image: -ms-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #A7C4E5), color-stop(100, #7B90A8));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);
+  /* W3C Markup */
+  background-image: linear-gradient(to bottom, #A7C4E5 0%, #7B90A8 100%);
+
+  margin: 30px 0 0 0;
+}
+
+.editProfileButton:hover{
+  background-color: #A7C4E5 !important;
+  border: 2px solid #000;
+  /* IE10+ */
+  background-image: -ms-linear-gradient(top, rgb(110, 168, 226) 0%, rgb(106, 135, 168) 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, rgb(110, 168, 226) 0%, rgb(106, 135, 168) 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, rgb(110, 168, 226) 0%, rgb(106, 135, 168) 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(rgb(110, 168, 226) 0%), color-stop(rgb(106, 135, 168) 100%));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, rgb(110, 168, 226) 0%, rgb(106, 135, 168) 100%);
+  /* W3C Markup */
+  background-image: linear-gradient(to bottom, rgb(110, 168, 226) 0%, rgb(106, 135, 168) 100%);
+}

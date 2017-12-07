@@ -1,12 +1,11 @@
 #main-feed
 {
-    margin-top: 100px;
+    margin-top: 20px;
     background-color: #A7C4E5;
     height: 100%;
-    width: 80%;
     border-radius: 25px;
-    box-shadow: 10px 10px 5px black;
-    padding: 45px !important;
+    box-shadow: 2px 6px 2px black;
+    padding: 20px;
 }
 
 #nan 
@@ -22,7 +21,6 @@
     text-align: center;
     margin-top: -20px;
     font-size: 25px !important;
-    color: #161A2D;   
     text-shadow: 3px 3px 3px black !important;
     font-size: 28px !important;
 }

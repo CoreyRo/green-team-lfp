@@ -1,0 +1,11 @@
+.col-post-form {
+    color: #fff;
+    padding-bottom: 40px;
+}
+
+.post-submit {
+    background: #A7C4E5;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 3px 2px 2px #333;
+}

@@ -1,7 +1,7 @@
 import React from "react"
 import "./Login-form.css"
 import { Link } from 'react-router-dom'
-import {Container, Col, Row} from "../Grid"
+// import {Container, Col, Row} from "../Grid"
 
 const LoginForm = props => {
 

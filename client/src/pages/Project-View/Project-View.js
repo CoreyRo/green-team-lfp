@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Container } from "../../components/Grid";
+import { Row, Col } from "../../components/Grid";
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -16,6 +16,8 @@ class Project extends Component {
 
     }
 
+
+    //Cant mutate the state like this, gotta use this.setState({})
     componentDidMount() {
         axios.get("/api/user/project")
         .then((res) => {

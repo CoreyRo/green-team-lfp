@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
-import { Col, Container, Row } from '../../components/Grid'
-import Navbar from '../../components/Navbar';
+import React, { Component } from "react";
+import { Col, Container, Row } from "../../components/Grid";
+import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import MyInfo from '../../components/MyInfo'
-import ProfileCard from '../../components/ProfileCard'
-import Skills from '../../components/Skills'
+import MyInfo from "../../components/MyInfo";
+import ProfileCard from "../../components/ProfileCard";
+import Skills from "../../components/Skills";
 
-import axios from 'axios'
-import './ViewProfile.css'
-
+import axios from "axios";
+import "./ViewProfile.css";
 
 class ViewProfile extends Component {
   state = {
@@ -106,4 +105,4 @@ class ViewProfile extends Component {
   }
 }
 
-export default ViewProfile
+export default ViewProfile;

@@ -1,0 +1,75 @@
+.small-headers {
+    color: black;
+    text-decoration: underline;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.description {
+    color: black;
+}
+
+/* In the react page this class is just declared as left-col but thats because after the grid component splits it it adds col to the front...  */
+.col-left-col { 
+    padding: 30px;
+    border: 2px solid #fff;
+    background: #A7C4E5;
+    margin-right: 25px;
+}
+/* Same name issue but for right col.. */
+.col-right-col { 
+    padding: 30px;
+    border: 2px solid #fff;
+    background: #A7C4E5;
+    margin-bottom: 15px;
+}
+
+.skills {
+    color: black;
+    background: #fff;
+    text-shadow: 2px 2px 2px #A7C4E5;
+    padding: 8px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    box-shadow: 3px 2px 2px #333;
+}
+
+.username {
+    font-size: 90%;
+    color: #161A2D;
+    text-decoration: underline;
+}
+
+.icons {
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+}
+
+.like-btn {
+    margin-top: 20px;
+    margin-right: 10px;
+    border: 2px solid black;
+    padding: 8px;
+}
+
+.save-btn {
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 8px;
+}
+
+.col-browse-col {
+    border: 2px solid #fff;
+    background: #A7C4E5;
+    padding: 20px;
+    text-align: center;
+}
+
+.col-browse-col a {
+    color: black;
+    font-family: 'Josefin Sans', sans-serif !important;
+    text-decoration: none;
+    font-size: 20px;
+}

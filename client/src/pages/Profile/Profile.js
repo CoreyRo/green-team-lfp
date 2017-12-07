@@ -61,7 +61,7 @@ class Profile extends Component {
         })
         .catch(err => {
             console.log("PROFILE DIDMOUNT err",err)
-            window.location.replace("/logout/")
+            window.location.replace("/sign-in");
         })
     }
 

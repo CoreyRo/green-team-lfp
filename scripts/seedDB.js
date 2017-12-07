@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+
+// Set up promises with mongoose
 mongoose.Promise = global.Promise;
-
-// This file empties the Books collection and inserts the books below
-
+// Connect to the Mongo DB
 mongoose.connect(
-  "mongodb://admin:admin@ds121686.mlab.com:21686/lfg",
+  process.env.MONGODB_URI || "mongodb://127.0.0.1/project-lfg",
   {
     useMongoClient: true
   }

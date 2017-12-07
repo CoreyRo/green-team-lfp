@@ -23,7 +23,6 @@ class SignIn extends Component {
     };
 
     handleFormSubmit = event => {
-        console.log("In handle form submit")
         event.preventDefault();
         axios.post("/api/user/sign-in", {
             email: this.state.email,

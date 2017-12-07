@@ -21,7 +21,7 @@ class CreatePost extends Component {
         members: "",
         description: "",
         desiredSkills: "",
-        userID: ""
+        userId: ""
     }
 
     componentDidMount() {
@@ -38,7 +38,7 @@ class CreatePost extends Component {
                 projects: res.data.projects,        
                 joined: res.data.joined,   
                 userskills: res.data.skills,
-                userID: res.data._id
+                userId: res.data._id
             })
         })
 
@@ -60,14 +60,15 @@ class CreatePost extends Component {
         }
 
         axios.post("/api/user/posts", {
-            userId: this.state.userID,
+            userId: this.state.userId,
             title: this.state.title,
-            skills: arSkills,
+            desiredSkills: arSkills,
             description: this.state.description
         }).then((res) => {
-
+            console.log("HERE");
+            this.state.projects.push(res.data._id);
             this.setState({
-                projects: res.data._id
+                projects: this.state.projects
             })
             
             axios.post("/api/user/myProfile/", {

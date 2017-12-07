@@ -37,7 +37,6 @@ class Profile extends Component {
     componentDidMount(){
         axios.get('/api/user/myProfile/')
         .then(res => {
-            console.log("PROFILE RES:", res)
             let data = res.data
             this.setState({
                 username: data.username,
@@ -65,8 +64,6 @@ class Profile extends Component {
         })
     }
 
-
-    
 
 
     handleSubmit = event => {

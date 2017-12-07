@@ -22,3 +22,8 @@
     text-shadow: 3px 3px 3px black !important;
     font-size: 28px;
 }
+
+#related-header h4 {
+    font-size: 20%;
+
+}

@@ -3,9 +3,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import {Link} from 'react-router-dom'
 import "./Browse.css";
-import axios from 'axios';
 import Related from "../../components/Related"
 import Feed from "../../components/Feed"
 import CreatePost from "../../components/CreatePost";
@@ -19,6 +17,7 @@ class Browse extends Component {
         create: false
     }
 
+    //State is not supposed to be mutalbe like this, gotta change the 'this.state.index on line 20
     handlePageTurn = (e) => {
         e.preventDefault();
         this.state.index+=5

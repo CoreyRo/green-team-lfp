@@ -7,10 +7,8 @@ const fs = require("fs");
 // Restrict access to root page
 module.exports = {  
 	findOne : function(req, res) {
-		console.log("HERE", req.user._id);
 		db.User.findOne({ _id: req.user._id})
 		.then((result) => {
-			console.log("FIND ONE RESULT  " , result)
 			res.json(result);
 		})
 		.catch((err) => {
@@ -28,11 +26,8 @@ module.exports = {
 
 	},
 	viewOne: function(req,res) {
-		console.log("FINDONE REQ:",req.user)
-		console.log("REQ PARAMAS", req.params.id)
 		db.User.findOne({ _id: req.params.id})
 		.then(function(result) {
-			console.log("FINDONE RES: " + result)
 			return res.json(result)
 		})
 		.catch(err => console.log("FIND ONE err ", err.body))
@@ -40,9 +35,7 @@ module.exports = {
 
 // Post login
 	doLogin : function(req, res) {
-		console.log("In do login")
 		passport.authenticate('local-signin')(req, res, function () {
-			console.log("do login req", req.body)
 			return res.json(req.user)
 		});
 	},

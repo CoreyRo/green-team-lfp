@@ -4,7 +4,7 @@ import { Col, Row } from '../Grid'
 import UploadImg from '../UploadImg'
 
 const ProfileCard = props => {
-    console.log("Props", props.state)
+
     return <Row>
         <Col size="sm-12">
           <div className="text-center mx-auto profileImgDiv">

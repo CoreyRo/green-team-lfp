@@ -12,7 +12,7 @@ const UserSchema = new Schema({
   location: { type: String },
   skills: { type: Array },
   joined: { type: Array },
-  projects: { type: Array },
+  projects: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
   imageURL: { type: String },
   about: { type: String }
 });

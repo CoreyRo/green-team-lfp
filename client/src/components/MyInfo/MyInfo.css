@@ -16,23 +16,40 @@ img{
     font-size: 30pt;
   }
   .myProjects{
-    height: 6rem;
+    height: auto;
 
   }
 
+  .projects, .joined{
+    border-radius: 10px;
+    font-size: 14pt;
+    border-radius: 10px;
+    padding: 5px 8px 5px 8px;
+    margin:10px 5px 10px 5px;
+    background-color: #161A2D;
+    -webkit-box-shadow: 3px 5px 10px 3px #000;
+    box-shadow: 3px 5px 10px 3px #000;
+    background-image: -o-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #242B4A), color-stop(100, #161A2D));
+    background-image: -webkit-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#242B4A), to(#161A2D));
+    background-image: linear-gradient(to bottom, #242B4A 0%, #161A2D 100%);
+  }
+  
+
   .myJoined{
-    height: 6rem;
+    height: auto;
 
   }
 
   .aboutMe{
-    height: 8rem;
+    height: auto;
   }
 
-  .profileAboutDiv{
+  .myInfoDiv{
     text-overflow: ellipsis;
     word-break:break-all;
-    margin: 10px 0 25px 0;
+    margin: 10px 0px 50px -20px;
     border-radius: 3px;
     color: #FFF !important;
     font-family: 'Kanit', sans-serif !important;

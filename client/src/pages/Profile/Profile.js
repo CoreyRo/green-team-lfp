@@ -25,7 +25,7 @@ class Profile extends Component {
     edit: false,
     canEdit: false,
     skillInput: "",
-    projects: ["Pulled", "From", "Database"],
+    projects: [],
     joined: ["Pulled", "From", "Database"],
     skills: ["Javascript", "HTML"]
   };
@@ -36,7 +36,7 @@ class Profile extends Component {
     axios
       .get("/api/user/myProfile/")
       .then(res => {
-        // console.log("PROFILE RES:", res);
+        console.log("PROFILE RES:", res);
         let data = res.data;
         this.setState({
           username: data.username,
@@ -53,9 +53,11 @@ class Profile extends Component {
           about: data.about
         });
         this.validUser();
+        console.log('state', this.state)
       })
       .catch(err => {
-        window.location.replace("/sign-in");
+        console.log("Mount err", err)
+        // window.location.replace("/sign-in");
       });
   }
 
@@ -126,6 +128,7 @@ class Profile extends Component {
 
   editPage = event => {
     event.preventDefault();
+    
     this.setState({
       edit: !this.state.edit
     });
@@ -165,7 +168,7 @@ class Profile extends Component {
         />
       );
     } else if (!this.state.edit) {
-      return <MyInfo props={this.state} editPage={this.editPage} />;
+      return <MyInfo state={this.state} editPage={this.editPage} />;
     }
   };
 

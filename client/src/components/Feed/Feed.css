@@ -29,3 +29,14 @@
 .view-btn {
     margin-right: 10px;
 }
+
+.username-post {
+    font-size: 20px;
+}
+
+.proj-details {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

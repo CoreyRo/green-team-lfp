@@ -8,7 +8,6 @@ module.exports =
         let data = req.body
         db.Post
             .find(data)
-            .sort({ date: -1 })
             .then(dbModel => {console.log(dbModel)})
             .catch(err => res.status(422).json(err))
     }

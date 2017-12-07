@@ -203,6 +203,10 @@ base64-js@^1.0.2, base64-js@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.2.1.tgz#a91947da1f4a516ea38e5b4ec0ec3773675e0886"
 
+base64-to-image@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/base64-to-image/-/base64-to-image-1.0.2.tgz#a6f30606e52174d2499fcee21eebb74b7a731c69"
+
 basic-auth@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/basic-auth/-/basic-auth-2.0.0.tgz#015db3f353e02e56377755f962742e8981e7bbba"
@@ -1647,6 +1651,10 @@ isomorphic-fetch@^2.1.1:
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+
+js-base64-file@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/js-base64-file/-/js-base64-file-1.0.1.tgz#946bd57799838c1aed2ac4b5509c6fd8128be2ce"
 
 js-tokens@^3.0.0:
   version "3.0.2"

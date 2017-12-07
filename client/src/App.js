@@ -12,7 +12,7 @@ import Logout from "./components/Logout";
 import Project from "./pages/Project-View";
 import { create } from 'domain';
 import Recovery from './pages/Recovery'
-import UploadImg from "./components/UploadImg";
+
 
 class App extends Component {
   render() {
@@ -20,7 +20,6 @@ class App extends Component {
         <Wrapper>
           <Route exact path="/" component={Splash} />
           <Route path="/myProfile/" component={Profile} />
-          <Route exact path="/myProfile/uploadImage" component={UploadImg} />
           <Route path="/profile/" component={ViewProfile} />
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/sign-up" component={Login} />

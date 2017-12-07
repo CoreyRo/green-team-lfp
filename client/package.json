@@ -6,6 +6,7 @@
   "dependencies": {
     "auth0-js": "^8.11.2",
     "bootstrap": "^3.3.7",
+    "cors": "^2.8.4",
     "path": "^0.12.7",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.5",

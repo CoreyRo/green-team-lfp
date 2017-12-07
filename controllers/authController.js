@@ -8,6 +8,11 @@ const fs = require("fs");
 module.exports = {  
 	findOne : function(req, res) {
 		db.User.findOne({ _id: req.user._id})
+		.populate('projects')
+			.exec(function (err, popRes){
+				if (err) return handleError(err);
+				console.log(popRes)
+			})
 		.then((result) => {
 			res.json(result);
 		})
@@ -16,7 +21,7 @@ module.exports = {
 		})
 	},
 
-// Post registration
+	// Post registration
 	doRegister : function(req, res) {
 		//registers the user with passport
 			passport.authenticate('local-signup')(req, res, function () {
@@ -27,6 +32,11 @@ module.exports = {
 	},
 	viewOne: function(req,res) {
 		db.User.findOne({ _id: req.params.id})
+		.populate('projects')
+			.exec(function (err, popRes) {
+				if (err) return handleError(err);
+				console.log(popRes)
+			})
 		.then(function(result) {
 			return res.json(result)
 		})

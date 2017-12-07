@@ -13,12 +13,9 @@ module.exports = function(passport, user) {
    
    // deserialize user 
    passport.deserializeUser(function(id, done) {
-       console.log("deserial id: ", id)
        User.findById(id)
         .then(function(user) {
-            console.log("deserializeUser user: ", user)
             if (user) {
-                console.log("USER if ", user)
                 return done(null, user);
             } 
             else { 
@@ -37,11 +34,6 @@ module.exports = function(passport, user) {
     },
 
        function(req, email, password, done) {
-           console.log("This is the sign up", req.body);
-           console.log("email", email);
-           console.log("password", password);
-           console.log("done", done);
-
            var generateHash = function(password) {
                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
            };
@@ -49,7 +41,6 @@ module.exports = function(passport, user) {
            User.findOne({email})
            .then((user) => {
                if (user) {
-                    console.log("User Exists");
                     return done(null, false, req.flash('error', 'That email is already taken'));
                } 
                else {
@@ -62,7 +53,6 @@ module.exports = function(passport, user) {
                         password: userPassword,
                         imageURL: 'default_avatar.png'
                     };
-                    console.log("DATA", data)
                     User.create(data)
                     .then(function(newUser, created) {
                         if (!newUser) {
@@ -92,9 +82,6 @@ module.exports = function(passport, user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
        function(req, email, password, done) {
-        console.log("This is the sign in", req.body);
-        console.log("email", email);
-        console.log("password", password);
         var User = user;
         var isValidPassword = function(userpass, password) {
             return bCrypt.compareSync(password, userpass);
@@ -102,8 +89,6 @@ module.exports = function(passport, user) {
     
            User.findOne({email})
            .then(function(user) {
-                console.log("tried to find user");
-                console.log(user);
                if (!user) {
                     console.log("didnt find user")
                     console.log(user);
@@ -113,8 +98,7 @@ module.exports = function(passport, user) {
 
                    return done(null, false, req.flash('error', 'Incorrect Password'));
                }
-               console.log("HERRRREEEE")
-            //    var userinfo = user.get();
+
                return done(null, user);
     
            }).catch(function(err) {

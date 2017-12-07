@@ -15,6 +15,7 @@ const db = require("./models")
 var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
+var cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -27,6 +28,9 @@ mongoose.connect(
     useMongoClient: true
   }
 );
+//now we should configure the API to use bodyParser and look for 
+//JSON data in the request body
+app.use(cors()); //Must be before BodyParser**
 
 // Sets up the Express App
 // =============================================================

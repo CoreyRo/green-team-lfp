@@ -46,11 +46,8 @@ module.exports = function(passport, user) {
                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
            };
 
-           User.findOne({
-               where: {
-                   email: email
-               }
-           }).then((user) => {
+           User.findOne({email})
+           .then((user) => {
                if (user) {
                     console.log("User Exists");
                     return done(null, false, req.flash('error', 'That email is already taken'));
@@ -62,7 +59,8 @@ module.exports = function(passport, user) {
                         lastName: req.body.lastName,
                         email: email,
                         username: req.body.username,
-                        password: userPassword
+                        password: userPassword,
+                        imageURL: 'default_avatar.png'
                     };
                     console.log("DATA", data)
                     User.create(data)

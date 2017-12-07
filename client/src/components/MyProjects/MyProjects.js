@@ -53,15 +53,16 @@ class MyProjects extends Component {
     render() {
         return (
             <div>
-                <div className="row" id="scroll">
+                <div id="scroll">
+                <h1 id="title-feed">Latest Post</h1>
                     {this.state.projects ? 
                     (
-                        <Col size="md-12 myProjects">
+                        <div className="col-myProjects">
                             <h4 className="myProject-titles">{this.state.projects.title}</h4>
                             <h6>Posted By: <Link to={"/myprofile/"} className="project-username">{this.state.username}</Link></h6>
                             <p>Project Details: {this.state.projects.description}</p>
                             <button className="btn view-btn" onClick={this.handleProjectView}>View Project</button>
-                        </Col>
+                        </div>
                     )
                     :
                     (

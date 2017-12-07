@@ -80,18 +80,18 @@ class Browse extends Component {
             </Row>
 
             <Row>
-                <Col size="md-12">
-                <h1 className="my-projects">My Latest Post</h1>
-                <MyProjects/>
-                </Col>
-            </Row>
-
-            <Row>
                 <Col size="md-3">
                     <Related />
                 </Col>
                 <Col size="md-9">
-                    <Feed />
+                    <Col size="md-12">
+                        <MyProjects/>
+                    </Col>
+
+                    <Col size="md-12">
+                        <Feed />
+                    </Col>
+
                 </Col>
             </Row>
             </Container>

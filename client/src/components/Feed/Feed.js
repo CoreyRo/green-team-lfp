@@ -20,6 +20,8 @@ class Feed extends Component {
             this.setState({
                 posts: data
             });
+
+            console.log(this.state.posts)
         })
         .catch((err) => {
             console.log(err);
@@ -44,8 +46,9 @@ class Feed extends Component {
                 (
                 <div className="col-myProjects" key={e._id}>
                     <h4 className="myProject-titles">{e.title}</h4>
-                    <h6>Posted By: <Link to={"/myprofile/"} className="project-username">{e.author}</Link></h6>
-                    <p>Project Details: {e.description}</p>
+                    <h6>Posted By: <span className="username-post">{e.author}</span></h6>
+                    <h6>Members Needed: <span className="username-post">{e.members}</span></h6>
+                    <p className="proj-details">Project Details: <span>{e.description}</span></p>
                     <button className="btn view-btn" onClick={this.handleProjectView}>View Project</button>
                     <button className="btn view-btn" onClick={this.handleProfileView}>View Profile</button>
                 </div>

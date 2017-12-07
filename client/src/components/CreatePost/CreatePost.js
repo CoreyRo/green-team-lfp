@@ -62,6 +62,7 @@ class CreatePost extends Component {
         axios.post("/api/user/posts", {
             userId: this.state.userId,
             title: this.state.title,
+            author: this.state.username,
             members: this.state.members,
             desiredSkills: arSkills,
             description: this.state.description

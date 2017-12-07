@@ -28,7 +28,7 @@ class Related extends Component {
         return (
             <div id="Related">
                 <div id="title-div">
-                    <h3 id="title-related">Related Developers</h3>
+                    <h6 id="title-related">Related Developers</h6>
                     {
                         this.state.users ?
                         this.state.users.map((e, index)=> 

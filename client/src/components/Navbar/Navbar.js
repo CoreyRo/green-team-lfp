@@ -40,11 +40,8 @@ class Navbar extends Component {
             <li className={window.location.pathname === '/myProfile/' || window.location.pathname === '/myProfile' ? 'active nav-item' : 'nav-item'}>
               <Link className='nav-link' to='/myProfile'>My Profile</Link>
             </li>
-            <li className={window.location.pathname === '/createProject/' || window.location.pathname === '/createProject' ? 'active nav-item' : 'nav-item'}>
-              <Link className='nav-link' to='/createProject'>New Project</Link>
-            </li>
             <li className={window.location.pathname === '/browse/' || window.location.pathname === '/browse' ? 'active nav-item' : 'nav-item'}>
-              <Link className='nav-link' to='/browse'>Browse Projects</Link>
+              <Link className='nav-link' to='/browse'>Browse</Link>
             </li>
             <li className={window.location.pathname === '/Logout/' ? 'active nav-item' : 'nav-item'}>
               <Link className='nav-link' to='/Logout'>Logout</Link>

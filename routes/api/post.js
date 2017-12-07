@@ -10,6 +10,6 @@ router
 
 router
 .route("/myprojects")
-.get(posts.findOwnersPosts);
+.get(posts.findOwnersPost);
 
 module.exports = router

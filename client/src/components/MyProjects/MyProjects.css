@@ -1,9 +1,8 @@
 .col-myProjects {
     color: #fff;
     background: #161A2D;
-    margin-bottom: 25px;
     box-shadow: 3px 2px 4px rgb(68, 68, 68);
-    padding: 15px;
+    padding: 25px;
 
 }
 
@@ -18,8 +17,6 @@
 }
 
 #scroll {
-    max-height: 40vh;
-    overflow: scroll;
     background-color: #A7C4E5;
     padding: 30px;
     border-radius: 25px;
@@ -37,4 +34,19 @@
 
 .view-btn {
     background: #A7C4E5;
+}
+
+.project-username {
+    color: #fff;
+    font-size: 20px;
+}
+
+.col-no-projects {
+    color: #fff;
+    font-size: 30px;
+}
+
+#nan {
+    color: #fff;
+    text-shadow: 2px 4px 2px black;
 }

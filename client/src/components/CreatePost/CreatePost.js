@@ -62,6 +62,7 @@ class CreatePost extends Component {
         axios.post("/api/user/posts", {
             userId: this.state.userId,
             title: this.state.title,
+            members: this.state.members,
             desiredSkills: arSkills,
             description: this.state.description
         }).then((res) => {
@@ -82,7 +83,9 @@ class CreatePost extends Component {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
             })
-            .then(res => console.log("user project should get pushed in", res))
+            .then((res) => {
+                window.location.reload();
+            })
                
             .catch(err => console.log(err))
 

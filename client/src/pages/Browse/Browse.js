@@ -80,17 +80,10 @@ class Browse extends Component {
             </Row>
 
             <Row>
-                {this.state.show === false ?
                 <Col size="md-12">
-                <a onClick={this.handleShowClick}><h4 className="post-project">Show My Projects<i className="fa fa-sort-desc" aria-hidden="true"></i></h4></a>
-                </Col>
-                :
-                <Col size="md-12">
-                <a onClick={this.handleShowClick}><h4 className="post-project">Hide My Projects <i className="fa fa-sort-asc" aria-hidden="true"></i></h4></a>
+                <h1 className="my-projects">My Latest Post</h1>
                 <MyProjects/>
                 </Col>
-
-                }
             </Row>
 
             <Row>

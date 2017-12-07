@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 import { Col, Row, Container } from "../../components/Grid";
 import Card from "../Card"
 import "./MyProjects.css";
@@ -43,22 +44,28 @@ class MyProjects extends Component {
 
     }
 
+    handleProjectView = (e) => {
+        e.preventDefault();
+        console.log(this)
+        // window.location.replace("/project-view/")
+    }
+
     render() {
         return (
             <div>
                 <div className="row" id="scroll">
-                    {this.state.projects ? this.state.projects.map(e =>
+                    {this.state.projects ? 
                     (
-                        <Col size="md-12 myProjects" key={e._id}>
-                            <h4 className="myProject-titles">{e.title}</h4>
-                            <h6>Posted By: {this.state.username}</h6>
-                            <p>Project Details: {e.description}</p>
-                            <button className="btn view-btn">View Project</button>
+                        <Col size="md-12 myProjects">
+                            <h4 className="myProject-titles">{this.state.projects.title}</h4>
+                            <h6>Posted By: <Link to={"/myprofile/"} className="project-username">{this.state.username}</Link></h6>
+                            <p>Project Details: {this.state.projects.description}</p>
+                            <button className="btn view-btn" onClick={this.handleProjectView}>View Project</button>
                         </Col>
-                    ))
+                    )
                     :
                     (
-                            <Col size="md-12 myProjects">
+                            <Col size="md-12">
                                 <h1 id="nan">No Projects Posted</h1>
                             </Col>
                     )}

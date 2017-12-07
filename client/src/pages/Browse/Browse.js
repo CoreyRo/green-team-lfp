@@ -9,6 +9,7 @@ import axios from 'axios';
 import Related from "../../components/Related"
 import Feed from "../../components/Feed"
 import CreatePost from "../../components/CreatePost";
+import MyProjects from "../../components/MyProjects";
 
 
 class Browse extends Component {
@@ -50,16 +51,21 @@ class Browse extends Component {
             <Row>
                 {this.state.create === false ?
                 <Col size="md-12">
-                <a onClick={this.handlePostClick}><h4 className="post-project">Post a project <i class="fa fa-sort-desc" aria-hidden="true"></i></h4></a>
+                <a onClick={this.handlePostClick}><h4 className="post-project">Post a project <i className="fa fa-sort-desc" aria-hidden="true"></i></h4></a>
                 </Col>
                 :
                 <Col size="md-12">
-                <a onClick={this.handlePostClick}><h4 className="post-project">Post a project <i class="fa fa-sort-asc" aria-hidden="true"></i></h4></a>
+                <a onClick={this.handlePostClick}><h4 className="post-project">Post a project <i className="fa fa-sort-asc" aria-hidden="true"></i></h4></a>
                 <CreatePost />
                 </Col>
 
                 }
             </Row>
+
+            <Row>
+                <MyProjects/>
+            </Row>
+
             <Row>
                 <Col size="md-3">
                     <Related />

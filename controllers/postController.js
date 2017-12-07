@@ -20,6 +20,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findOwnersPosts: function(req, res) {
+    console.log("Inside Owners controller the req is", req);
+    db.Post
+      .find({ userId: req.params.userId})
+      .then(model => res.json(model))
+      .catch(err => res.status(422).json(err));
+  },
+
   findAllUsers: function(req, res)
   {
     db.User

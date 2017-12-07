@@ -14,7 +14,6 @@ class Related extends Component {
         axios.get("/api/user/browse/get-all")
         .then((res) => {
             let data = res.data;
-            console.log(data)
             this.setState({
                 users: data
             });

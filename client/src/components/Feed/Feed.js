@@ -16,21 +16,15 @@ class Feed extends Component {
         axios.get("/api/user/browse")
         .then((res) => {
             let data = res.data;
-            console.log(data)
             this.setState({
                 posts: data
             });
-            console.log("State: ", this.state);
         })
         .catch((err) => {
             console.log(err);
         })
     }
 
-    // profileLink = (id) =>
-    // {
-    //     return window.location.replace('/profile/'+id)
-    // }
 
     render() {
         return (

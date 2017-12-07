@@ -23,7 +23,7 @@ module.exports =
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '"Green Team" <LookingForProjectGreenTeam@gmail.com>', // sender address
+            from: '"LFG LFG" <LookingForProjectGreenTeam@gmail.com>', // sender address
             to: sendTo.email, // list of receivers
             subject: 'Hello ✔', // Subject line
             text: 'Hello world?' // plain text body

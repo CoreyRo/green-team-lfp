@@ -111,7 +111,7 @@ class CreatePost extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="skillsDesired">Skills Desired (Seperate with a comma)</label>
-                                <input className="form-control" id="skillsDesired" name="skills" placeholder="Ex: javascript, node, react, etc.."  onChange={this.handleInputChange} />
+                                <input className="form-control" id="skillsDesired" name="desiredSkills" placeholder="Ex: javascript, node, react, etc.."  onChange={this.handleInputChange} />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="projectDetails">Project Details</label>

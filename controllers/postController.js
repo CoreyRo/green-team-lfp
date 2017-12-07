@@ -20,12 +20,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findOwnersPosts: function(req, res) {
+  findOwnersPost: function(req, res) {
     console.log("CONTROLLER REQ", req.query);
     db.Post
-      .find({ 
-        userId: req.query.userId
-      })
+      .findOne({ userId: req.query.userId }, {}, { sort : {'dateAdded' : -1}})
       .then(model => res.json(model))
       .catch(err => res.status(422).json(err));
   },

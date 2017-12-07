@@ -70,7 +70,6 @@ class Login extends Component {
                     <div className="card-header">
                         <h3>Register</h3>
                     </div>
-                    {this.state.newUser === true ? <login /> : <signUp />}
                     <div className="card-body">
                         <form id="register-form">
                         <div className="form-group">

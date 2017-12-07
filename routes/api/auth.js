@@ -11,7 +11,7 @@ router.use(isLoggedIn)
 
 router
   .route("/browse")
-  .get(posts.findPosts)
+  .get(posts.findAll)
   .post(posts.create)
 
 router

@@ -4,7 +4,6 @@ import './MyInfo.css'
 
 
 const MyInfo = props => {
-  console.log(props)
   return (<Row>
     <Row>
     <h3 className="info-headers">About me</h3>

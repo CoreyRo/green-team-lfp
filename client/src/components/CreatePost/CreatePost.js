@@ -6,19 +6,40 @@ import axios from 'axios';
 class CreatePost extends Component {
 
     state = {
+        id: "",
+        firstName: "",
+        lastName: "",
+        about:"",
+        username: "",
+        displayName: "",
+        email: "",
+        imageURL: "",
+        projects: [],        
+        joined: [],   
+        userskills: [],
         title: "",
         members: "",
         description: "",
-        skills: "",
-        user: ""
+        desiredSkills: "",
+        userId: ""
     }
 
     componentDidMount() {
         axios.get("/api/user/myprofile/").then((res) => {
             this.setState({
-                user: res.data._id
+                id: res.data._id,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                about: res.data.about,
+                username: res.data.username,
+                displayName: res.data.displayName,
+                email: res.data.email,
+                imageURL: res.data.imageURL,
+                projects: res.data.projects,        
+                joined: res.data.joined,   
+                userskills: res.data.skills,
+                userId: res.data._id
             })
-            console.log("USER: ", this.state.user);
         })
 
     }
@@ -32,17 +53,38 @@ class CreatePost extends Component {
 
     handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("STATE: " , this.state);
-        console.log("form submit working");
-        let arSkills = this.state.skills.split(",");
-        console.log("Skills", arSkills);
+        let arSkills = this.state.desiredSkills.split(",");
+        let length = arSkills.length;
+        for(var i = 0; i < length; i++) {
+            arSkills[i] = arSkills[i].trim();
+        }
+
         axios.post("/api/user/posts", {
-            userId: this.state.user,
+            userId: this.state.userId,
             title: this.state.title,
-            skills: arSkills,
+            desiredSkills: arSkills,
             description: this.state.description
         }).then((res) => {
-            console.log("RES", res);
+            console.log("HERE");
+            this.state.projects.push(res.data._id);
+            this.setState({
+                projects: this.state.projects
+            })
+            
+            axios.post("/api/user/myProfile/", {
+                about: this.state.about,
+                displayName: this.state.displayName,
+                email: this.state.email,
+                projects: this.state.projects,
+                joined: this.state.joined,
+                imageURL: this.state.imageURL,
+                skills: this.state.skills,
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+            })
+            .then(res => console.log("user project should get pushed in", res))
+               
+            .catch(err => console.log(err))
 
         })
 

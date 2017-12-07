@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 const LoginForm = props => {
 
-    console.log(props);
     return (
 
 

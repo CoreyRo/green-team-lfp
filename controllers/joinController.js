@@ -13,22 +13,20 @@ module.exports =
 
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false, // true for 465, false for other ports
+            service:'gmail',
             auth: {
-                user: account.user, // generated ethereal user
-                pass: account.pass  // generated ethereal password
+                user: 'LookingForProjectGreenTeam@gmail.com',
+                pass: 'greenteam'
             }
+
         });
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
-            to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers
+            from: '"Green Team" <LookingForProjectGreenTeam@gmail.com>', // sender address
+            to: sendTo.email, // list of receivers
             subject: 'Hello ✔', // Subject line
-            text: 'Hello world?', // plain text body
-            html: '<b>Hello world?</b>' // html body
+            text: 'Hello world?' // plain text body
         };
 
         // send mail with defined transport object
@@ -36,12 +34,8 @@ module.exports =
             if (error) {
                 return console.log(error);
             }
-            console.log('Message sent: %s', info.messageId);
-            // Preview only available when sending through an Ethereal account
-            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+            res.json(info);
 
-            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com>
-            // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
         });
     }
 }

@@ -1,3 +1,5 @@
+/* A lot of this css is using the same as the MyProjects component and is being handled in that css file */
+
 #main-feed
 {
     margin-top: 20px;
@@ -19,8 +21,11 @@
 {
     color: white !important;
     text-align: center;
-    margin-top: -20px;
     font-size: 25px !important;
     text-shadow: 3px 3px 3px black !important;
     font-size: 28px !important;
+}
+
+.view-btn {
+    margin-right: 10px;
 }

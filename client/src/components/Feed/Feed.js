@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 // import {Row, Col} from "../Grid"
+import {Link} from 'react-router-dom'
 import axios from "axios"
 import "./Feed.css"
-import Card from "../Card"
+
 
 class Feed extends Component {
     
@@ -25,6 +26,14 @@ class Feed extends Component {
         })
     }
 
+    handleProfileView = (e) => {
+
+    }
+
+    handleProjectView = (e) => {
+        
+    }
+
 
     render() {
         return (
@@ -33,10 +42,13 @@ class Feed extends Component {
                 <h1 id="title-feed">Projects Nearby</h1>
                 {this.state.posts ? this.state.posts.map(e =>
                 (
-
-                    <Card key={e._id} title={e.title} subtitle={e.author}
-                        text={e.description} firstText="View Project" secondText="View Profile"
-                        profile={e._id} project="HELLO"/>
+                <div className="col-myProjects" key={e._id}>
+                    <h4 className="myProject-titles">{e.title}</h4>
+                    <h6>Posted By: <Link to={"/myprofile/"} className="project-username">{e.author}</Link></h6>
+                    <p>Project Details: {e.description}</p>
+                    <button className="btn view-btn" onClick={this.handleProjectView}>View Project</button>
+                    <button className="btn view-btn" onClick={this.handleProfileView}>View Profile</button>
+                </div>
                 ))
                 :
                 (<h1 id="nan">No Projects Available</h1>)

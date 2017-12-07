@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3001;
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "https://damp-mesa-63216.herokuapp.com/",
+  process.env.MONGODB_URI || "mongodb://127.0.0.1/project-lfg",
   {
     useMongoClient: true
   }

@@ -5,6 +5,7 @@
   "proxy": "http://127.0.0.1:3001/",
   "dependencies": {
     "auth0-js": "^8.11.2",
+    "base64-to-image": "^1.0.2",
     "bootstrap": "^3.3.7",
     "cors": "^2.8.4",
     "path": "^0.12.7",

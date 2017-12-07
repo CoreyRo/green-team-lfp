@@ -9,8 +9,8 @@ class UploadImg extends Component {
     file: "",
     imagePreviewUrl: "",
     id: "",
-	uploaded: false,
-	cropData:{}
+	  uploaded: false,
+	  cropData:{}
   };
 
   componentDidMount() {
@@ -26,18 +26,23 @@ class UploadImg extends Component {
  
   _handleImageChange = e => {
     e.preventDefault();
-    console.log("STATE", this.state);
+    
     let reader = new FileReader();
     let file = e.target.files[0];
     console.log(e.target);
+    reader.readAsDataURL(file);
+    
     reader.onloadend = () => {
+      console.log("file", file);
+
+      
       this.setState({
         file: file,
         imagePreviewUrl: reader.result
       });
+      console.log("STATE", this.state);
     };
-    reader.readAsDataURL(file);
-    console.log("file", file);
+    
   };
 
   
@@ -51,43 +56,49 @@ class UploadImg extends Component {
   }
 
   dataUrlToFile = dataURI => {
-    var byteString = atob(dataURI.split(",")[1]);
+    let byteString = atob(dataURI.split(",")[1]);
 
     // separate out the mime component
-    var mimeString = dataURI
+    let mimeString = dataURI
       .split(",")[0]
       .split(":")[1]
       .split(";")[0];
 
     // write the bytes of the string to an ArrayBuffer
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
+    let ab = new ArrayBuffer(byteString.length);
+    let ia = new Uint8Array(ab);
     for (var i = 0; i < byteString.length; i++) {
       ia[i] = byteString.charCodeAt(i);
     }
 
 	let newBlob = new Blob([ab], { type: mimeString });
-	
+	console.log("NEWBLOB",newBlob)
 	return newBlob
   };
 
 	
 	cropAndSave = (e) => {
 		e.preventDefault()
-		console.log(this.state)
+		// console.log(this.state)
 		let file = this.dataUrlToFile(this.state.cropData)
-		console.log(file)
-		
+    // console.log("CROPNSAVE FILE",file)
+    
+    
+		console.log("CROP DATA", this.state.cropData)
 		const url = "/imageUpload";
 		const formData = new FormData();
-		formData.set("profileAvi", file);
-		formData.set("id", this.state.id);
+    formData.append("profileAvi", file);
+    
+		formData.append("id", this.state.id);
 		const config = {
 		headers: {
 			"content-type": "multipart/form-data"
 		}
 		};
-		return axios.post(url, formData, config);
+    return axios.post(url, formData, config)
+    .then(res => {
+      window.location.reload()
+    })
 		
 	}
 
@@ -138,9 +149,7 @@ class UploadImg extends Component {
         <form onSubmit={e => this._handleSubmit(e)}>
           <input className="fileInput" accept="image/*" name="profileImg" id="profile-img" ref="upload" type="file" onChange={e => this._handleImageChange(e)} />
           <input id="id" name="user-id" type="hidden" value={this.state.id} />
-          <button className="submitButton" type="submit" onClick={e => this._handleSubmit(e)}>
-            Upload Image
-          </button>
+          
         </form>
         {$imagePreview}
       </div>;

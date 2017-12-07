@@ -50,7 +50,8 @@ class Profile extends Component {
                 joined: data.joined,
                 projects: data.projects,
                 userId: data._id,
-                imageURL: data.imageURL
+                imageURL: data.imageURL,
+                about: data.about
 
             })
             this.validUser()

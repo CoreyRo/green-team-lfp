@@ -28,7 +28,6 @@ module.exports = {
 	viewOne: function(req,res) {
 		db.User.findOne({ _id: req.params.id})
 		.then(function(result) {
-			console.log("FINDONE RES: " + result)
 			return res.json(result)
 		})
 		.catch(err => console.log("FIND ONE err ", err.body))

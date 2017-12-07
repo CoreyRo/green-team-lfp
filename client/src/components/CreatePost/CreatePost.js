@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row, Container } from "../../components/Grid";
+import { Col } from "../../components/Grid";
 import "./CreatePost.css";
 import axios from 'axios';
 

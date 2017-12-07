@@ -3,7 +3,7 @@ const posts = require("../../controllers/postController.js");
 const auth = require("../../controllers/authController.js")
 
 const isLoggedIn =(req,res,next) => {
-  return req.isAuthenticated() ? next() : res.send(403, "not authenticated")
+  return req.isAuthenticated() ? next() : res.status(403).send("not authenticated")
 }
 
 //Passport checks for logged in

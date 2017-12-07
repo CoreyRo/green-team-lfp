@@ -14,7 +14,6 @@ class UploadImg extends Component {
   };
 
   componentDidMount() {
-    console.log("uploadImg");
     axios
       .get("/api/user/myProfile")
       .then(res => {
@@ -29,18 +28,13 @@ class UploadImg extends Component {
     
     let reader = new FileReader();
     let file = e.target.files[0];
-    console.log(e.target);
     reader.readAsDataURL(file);
     
     reader.onloadend = () => {
-      console.log("file", file);
-
-      
       this.setState({
         file: file,
         imagePreviewUrl: reader.result
       });
-      console.log("STATE", this.state);
     };
     
   };
@@ -72,22 +66,16 @@ class UploadImg extends Component {
     }
 
 	let newBlob = new Blob([ab], { type: mimeString });
-	console.log("NEWBLOB",newBlob)
 	return newBlob
   };
 
 	
 	cropAndSave = (e) => {
 		e.preventDefault()
-		// console.log(this.state)
-		let file = this.dataUrlToFile(this.state.cropData)
-    // console.log("CROPNSAVE FILE",file)
-    
-    
-		console.log("CROP DATA", this.state.cropData)
+		let file = this.dataUrlToFile(this.state.cropData) 
 		const url = "/imageUpload";
 		const formData = new FormData();
-    formData.append("profileAvi", file);
+    	formData.append("profileAvi", file);
     
 		formData.append("id", this.state.id);
 		const config = {
@@ -112,18 +100,8 @@ class UploadImg extends Component {
 	let $imagePreview = null;
 	
     if (imagePreviewUrl) {$imagePreview = (
-		<div className="imgPreview">
-		  	<button 
-			  className="btn btn-warning" 
-			  onClick={this.cropAndSave}>Save Crop
-			</button>
-			<button 
-			  className="btn btn-primary" 
-			  onClick={this.resetCrop}>Reset Crop
-			</button>
+		<div className="imgPreview mx-auto text-center">
 
-
-			
 			<Cropper 
 				ref="cropper" 
 				src={this.state.imagePreviewUrl} 
@@ -137,6 +115,14 @@ class UploadImg extends Component {
 				guides={false} 
 				crop={this._crop.bind(this)} 
 			/>
+			<button
+				className="btn btn-warning cropbtns"
+				onClick={this.cropAndSave}>Save Crop
+			</button>
+			<button
+				className="btn btn-primary cropbtns"
+				onClick={this.resetCrop}>Reset Crop
+			</button>
         </div>)
 	} 
 	else {
@@ -147,7 +133,7 @@ class UploadImg extends Component {
 
     return <div className="previewComponent">
         <form onSubmit={e => this._handleSubmit(e)}>
-          <input className="fileInput" accept="image/*" name="profileImg" id="profile-img" ref="upload" type="file" onChange={e => this._handleImageChange(e)} />
+          <input className="fileInput profileCardFileInput" accept="image/*" name="profileImg" id="profile-img" ref="upload" type="file" onChange={e => this._handleImageChange(e)} />
           <input id="id" name="user-id" type="hidden" value={this.state.id} />
           
         </form>

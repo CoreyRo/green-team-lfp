@@ -2,6 +2,7 @@ const router = require("express").Router();
 const authRoutes = require("./auth");
 const userRoutes = require("./user");
 const postRoutes = require("./post");
+const joinRoutes = require('./join-group')
 const recoveryRoutes = require("./recovery");
 
 //appends /user to routes
@@ -15,5 +16,7 @@ router.use("/user", authRoutes);
 router.use("/user", postRoutes);
 
 router.use("/recovery", recoveryRoutes);
+
+router.use("/join", joinRoutes)
 
 module.exports = router

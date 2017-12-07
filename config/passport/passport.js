@@ -19,7 +19,6 @@ module.exports = function(passport, user) {
                 return done(null, user);
             } 
             else { 
-                console.log("user.errors: ",user.errors)
                 return done(user.errors, null);
             }
         })
@@ -90,15 +89,12 @@ module.exports = function(passport, user) {
            User.findOne({email})
            .then(function(user) {
                if (!user) {
-                    console.log("didnt find user")
-                    console.log(user);
                    return done(null, false);
                }
                if (!isValidPassword(user.password, password)) {
 
                    return done(null, false, req.flash('error', 'Incorrect Password'));
                }
-
                return done(null, user);
     
            }).catch(function(err) {

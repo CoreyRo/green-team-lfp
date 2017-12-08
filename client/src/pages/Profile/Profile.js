@@ -81,6 +81,7 @@ class Profile extends Component {
       projects: this.state.projects || null,
       joined: this.state.joined || null,
       skills: arSkills,
+      skillInput: this.state.skillInput,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       edit: !this.state.edit
@@ -93,7 +94,7 @@ class Profile extends Component {
         projects: this.state.projects,
         joined: this.state.joined,
         imageURL: this.state.imageURL,
-        skills: this.state.skills,
+        skills: arSkills,
         firstName: this.state.firstName,
         lastName: this.state.lastName
       })

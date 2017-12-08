@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import {Row, Col} from "../Grid"
+import {Row, Col} from "../Grid"
 import {Link} from 'react-router-dom'
 import axios from "axios"
 import "./Feed.css"
@@ -9,26 +9,59 @@ class Feed extends Component {
     
     state = 
     { 
-        posts: []
+        posts: [],
+        page: 1,
+        pageCount: null,
+        count: null
         
     }
 
     componentDidMount() {
-        axios.get("/api/user/browse")
-        .then((res) => {
-            let data = res.data;
-            this.setState({
-                posts: data
-            });
+        this.getProjects()
+        
+    }
+    getProjects = (e) => {
+        axios.get("/api/user/browse/page/" + this.state.page)
+            .then((res) => {
+                console.log("Page", this.state.page)
+                console.log("Post data", res.data)
+                this.setState({
+                    posts: res.data.results,
+                    pageCount: res.data.pageCount,
+                    count: res.data.count
+                });
 
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+                console.log("POSTS STATE", this.state)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
     }
 
+    nextPage = (e) =>{
+        
+        this.setState({ page: this.state.page + 1 }, () => this.getProjects())
+    }
+    prevPage = (e) => {
+
+        this.setState({ page: this.state.page - 1 }, () => this.getProjects())
+    }
+
+    pageButtons = (e) => {
+        if (this.state.pageCount >= this.state.page) {
+            return (<button onClick={this.nextPage}>NEXT</button>)
+        }
+        else if (this.state.pageCount <= this.state.page) {
+            return (<button onClick={this.prevPage}>PREV</button>)
+        }
+        else{
+            <h1>BROKE</h1>
+        }
+    }
 
     render() {
+       
         return (
 
             <div id="main-feed">
@@ -47,6 +80,22 @@ class Feed extends Component {
                 :
                 (<h1 id="nan">No Projects Available</h1>)
                 }
+            <div className="mx-auto text-center">
+                <div className="col-md-12 text-center mx-auto">
+                    <Row>
+                        <div className="col-md-3 text-center mx-auto">
+                        {this.state.pageCount <= this.state.page ? <button className="pageButton" onClick={this.prevPage}>PREV</button> :""}
+                        </div>
+                        <div className="col-md-3 text-center mx-auto">
+                        {this.state.pageCount > 1 ? <span className="pageText">{`Page ${this.state.page} of ${this.state.pageCount}`}</span> :""}
+                        </div>
+                        <div className="col-md-3 text-center mx-auto">
+                        {this.state.pageCount > this.state.page ? <button className="pageButton" onClick={this.nextPage}>NEXT</button> :""}
+                        </div>
+                    </Row>
+                    
+                </div>
+            </div>
             </div> 
         )
     }

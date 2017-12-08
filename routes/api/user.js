@@ -15,9 +15,23 @@ router
   .route("/sign-in")
   .post(auth.doLogin)
 
-  router
+router
   .route("/logout")
   .get(auth.logout)
+
+  //Route for other users profiles
+router
+  .route("/profile/:id")
+  .get(auth.viewOne)
+
+router
+  .route("/browse")
+  .get(posts.findAll)
+  .post(posts.create)
+
+router
+  .route("/browse/get-all")
+  .get(posts.findThreeUsers)
 
 
 

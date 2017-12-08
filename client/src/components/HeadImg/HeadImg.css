@@ -1,9 +1,9 @@
 .HeadImg {
-  height: 400px;
+  height: 275px;
   background-size: cover;
   background-position: center;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .HeadImg::after {
@@ -29,7 +29,7 @@
 
 .HeadImg h1 {
   font-size: 60px;
-  padding-top: 140px;
+  padding-top: 50px;
   margin-top: 0;
 }
 

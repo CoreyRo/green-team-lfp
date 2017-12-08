@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import {Row, Col} from "../Grid"
+import {Row, Col} from "../Grid"
 import {Link} from 'react-router-dom'
 import axios from "axios"
 import "./Feed.css"
@@ -45,7 +45,7 @@ class Feed extends Component {
     }
     prevPage = (e) => {
 
-        this.setState({ page: this.state.page + 1 }, () => this.getProjects())
+        this.setState({ page: this.state.page - 1 }, () => this.getProjects())
     }
 
     pageButtons = (e) => {
@@ -53,7 +53,7 @@ class Feed extends Component {
             return (<button onClick={this.nextPage}>NEXT</button>)
         }
         else if (this.state.pageCount <= this.state.page) {
-            return (<button onClick={this.prevPage}>NEXT</button>)
+            return (<button onClick={this.prevPage}>PREV</button>)
         }
         else{
             <h1>BROKE</h1>
@@ -80,7 +80,22 @@ class Feed extends Component {
                 :
                 (<h1 id="nan">No Projects Available</h1>)
                 }
-                {this.pageButtons}
+            <div className="mx-auto text-center">
+                <div className="col-md-12 text-center mx-auto">
+                    <Row>
+                        <div className="col-md-3 text-center mx-auto">
+                        {this.state.pageCount <= this.state.page ? <button className="pageButton" onClick={this.prevPage}>PREV</button> :""}
+                        </div>
+                        <div className="col-md-3 text-center mx-auto">
+                        {this.state.pageCount > 1 ? <span className="pageText">{`Page ${this.state.page} of ${this.state.pageCount}`}</span> :""}
+                        </div>
+                        <div className="col-md-3 text-center mx-auto">
+                        {this.state.pageCount > this.state.page ? <button className="pageButton" onClick={this.nextPage}>NEXT</button> :""}
+                        </div>
+                    </Row>
+                    
+                </div>
+            </div>
             </div> 
         )
     }

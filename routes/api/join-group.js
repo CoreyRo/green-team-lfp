@@ -5,4 +5,8 @@ router
     .route('/join-group')
     .post(join.sendMail)
 
+router
+    .route('/apply-for-group/:id')
+    .post(join.updateGroup)
+
 module.exports = router

@@ -22,6 +22,7 @@ class ViewProfile extends Component {
         username: "",
         displayName: "",
         email: "",
+        imageURL: "",
         pic: "",
         projects: ["Pulled", "From", "Database"],        
         joined: ["Pulled", "From", "Database"],   
@@ -52,9 +53,11 @@ class ViewProfile extends Component {
                 id: data._id,
                 skills: data.skills,
                 joined: data.joined,
-                projects: data.projects
+                projects: data.projects,
+                imageURL: data.imageURL
 
             })
+            console.log(this.state)
           
         })
         .catch(err => console.log("PROFILE DIDMOUNT err",err))
@@ -90,7 +93,7 @@ class ViewProfile extends Component {
                     </Col>
                     <Col size="sm-1" />
                     <Col size="sm-6">
-                      <MyInfo props={this.state} editPage={this.editPage} />
+                      <MyInfo state={this.state} editPage={this.editPage} />
                     </Col>
                   </Row>
                 </Col>

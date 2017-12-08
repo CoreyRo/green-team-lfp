@@ -37,6 +37,8 @@
     "images-upload-middleware": "^1.1.1",
     "js-base64-file": "^1.0.1",
     "mongoose": "^4.12.6",
+    "mongoose-aggregate-paginate": "^1.0.6",
+    "mongoose-pagination": "^1.0.0",
     "morgan": "^1.9.0",
     "nodemailer": "^4.4.0",
     "passport": "^0.4.0",

@@ -8,7 +8,6 @@ import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
-
 import axios from 'axios'
 import './ViewProfile.css'
 
@@ -25,7 +24,8 @@ class ViewProfile extends Component {
         pic: "",
         projects: ["Pulled", "From", "Database"],        
         joined: ["Pulled", "From", "Database"],   
-        skills: ["Javascript", "HTML"]
+        skills: ["Javascript", "HTML"],
+        imageURL: ""
     }
 
     componentWillMount(){
@@ -52,8 +52,8 @@ class ViewProfile extends Component {
                 id: data._id,
                 skills: data.skills,
                 joined: data.joined,
-                projects: data.projects
-
+                projects: data.projects,
+                imageURL: data.imageURL
             })
           
         })
@@ -90,7 +90,7 @@ class ViewProfile extends Component {
                     </Col>
                     <Col size="sm-1" />
                     <Col size="sm-6">
-                      <MyInfo props={this.state} editPage={this.editPage} />
+                      <MyInfo state={this.state} editPage={this.editPage} />
                     </Col>
                   </Row>
                 </Col>

@@ -73,3 +73,11 @@
     text-decoration: none;
     font-size: 20px;
 }
+
+.message-area {
+    margin-top: 20px;
+}
+
+.from-user {
+    font-size: 20px;
+}

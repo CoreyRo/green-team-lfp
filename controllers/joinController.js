@@ -9,7 +9,9 @@ module.exports =
 {
     sendMail: function(req, res)
     {
-        sendTo = req.body
+        console.log(req.body)
+        let { applyingUser } = req.body
+        let { projectOwner } = req.body
 
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
@@ -20,13 +22,16 @@ module.exports =
             }
 
         });
+        message = 'Hello, ' + projectOwner.firstName + ' ' + applyingUser.username +
+            ' would like to join your group. His skills are: ' +
+            applyingUser.skills  + ". Would you like to add him to your group?"
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '"LFG LFG" <LookingForProjectGreenTeam@gmail.com>', // sender address
-            to: sendTo.email, // list of receivers
-            subject: 'Hello ✔', // Subject line
-            text: 'Hello world?' // plain text body
+            from: '"LFG" <LookingForProjectGreenTeam@gmail.com>', // sender address
+            to: projectOwner.email, // list of receivers
+            subject: "Someone Wants to Join Your Group!", // Subject line
+            text: message // plain text body
         };
 
         // send mail with defined transport object

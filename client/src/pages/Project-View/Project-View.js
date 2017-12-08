@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import "./Project-View.css";
 
 class Project extends Component {
@@ -23,6 +24,28 @@ class Project extends Component {
         userId: ""
 
     }
+
+    sendMail = (e) =>
+    {
+        e.preventDefault()
+        let applyingUser
+        axios.get('/api/user/myProfile/').then(user =>
+        {
+            applyingUser = user.data
+            axios.post('/api/join/join-group',
+            {
+                projectOwner: this.state,
+                applyingUser: applyingUser
+            })
+            .then((res) =>
+            {
+                console.log(res)
+            })
+        })
+
+
+    }
+
 
 
     //Cant mutate the state like this, gotta use this.setState({})
@@ -81,9 +104,9 @@ class Project extends Component {
 
 
                         <h6 className="small-headers">Contact</h6>
-                        <a className="icons">
+                        <button className="icons" onClick={this.sendMail}>
                             <i className="fa fa-2x fa-envelope-o"></i>
-                        </a>
+                        </button>
                         <a className="icons" href="#">
                             <i className="fa fa-2x fa-comments"></i>
                         </a>

@@ -21,7 +21,6 @@ class Feed extends Component {
                 posts: data
             });
 
-            console.log(this.state.posts)
         })
         .catch((err) => {
             console.log(err);

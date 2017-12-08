@@ -129,15 +129,11 @@ class Project extends Component {
 
 
                         <h6 className="small-headers">Contact</h6>
+                        
                         <button className="icons" onClick={this.sendMail}>
                             <i className="fa fa-2x fa-envelope-o"></i>
-<<<<<<< HEAD
-                        </a>
-                        <button className="icons" onClick={this.handleMessageClick}>
-=======
                         </button>
-                        <a className="icons" href="#">
->>>>>>> master
+                        <button className="icons" onClick={this.handleMessageClick}>
                             <i className="fa fa-2x fa-comments"></i>
                         </button>
 

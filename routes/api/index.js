@@ -11,11 +11,11 @@ const recoveryRoutes = require("./recovery");
 // more logically named routes
 router.use("/user", userRoutes);
 
-router.use("/user", authRoutes);
-
 router.use("/user", postRoutes);
 
 router.use("/recovery", recoveryRoutes);
+
+router.use("/user", authRoutes);
 
 router.use("/join", joinRoutes)
 

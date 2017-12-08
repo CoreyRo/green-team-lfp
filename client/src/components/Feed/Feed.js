@@ -28,7 +28,6 @@ class Feed extends Component {
         })
     }
 
-
     render() {
         return (
 

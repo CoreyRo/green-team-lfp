@@ -46,7 +46,7 @@ const ProfileEdit = props =>{
 
             <label htmlFor='skillInput'>Skills:</label>
             <input
-              value={props.skillInput}
+              value={prop.skillInput}
               onChange={props.handleInputChange}
               name='skillInput'
               type='text'

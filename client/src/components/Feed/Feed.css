@@ -5,7 +5,7 @@
     margin-top: 20px;
     background-color: #A7C4E5;
     height: 100%;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     box-shadow: 2px 6px 2px black;
     padding: 20px;
 }
@@ -39,4 +39,16 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.pageButton{
+    background-color: #FFF;
+    font-weight: bold;
+    border: 2px rgb(196, 196, 196);
+    box-shadow: 1px 1px 1px 1px #161A2D;
+}
+.pageText{
+    color: #161A2D;
+    font-weight: bold;
+
 }

@@ -13,12 +13,15 @@ import MyProjects from "../../components/MyProjects";
 class Browse extends Component {
 
     state = {
-        posts: [],
-        index: 0,
         create: false,
         show: false
     }
 
+<<<<<<< HEAD
+=======
+    //State is not supposed to be mutalbe like this, gotta change the 'this.state.index on line 20
+    
+>>>>>>> master
     handlePostClick = (e) => {
         e.preventDefault();
         if(this.state.create === false) {

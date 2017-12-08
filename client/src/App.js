@@ -10,7 +10,8 @@ import SignIn from "./pages/Sign-In";
 import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
 import Project from "./pages/Project-View";
-import Recovery from './pages/Recovery'
+import Recovery from './pages/Recovery';
+import Inbox from "./pages/Inbox";
 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
           <Route exact path="/Logout" component={Logout} />
           <Route exact path='/recovery-page' component={ Recovery } />
           <Route path="/project/" component={Project} />
+          <Route exact path="/inbox" component={Inbox} />
         </Wrapper>
       </Router>;
   }

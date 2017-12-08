@@ -1,0 +1,14 @@
+.inbox {
+    background: #fff;
+}
+
+.sender {
+    padding: 20px;
+    display: inline-block;
+}
+
+.sent-text {
+    padding: 20px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}

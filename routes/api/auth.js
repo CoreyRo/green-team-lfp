@@ -15,5 +15,15 @@ router
   .get(auth.findOne)
   .post(posts.updateUser)
 
+//Route for other users profiles
+router
+  .route("/profile/:id")
+  .get(auth.viewOne)
+
+router
+  .route("/messages")
+  .post(posts.updateMessages)
+  .get(posts.findMessages)
+
 
 module.exports = router

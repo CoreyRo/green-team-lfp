@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import axios from 'axios';
-import { Link } from 'react-router-dom'
 import "./Project-View.css";
 
 class Project extends Component {
@@ -22,11 +21,12 @@ class Project extends Component {
         userSkills: [],
         desiredSkills: [],
         userId: "",
-        messages: [],
+        myId: "",
         message: "",
         msgClicked: false,
         username: "",
-        request: false
+        request: false,
+        sentmsg: false
 
     }
 
@@ -69,7 +69,8 @@ class Project extends Component {
         axios.get("/api/user/myprofile/")
         .then((res) => {
             this.setState({
-                username: res.data.username
+                username: res.data.username,
+                myId: res.data._id
             })
 
         })
@@ -92,8 +93,7 @@ class Project extends Component {
                     firstName: res.data.firstName,
                     lastName: res.data.lastName,
                     about: res.data.about,
-                    userSkills: res.data.skills,
-                    messages: res.data.messages
+                    userSkills: res.data.skills
                 })
             })
         })
@@ -123,12 +123,19 @@ class Project extends Component {
 
     handleMessageSend = (e) => {
         e.preventDefault();
-        this.state.messages.push(this.state.message);
-        axios.post("/api/user/messages/" + this.state.userId, {
-            messages: this.state.messages
+        axios.post("/api/user/messages", {
+            senderId: this.state.myId,
+            userId: this.state.userId,
+            projectId: this.state.projectId,
+            senderUsername: this.state.username,
+            text: this.state.message
         })
         .then((res)=> {
             console.log(res)
+            this.setState({
+                message: "",
+                sentmsg: true
+            })
         })
 
     }
@@ -178,6 +185,16 @@ class Project extends Component {
                                 <br/>
                                 <button onClick={this.handleMessageSend}>Send</button>
                             </form>
+                            {this.state.sentmsg ? (
+                                <div>
+                                    <span>You're message has been sent!</span>
+                                </div>
+
+                            )
+                            :
+                            (
+                                <div></div>
+                            )}
                             
                             </div>
 

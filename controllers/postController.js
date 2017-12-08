@@ -21,7 +21,6 @@ module.exports = {
   },
 
   findOwnersPost: function(req, res) {
-    console.log("CONTROLLER REQ", req.query);
     db.Post
       .findOne({ userId: req.query.userId }, {}, { sort : {'dateAdded' : -1}})
       .then(model => res.json(model))
@@ -83,9 +82,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updateMessages: function(req, res) {
-    db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.Message
+      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findMessages: function(req, res) {
+    db.Message
+      .find({ userId: req.query.userId })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+      
   }
 };

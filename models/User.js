@@ -14,7 +14,6 @@ const UserSchema = new Schema({
   joined: { type: Array },
   projects: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
   imageURL: { type: String },
-  messages: { type: Array },
   about: { type: String }
 });
 

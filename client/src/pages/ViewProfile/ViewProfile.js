@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { Col, Container, Row } from '../../components/Grid'
-import Jumbotron from '../../components/Jumbotron'
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import ProfileEdit from '../../components/ProfileEdit'
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
@@ -25,8 +23,7 @@ class ViewProfile extends Component {
         pic: "",
         projects: ["Pulled", "From", "Database"],        
         joined: ["Pulled", "From", "Database"],   
-        skills: ["Javascript", "HTML"],
-        imageURL: ""
+        skills: ["Javascript", "HTML"]
     }
 
     componentDidMount(){

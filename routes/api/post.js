@@ -12,4 +12,8 @@ router
 .route("/myprojects")
 .get(posts.findOwnersPost);
 
+router
+.route("/project/:id")
+.get(posts.findById);
+
 module.exports = router

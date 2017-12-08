@@ -1,6 +1,9 @@
 import React from "react"
 import "./Login-form.css"
 import { Link } from 'react-router-dom'
+import { Container, Row } from '../../components/Grid';
+import Alert from "../../components/Alert";
+
 // import {Container, Col, Row} from "../Grid"
 
 const LoginForm = props => {
@@ -9,7 +12,11 @@ const LoginForm = props => {
 
 
     <div id="form-style">
-
+    {props.state.errors === "" ? "" :
+        <Row>
+            <Alert state={props.state}/>
+        </Row>
+    }
         <form >
             <div className="form-group">
                 <div className="form-group">

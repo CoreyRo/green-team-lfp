@@ -19,6 +19,7 @@ class Feed extends Component {
     componentDidMount() {
         this.getProjects()
         
+        
     }
     getProjects = (e) => {
         axios.get("/api/user/browse/page/" + this.state.page)
@@ -32,6 +33,7 @@ class Feed extends Component {
                 });
 
                 console.log("POSTS STATE", this.state)
+                console.log(this.state.pageCount, this.state.page)
             })
             .catch((err) => {
                 console.log(err);
@@ -48,17 +50,6 @@ class Feed extends Component {
         this.setState({ page: this.state.page - 1 }, () => this.getProjects())
     }
 
-    pageButtons = (e) => {
-        if (this.state.pageCount >= this.state.page) {
-            return (<button onClick={this.nextPage}>NEXT</button>)
-        }
-        else if (this.state.pageCount <= this.state.page) {
-            return (<button onClick={this.prevPage}>PREV</button>)
-        }
-        else{
-            <h1>BROKE</h1>
-        }
-    }
 
     render() {
        
@@ -84,13 +75,13 @@ class Feed extends Component {
                 <div className="col-md-12 text-center mx-auto">
                     <Row>
                         <div className="col-md-3 text-center mx-auto">
-                        {this.state.pageCount < this.state.page ? <button className="pageButton" onClick={this.prevPage}>PREV</button> :""}
+                        {this.state.pageCount >= this.state.page && this.state.page !== 1 ? <button className="pageButton" onClick={this.prevPage}>PREV</button> :""}
                         </div>
                         <div className="col-md-3 text-center mx-auto">
                         {this.state.pageCount > 1 ? <span className="pageText">{`Page ${this.state.page} of ${this.state.pageCount}`}</span> :""}
                         </div>
                         <div className="col-md-3 text-center mx-auto">
-                        {this.state.pageCount > this.state.page ? <button className="pageButton" onClick={this.nextPage}>NEXT</button> :""}
+                        {this.state.pageCount > this.state.page && this.state.page !== this.state.pageCount? <button className="pageButton" onClick={this.nextPage}>NEXT</button> :""}
                         </div>
                     </Row>
                     

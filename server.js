@@ -36,7 +36,6 @@ app.use(cors()); //Must be before BodyParser**
 // =============================================================
 app.use('/public', express.static('public')) // Static directory
 app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -46,9 +45,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // For Passport
-app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
+ // read cookies (needed for auth)
+app.use(cookieParser('greenteamgreenteamgreenteam'));
+app.use(passport.session({cookie: {maxAge: 60000} })); // persistent login sessions
 app.use(function(req, res, next){
   res.locals.isAuthenticated = req.isAuthenticated();
   next();

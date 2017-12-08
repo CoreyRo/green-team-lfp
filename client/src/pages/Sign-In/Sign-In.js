@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from '../../components/Grid';
+import { Container, Row } from '../../components/Grid';
+import Alert from "../../components/Alert";
 import Header from '../../components/Header';
 import Navbar from "../../components/Navbar";
 import Login from "../../components/Login-form";
@@ -7,11 +8,13 @@ import Footer from "../../components/Footer";
 import axios from 'axios';
 import './Sign-In.css';
 
+
 class SignIn extends Component {
 
     state = {
         email: "",
-        password: ""
+        password: "",
+        errors: ''
     }
 
 
@@ -34,9 +37,13 @@ class SignIn extends Component {
             window.location.replace("/myProfile/", res);
         })
         .catch((err) => {
-            console.log(err);
+            console.log("sign-in err",err);
+            let error = "Invalid email or password"        
+            this.setState({errors: error})
         })
     }
+
+    
 
 
     render() {
@@ -45,7 +52,8 @@ class SignIn extends Component {
                 <Navbar />
                 <Header />
                 <Container>
-                    <Login 
+                    <Login
+                    state={this.state}
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
                     />

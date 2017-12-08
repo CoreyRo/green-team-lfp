@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ecea8d14-62ea-47b1-a3b2-9106f1e2bdd8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Project-View/Project-View.js" afterPath="$PROJECT_DIR$/client/src/pages/Project-View/Project-View.js" />
-      <change beforePath="$PROJECT_DIR$/controllers/joinController.js" afterPath="$PROJECT_DIR$/controllers/joinController.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -63,8 +61,8 @@
           <file leaf-file-name="Project-View.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/src/pages/Project-View/Project-View.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="877">
-                  <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+                <state relative-caret-position="1471">
+                  <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -99,8 +97,8 @@
           <file leaf-file-name="joinController.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/controllers/joinController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="858">
-                  <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+                <state relative-caret-position="990">
+                  <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
                   <folding />
                 </state>
               </provider>
@@ -290,12 +288,12 @@
       <workItem from="1512426166439" duration="1334000" />
       <workItem from="1512621690357" duration="2165000" />
       <workItem from="1512680666391" duration="6455000" />
-      <workItem from="1512699042884" duration="5476000" />
+      <workItem from="1512699042884" duration="5583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22588000" />
+    <option name="totallyTimeSpent" value="22695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3026" height="1946" extended-state="6" />
@@ -644,8 +642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/pages/Project-View/Project-View.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+        <state relative-caret-position="1471">
+          <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -654,8 +652,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/joinController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        <state relative-caret-position="990">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding />
         </state>
       </provider>

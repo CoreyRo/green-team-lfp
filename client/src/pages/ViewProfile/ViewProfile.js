@@ -29,10 +29,6 @@ class ViewProfile extends Component {
         imageURL: ""
     }
 
-    componentWillMount(){
-        
-    }
-
     componentDidMount(){
         console.log("WINDOW LOCATION", window.location.href)
         let urlID = window.location.href

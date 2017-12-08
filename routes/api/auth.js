@@ -33,5 +33,9 @@ router
   .route("/profile/:id")
   .get(auth.viewOne)
 
+router
+  .route("/messages/:id")
+  .post(posts.updateMessages)
+
 
 module.exports = router

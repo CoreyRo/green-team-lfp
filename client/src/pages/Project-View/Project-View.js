@@ -22,9 +22,11 @@ class Project extends Component {
         userSkills: [],
         desiredSkills: [],
         userId: "",
+        messages: [],
         message: "",
         msgClicked: false,
-        username: ""
+        username: "",
+        request: false
 
     }
 
@@ -43,6 +45,9 @@ class Project extends Component {
             .then((res) =>
             {
                 console.log(res)
+                this.setState({
+                    request: true
+                })
             })
         })
 
@@ -87,13 +92,20 @@ class Project extends Component {
                     firstName: res.data.firstName,
                     lastName: res.data.lastName,
                     about: res.data.about,
-                    userSkills: res.data.skills
+                    userSkills: res.data.skills,
+                    messages: res.data.messages
                 })
-
-                console.log("Full state", this.state)
             })
         })
     }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+    };
+
 
     handleMessageClick = (e) => {
         e.preventDefault();
@@ -107,6 +119,18 @@ class Project extends Component {
                 msgClicked: false
             })
         }
+    }
+
+    handleMessageSend = (e) => {
+        e.preventDefault();
+        this.state.messages.push(this.state.message);
+        axios.post("/api/user/messages/" + this.state.userId, {
+            messages: this.state.messages
+        })
+        .then((res)=> {
+            console.log(res)
+        })
+
     }
 
     render() {
@@ -129,21 +153,30 @@ class Project extends Component {
 
 
                         <h6 className="small-headers">Contact</h6>
-                        
+
                         <button className="icons" onClick={this.sendMail}>
-                            <i className="fa fa-2x fa-envelope-o"></i>
+                            <i className="fa fa-lg fa-paper-plane"></i>
                         </button>
                         <button className="icons" onClick={this.handleMessageClick}>
-                            <i className="fa fa-2x fa-comments"></i>
+                            <i className="fa fa-lg fa-comments"></i>
                         </button>
+                        {this.state.request ? (
+                            <div>
+                            <h6 className="message-area">A request to join has been sent to the project owner!</h6>
+                            </div>
+                        )
+                        :
+                        (
+                            <div></div>
+                        )}
 
                         {this.state.msgClicked ? (
                             <div className="message-area">
-                            <form  id="usrform">
+                            <form  id="usrform" onChange={this.handleInputChange} >
                                 From: <span className="from-user">{this.state.username}</span>
-                                <textarea rows="4" cols="50" name="message" form="usrform"/>
+                                <textarea rows="4" cols="50" name="message" form="usrform" onChange={this.handleInputChange} />
                                 <br/>
-                                <button>Send</button>
+                                <button onClick={this.handleMessageSend}>Send</button>
                             </form>
                             
                             </div>

@@ -11,6 +11,7 @@ import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
 import Project from "./pages/Project-View";
 import Recovery from './pages/Recovery';
+import Join from './components/Join'
 import Inbox from "./pages/Inbox";
 
 
@@ -27,6 +28,7 @@ class App extends Component {
           <Route exact path="/Logout" component={Logout} />
           <Route exact path='/recovery-page' component={ Recovery } />
           <Route path="/project/" component={Project} />
+          <Route path='/join/apply-for-group/' component={Join} />
           <Route exact path="/inbox" component={Inbox} />
         </Wrapper>
       </Router>;

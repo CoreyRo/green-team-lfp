@@ -21,7 +21,10 @@ class Project extends Component {
         email: "",        
         userSkills: [],
         desiredSkills: [],
-        userId: ""
+        userId: "",
+        message: "",
+        msgClicked: false,
+        username: ""
 
     }
 
@@ -58,6 +61,14 @@ class Project extends Component {
             projectId: id
         })
 
+        axios.get("/api/user/myprofile/")
+        .then((res) => {
+            this.setState({
+                username: res.data.username
+            })
+
+        })
+
         axios.get("/api/user/project/" + id)
         .then((res) => {
             console.log(res);
@@ -84,6 +95,20 @@ class Project extends Component {
         })
     }
 
+    handleMessageClick = (e) => {
+        e.preventDefault();
+        if(this.state.msgClicked === false) {
+            this.setState({
+                msgClicked: true
+            })
+        }
+        else {
+            this.setState({
+                msgClicked: false
+            })
+        }
+    }
+
     render() {
         return (
             <div>
@@ -104,12 +129,31 @@ class Project extends Component {
 
 
                         <h6 className="small-headers">Contact</h6>
+                        
                         <button className="icons" onClick={this.sendMail}>
                             <i className="fa fa-2x fa-envelope-o"></i>
                         </button>
-                        <a className="icons" href="#">
+                        <button className="icons" onClick={this.handleMessageClick}>
                             <i className="fa fa-2x fa-comments"></i>
-                        </a>
+                        </button>
+
+                        {this.state.msgClicked ? (
+                            <div className="message-area">
+                            <form  id="usrform">
+                                From: <span className="from-user">{this.state.username}</span>
+                                <textarea rows="4" cols="50" name="message" form="usrform"/>
+                                <br/>
+                                <button>Send</button>
+                            </form>
+                            
+                            </div>
+
+                        )
+                        :
+                        (
+                            <div></div>
+                        )}
+                        
                     </Col>
 
 

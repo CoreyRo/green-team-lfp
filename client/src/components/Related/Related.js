@@ -35,7 +35,7 @@ class Related extends Component {
                             // To Do: Update the propper tags for view and follow
                             <Card id="related-header" key={e._id} title={e.username}
                             subtitle={e.firstName + ' ' + e.lastName}
-                            text={e.skills[0] + ", " + e.skills[1] + ", " + e.skills[2]}
+                            text={e.skills[0] + ", " + e.skills[1] + "..."}
                             firstText={"View Profile"} secondText={"Follow"} />
                         ))
                         :

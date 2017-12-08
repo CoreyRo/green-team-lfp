@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import axios from 'axios';
-import { Link } from 'react-router-dom'
 import "./Project-View.css";
 
 class Project extends Component {
@@ -22,9 +21,12 @@ class Project extends Component {
         userSkills: [],
         desiredSkills: [],
         userId: "",
+        myId: "",
         message: "",
         msgClicked: false,
-        username: ""
+        username: "",
+        request: false,
+        sentmsg: false
 
     }
 
@@ -43,6 +45,9 @@ class Project extends Component {
             .then((res) =>
             {
                 console.log(res)
+                this.setState({
+                    request: true
+                })
             })
         })
 
@@ -64,7 +69,8 @@ class Project extends Component {
         axios.get("/api/user/myprofile/")
         .then((res) => {
             this.setState({
-                username: res.data.username
+                username: res.data.username,
+                myId: res.data._id
             })
 
         })
@@ -89,11 +95,17 @@ class Project extends Component {
                     about: res.data.about,
                     userSkills: res.data.skills
                 })
-
-                console.log("Full state", this.state)
             })
         })
     }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+    };
+
 
     handleMessageClick = (e) => {
         e.preventDefault();
@@ -107,6 +119,25 @@ class Project extends Component {
                 msgClicked: false
             })
         }
+    }
+
+    handleMessageSend = (e) => {
+        e.preventDefault();
+        axios.post("/api/user/messages", {
+            senderId: this.state.myId,
+            userId: this.state.userId,
+            projectId: this.state.projectId,
+            senderUsername: this.state.username,
+            text: this.state.message
+        })
+        .then((res)=> {
+            console.log(res)
+            this.setState({
+                message: "",
+                sentmsg: true
+            })
+        })
+
     }
 
     render() {
@@ -129,22 +160,41 @@ class Project extends Component {
 
 
                         <h6 className="small-headers">Contact</h6>
-                        
+
                         <button className="icons" onClick={this.sendMail}>
-                            <i className="fa fa-2x fa-envelope-o"></i>
+                            <i className="fa fa-lg fa-paper-plane"></i>
                         </button>
                         <button className="icons" onClick={this.handleMessageClick}>
-                            <i className="fa fa-2x fa-comments"></i>
+                            <i className="fa fa-lg fa-comments"></i>
                         </button>
+                        {this.state.request ? (
+                            <div>
+                            <h6 className="message-area">A request to join has been sent to the project owner!</h6>
+                            </div>
+                        )
+                        :
+                        (
+                            <div></div>
+                        )}
 
                         {this.state.msgClicked ? (
                             <div className="message-area">
-                            <form  id="usrform">
+                            <form  id="usrform" onChange={this.handleInputChange} >
                                 From: <span className="from-user">{this.state.username}</span>
-                                <textarea rows="4" cols="50" name="message" form="usrform"/>
+                                <textarea rows="4" cols="50" name="message" form="usrform" onChange={this.handleInputChange} />
                                 <br/>
-                                <button>Send</button>
+                                <button onClick={this.handleMessageSend}>Send</button>
                             </form>
+                            {this.state.sentmsg ? (
+                                <div>
+                                    <span>You're message has been sent!</span>
+                                </div>
+
+                            )
+                            :
+                            (
+                                <div></div>
+                            )}
                             
                             </div>
 

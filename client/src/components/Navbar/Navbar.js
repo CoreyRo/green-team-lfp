@@ -43,6 +43,9 @@ class Navbar extends Component {
             <li className={window.location.pathname === '/browse/' || window.location.pathname === '/browse' ? 'active nav-item' : 'nav-item'}>
               <Link className='nav-link' to='/browse'>Browse</Link>
             </li>
+            <li className={window.location.pathname === '/inbox/' || window.location.pathname === '/inbox' ? 'active nav-item' : 'nav-item'}>
+              <Link className='nav-link' to='/inbox'>Inbox</Link>
+            </li>
             <li className={window.location.pathname === '/Logout/' ? 'active nav-item' : 'nav-item'}>
               <Link className='nav-link' to='/Logout'>Logout</Link>
             </li>

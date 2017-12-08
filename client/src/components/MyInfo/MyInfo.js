@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Col, Row } from '../Grid'
 import './MyInfo.css'
 
@@ -17,7 +18,7 @@ const MyInfo = props => {
       <h3 className="info-headers">My Projects</h3>
       <Col size="sm-12">
       <div className="myProjects myInfoDiv">
-          {props.state.projects.length >= 1 ? props.state.projects.map((project, i) => <span className='projects' key={i}>{i === props.state.projects.length - 1 ? project.title : project.title + ", "} </span>  
+          {props.state.projects.length >= 1 ? props.state.projects.map((project, i) => <Link to='/project-view' className='projects' key={i}>{project.title}</Link>  
           ) : <p>My Projects...</p>}
       
       </div>
@@ -27,7 +28,7 @@ const MyInfo = props => {
     <h3 className="info-headers">Joined Projects</h3>
       <Col size="sm-12">
       <div className="myJoined myInfoDiv">
-        {props.state.joined.length >= 1 ? props.state.joined.map((join,i) => <span key={i}>{i=== props.state.joined.length - 1 ? join.title : join.title + ", "}</span>  
+          {props.state.joined.length >= 1 ? props.state.joined.map((join, i) => <Link to='/project-view' key={i}>{join.title}</Link>
         ) : <p>Joined Projects...</p>}
       </div>
       </Col>

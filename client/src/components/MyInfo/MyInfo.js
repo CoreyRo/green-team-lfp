@@ -18,7 +18,7 @@ const MyInfo = props => {
       <h3 className="info-headers">My Projects</h3>
       <Col size="sm-12">
       <div className="myProjects myInfoDiv">
-          {props.state.projects.length >= 1 ? props.state.projects.map((project, i) => <Link to='/project-view' className='projects' key={i}>{project.title}</Link>  
+          {props.state.projects.length >= 1 ? props.state.projects.map((project, i) => <Link to={`/project/${project._id}`} className='projects' key={i}>{project.title}</Link>  
           ) : <p>My Projects...</p>}
       
       </div>

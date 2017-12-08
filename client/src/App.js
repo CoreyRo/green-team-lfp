@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/Logout" component={Logout} />
           <Route exact path='/recovery-page' component={ Recovery } />
-          <Route exact path="/project-view" component={Project} />
+          <Route path="/project/" component={Project} />
         </Wrapper>
       </Router>;
   }

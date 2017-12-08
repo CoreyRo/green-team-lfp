@@ -1,0 +1,14 @@
+#forgot-form
+{
+    background-color: #A7C4E5;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px black;
+}
+
+#forgot-title
+{
+    color: white;
+    text-shadow: 1px 1px black;
+    text-align: center;
+}

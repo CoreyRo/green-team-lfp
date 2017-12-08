@@ -24,11 +24,11 @@ class App extends Component {
           <Route exact path="/sign-up" component={Login} />
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/Logout" component={Logout} />
-          <Route exact path="/recovery" component={Recovery} />
+          <Route exact path='/recovery-page' component={ Recovery } />
           <Route path="/project/" component={Project} />
         </Wrapper>
       </Router>;
   }
 }
 
-export default App;
+export default App

@@ -10,7 +10,7 @@ module.exports = {
 		db.User.findOne({ _id: req.user._id})
 		.populate('projects')
 			.exec(function (err, popRes){
-				if (err) return handleError(err);
+				if (err) console.log(err);
 				console.log(popRes)
 			})
 		.then((result) => {

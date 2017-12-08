@@ -11,6 +11,7 @@ import Splash from "./pages/Splash";
 import Logout from "./components/Logout";
 import Project from "./pages/Project-View";
 import Recovery from './pages/Recovery';
+import Join from './components/Join'
 import Inbox from "./pages/Inbox";
 
 

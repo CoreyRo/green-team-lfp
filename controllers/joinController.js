@@ -47,14 +47,16 @@ module.exports =
     }, 
     updateGroup: function(req, res)
     {
-        temp = res
+        console.log("body ", req.body)
+        console.log("params ", req.params)
         db.Post
-        .findOneAndUpdate({ _id: req.params.id }, { joined:[...res._id] })
+        .findOneAndUpdate({ _id: req.body.projectOwner }, {$set:{ joined: [...req.body.applicant]}})
         .then(dbModel =>
         {
+            console.log("Successful")
             console.log(model)
         })
-        .catch(err => resp.status(422).json(err));
+        .catch(err => res.status(422).json(err));
 
       }
 }

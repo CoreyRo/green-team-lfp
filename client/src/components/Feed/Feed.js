@@ -9,27 +9,59 @@ class Feed extends Component {
     
     state = 
     { 
-        posts: []
+        posts: [],
+        page: 1,
+        pageCount: null,
+        count: null
         
     }
 
     componentDidMount() {
-        axios.get("/api/user/browse")
-        .then((res) => {
-            let data = res.data;
-            this.setState({
-                posts: data
-            });
+        this.getProjects()
+        
+    }
+    getProjects = (e) => {
+        axios.get("/api/user/browse/page/" + this.state.page)
+            .then((res) => {
+                console.log("Page", this.state.page)
+                console.log("Post data", res.data)
+                this.setState({
+                    posts: res.data.results,
+                    pageCount: res.data.pageCount,
+                    count: res.data.count
+                });
 
-            console.log(this.state.posts)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+                console.log("POSTS STATE", this.state)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
     }
 
+    nextPage = (e) =>{
+        
+        this.setState({ page: this.state.page + 1 }, () => this.getProjects())
+    }
+    prevPage = (e) => {
+
+        this.setState({ page: this.state.page + 1 }, () => this.getProjects())
+    }
+
+    pageButtons = (e) => {
+        if (this.state.pageCount >= this.state.page) {
+            return (<button onClick={this.nextPage}>NEXT</button>)
+        }
+        else if (this.state.pageCount <= this.state.page) {
+            return (<button onClick={this.prevPage}>NEXT</button>)
+        }
+        else{
+            <h1>BROKE</h1>
+        }
+    }
 
     render() {
+       
         return (
 
             <div id="main-feed">
@@ -48,6 +80,7 @@ class Feed extends Component {
                 :
                 (<h1 id="nan">No Projects Available</h1>)
                 }
+                {this.pageButtons}
             </div> 
         )
     }

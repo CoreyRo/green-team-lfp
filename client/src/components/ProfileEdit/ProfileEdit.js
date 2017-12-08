@@ -46,21 +46,14 @@ const ProfileEdit = props =>{
 
             <label htmlFor='skillInput'>Skills:</label>
             <input
-              value={prop.skillInput}
+              value={props.skillInput}
               onChange={props.handleInputChange}
               name='skillInput'
               type='text'
               className='form-control'
-              placeholder='Enter a skill'
+              placeholder="Ex: javascript, node, react, etc.."
               id='skillInput'
             />
-            <button
-              type='submit'
-              
-              onClick={props.handleArraySubmit}
-            >
-            Add more skills
-            </button>
 
             <button
             type='submit'

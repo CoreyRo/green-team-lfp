@@ -128,6 +128,7 @@ class Project extends Component {
             userId: this.state.userId,
             projectId: this.state.projectId,
             senderUsername: this.state.username,
+            projectTitle: this.state.title,
             text: this.state.message
         })
         .then((res)=> {
@@ -157,10 +158,7 @@ class Project extends Component {
                         {this.state.desiredSkills.map((e,index) =>
                             <span className="skills" key={index}>{e}</span>
                         )}
-
-
                         <h6 className="small-headers">Contact</h6>
-
                         <button className="icons" onClick={this.sendMail}>
                             <i className="fa fa-lg fa-paper-plane"></i>
                         </button>
@@ -205,7 +203,6 @@ class Project extends Component {
                         )}
                         
                     </Col>
-
 
                     <Col size="md-5 outer-col">
                     <div className="col-right-col">

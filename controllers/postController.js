@@ -81,6 +81,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+  findUserById: function(req, res) {
+    db.User
+      .findOne({ _id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   findBySaved: function(req, res) {
     db.Post
       .findBySaved(req.params.saved)

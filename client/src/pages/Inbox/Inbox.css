@@ -5,10 +5,35 @@
 .sender {
     padding: 20px;
     display: inline-block;
+    border-right: 1px solid black;
 }
 
 .sent-text {
     padding: 20px;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+.inbox-header {
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 35pt;
+    display: inline-block;
+    border-bottom: 4px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+}
+
+.reply-btn {
+    margin-left: 5%!important;
+}
+
+.project-t {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.from-username {
+    color: #fff;
 }

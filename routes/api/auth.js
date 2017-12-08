@@ -25,5 +25,9 @@ router
   .post(posts.updateMessages)
   .get(posts.findMessages)
 
+router
+  .route("/reply/:id")
+  .get(auth.viewReply)
+
 
 module.exports = router

@@ -6,6 +6,7 @@ const messageSchema = new Schema({
   senderId: { type: String, required: true },
   senderUsername: { type: String, required: true },
   projectId: { type: String, required: true },
+  projectTitle: { type: String, required: true },
   text: { type: String, required: true }
 });
 

@@ -17,11 +17,8 @@ class Browse extends Component {
         show: false
     }
 
-<<<<<<< HEAD
-=======
     //State is not supposed to be mutalbe like this, gotta change the 'this.state.index on line 20
     
->>>>>>> master
     handlePostClick = (e) => {
         e.preventDefault();
         if(this.state.create === false) {

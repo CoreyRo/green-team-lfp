@@ -44,12 +44,6 @@ class MyProjects extends Component {
 
     }
 
-    handleProjectView = (e) => {
-        e.preventDefault();
-        console.log(this)
-        // window.location.replace("/project-view/")
-    }
-
     render() {
         return (
             <div>
@@ -60,8 +54,8 @@ class MyProjects extends Component {
                         <div className="col-myProjects">
                             <h4 className="myProject-titles">{this.state.projects.title}</h4>
                             <h6>Posted By: <Link to={"/myprofile/"} className="project-username">{this.state.username}</Link></h6>
-                            <p>Project Details: {this.state.projects.description}</p>
-                            <button className="btn view-btn" onClick={this.handleProjectView}>View Project</button>
+                            <p className="proj-details">Project Details: {this.state.projects.description}</p>
+                            <Link className="btn view-btn" to={"/project/" + this.state.projects._id}>View Project</Link>
                         </div>
                     )
                     :

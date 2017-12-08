@@ -28,14 +28,6 @@ class Feed extends Component {
         })
     }
 
-    handleProfileView = (e) => {
-
-    }
-
-    handleProjectView = (e) => {
-        
-    }
-
 
     render() {
         return (
@@ -49,8 +41,8 @@ class Feed extends Component {
                     <h6>Posted By: <span className="username-post">{e.author}</span></h6>
                     <h6>Members Needed: <span className="username-post">{e.members}</span></h6>
                     <p className="proj-details">Project Details: <span>{e.description}</span></p>
-                    <button className="btn view-btn" onClick={this.handleProjectView}>View Project</button>
-                    <button className="btn view-btn" onClick={this.handleProfileView}>View Profile</button>
+                    <Link className="btn view-btn" to={"/project/" + e._id}>View Project</Link>
+                    <Link className="btn view-btn" to={"/profile/" + e.userId}>View Profile</Link>
                 </div>
                 ))
                 :

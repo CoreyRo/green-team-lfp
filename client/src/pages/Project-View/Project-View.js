@@ -1,30 +1,86 @@
 import React, { Component } from 'react';
-import { Row, Col } from "../../components/Grid";
+import { Row, Col, Container } from "../../components/Grid";
 import Navbar from '../../components/Navbar';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import "./Project-View.css";
 
 class Project extends Component {
 
     state = {
+        projectId: "",
         title: "",
         author: "",
         description: "",
-        user: []
+        members: "",
+        firstName: "",
+        lastName: "",
+        about:"",
+        email: "",        
+        userSkills: [],
+        desiredSkills: [],
+        userId: ""
+
+    }
+
+    sendMail = (e) =>
+    {
+        e.preventDefault()
+        let applyingUser
+        axios.get('/api/user/myProfile/').then(user =>
+        {
+            applyingUser = user.data
+            axios.post('/api/join/join-group',
+            {
+                projectOwner: this.state,
+                applyingUser: applyingUser
+            })
+            .then((res) =>
+            {
+                console.log(res)
+            })
+        })
+
 
     }
 
 
+
     //Cant mutate the state like this, gotta use this.setState({})
     componentDidMount() {
-        axios.get("/api/user/project")
+        //grab the id off of the window location and store it in state.
+        let urlID = window.location.href;
+        let getId = urlID.split("/project/");
+        let id = getId[1];
+        this.setState({
+            projectId: id
+        })
+
+        axios.get("/api/user/project/" + id)
         .then((res) => {
             console.log(res);
-            this.state.user = res;
-            console.log("This.state.user ", this.state.user);
+            this.setState({
+                userId: res.data.userId,
+                author: res.data.author,
+                title: res.data.title,
+                description: res.data.description,
+                members: res.data.members,
+                desiredSkills: res.data.desiredSkills
+            })
+            axios.get("/api/user/profile/" + this.state.userId)
+            .then((res) => {
+                this.setState({
+                    email: res.data.email,
+                    firstName: res.data.firstName,
+                    lastName: res.data.lastName,
+                    about: res.data.about,
+                    userSkills: res.data.skills
+                })
 
+                console.log("Full state", this.state)
+            })
         })
     }
 
@@ -33,46 +89,47 @@ class Project extends Component {
             <div>
                 <Navbar />
                 <Header />
+                <Container>
                 <Row>
-                <Col size="md-6 left-col">
-                <h3>Project Title</h3>
-                <i class="fa fa-lg fa-thumbs-o-up like-btn" aria-hidden="true">Like</i>
-                <i class="fa fa-lg fa-archive save-btn" aria-hidden="true">Save</i>
-                    <h6 className="small-headers">Details</h6>
-                    <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <h6 className="small-headers">Skills Desired</h6>
-                    <span className="skills">Javascript</span>
-                    <span className="skills">React</span>
-                    <span className="skills">Node</span>
-                    <span className="skills">Passport</span>
-
-                    <h6 className="small-headers">Contact</h6>
-                    <a className="icons">
-                        <i className="fa fa-2x fa-envelope-o"></i>
-                    </a>
-                    <a className="icons" href="#">
-                        <i className="fa fa-2x fa-comments"></i>
-                    </a>
-                </Col>
+                    <Col size="md-6 left-col">
+                    <h3>{this.state.title}</h3>
+                    <i className="fa fa-lg fa-thumbs-o-up like-btn" aria-hidden="true">Like</i>
+                    <i className="fa fa-lg fa-archive save-btn" aria-hidden="true">Save</i>
+                        <h6 className="small-headers">Details</h6>
+                        <p className="description">{this.state.description}</p>
+                        <h6 className="small-headers">Skills Desired</h6>
+                        {this.state.desiredSkills.map((e,index) =>
+                            <span className="skills" key={index}>{e}</span>
+                        )}
 
 
-                <Col size="md-5 outer-col">
-                <div className="col-right-col">
-                <h3>Project Owner: <a className="username" href="/profile/">Username</a></h3>
-                    <h6 className="small-headers">Bio</h6>
-                    <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    <h6 className="small-headers">Skills</h6>
-                    <span className="skills">Angular</span>
-                    <span className="skills">C#</span>
-                    <span className="skills">HTML</span>
-                    <span className="skills">CSS</span>
-                    </div>
+                        <h6 className="small-headers">Contact</h6>
+                        <button className="icons" onClick={this.sendMail}>
+                            <i className="fa fa-2x fa-envelope-o"></i>
+                        </button>
+                        <a className="icons" href="#">
+                            <i className="fa fa-2x fa-comments"></i>
+                        </a>
+                    </Col>
 
-                    <div className="col-browse-col">
-                    <a href="/browse">Back To Browsing</a>
-                    </div>
-                </Col> 
+
+                    <Col size="md-5 outer-col">
+                    <div className="col-right-col">
+                    <h3>Project Owner: <a className="username" href="/profile/">{this.state.author}</a></h3>
+                        <h6 className="small-headers">Bio</h6>
+                        <p className="description">{this.state.about}</p>
+                        <h6 className="small-headers">Skills</h6>
+                        {this.state.userSkills.map((e,index) =>
+                        <span className="skills" key={index}>{e}</span>
+                        )}
+                        </div>
+
+                        <div className="col-browse-col">
+                        <a href="/browse">Back To Browsing</a>
+                        </div>
+                    </Col> 
                 </Row>
+                </Container>
                 <Footer />
             </div>
         )

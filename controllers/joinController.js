@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const nodemailer = require('nodemailer')
 const db = require("../models");
+const axios = require('axios')
 
 
 
@@ -9,7 +10,8 @@ module.exports =
 {
     sendMail: function(req, res)
     {
-        sendTo = req.body
+        let { applyingUser } = req.body
+        let { projectOwner } = req.body
 
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
@@ -20,13 +22,17 @@ module.exports =
             }
 
         });
+        message = 'Hello, ' + projectOwner.firstName + ' ' + applyingUser.username +
+            ' would like to join your group. His skills are: ' +
+            applyingUser.skills  + ". Would you like to add him to your group?" +
+            "https://www.projectlfg.herokuapp.com/join/apply-for-group/" + projectOwner.projectId
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '"LFG LFG" <LookingForProjectGreenTeam@gmail.com>', // sender address
-            to: sendTo.email, // list of receivers
-            subject: 'Hello ✔', // Subject line
-            text: 'Hello world?' // plain text body
+            from: '"LFG" <LookingForProjectGreenTeam@gmail.com>', // sender address
+            to: projectOwner.email, // list of receivers
+            subject: "Someone Wants to Join Your Group!", // Subject line
+            text: message // plain text body
         };
 
         // send mail with defined transport object
@@ -37,5 +43,26 @@ module.exports =
             res.json(info);
 
         });
-    }
+    }, 
+    updateGroup: function(req, response) {
+        console.log("here")
+        let temp
+        axios.get('/api/user/myprofile/')
+        .then(res =>
+        {
+            console.log(res.data)
+            temp = res
+            // db.Post
+            // .findOneAndUpdate({ _id: req.params.id }, { joined:[...res._id] })
+            // .then(dbModel => 
+            // {
+            // })
+            // .catch(err => response.status(422).json(err));
+        })
+        .catch((err)=>
+        {
+            console.log(err)
+        })
+        
+      }
 }

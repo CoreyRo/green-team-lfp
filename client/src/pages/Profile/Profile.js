@@ -46,6 +46,7 @@ class Profile extends Component {
           email: data.email,
           id: data._id,
           skills: data.skills,
+          skillInput: data.skills.toString(),
           joined: data.joined,
           projects: data.projects,
           userId: data._id,
@@ -63,6 +64,14 @@ class Profile extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+
+    let arSkills = this.state.skillInput.split(",");
+    let length = arSkills.length;
+    for (var i = 0; i < length; i++) {
+      arSkills[i] = arSkills[i].trim();
+    }
+
+
     let queryString = "/api/user/myProfile/";
     this.setState({
       about: this.state.about || "",
@@ -71,7 +80,7 @@ class Profile extends Component {
       email: this.state.email,
       projects: this.state.projects || null,
       joined: this.state.joined || null,
-      skills: this.state.skills || null,
+      skills: arSkills,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       edit: !this.state.edit
@@ -117,15 +126,6 @@ class Profile extends Component {
       .catch(err => console.log("ImgUp err", err));
   };
 
-  handleArraySubmit = event => {
-    event.preventDefault();
-    this.state.skills.push(this.state.skillInput);
-    this.setState({
-      skills: this.state.skills,
-      skillInput: ""
-    });
-  };
-
   editPage = event => {
     event.preventDefault();
     
@@ -146,21 +146,14 @@ class Profile extends Component {
         canEdit: false
       });
     }
-  };
+  }
 
-  removeSkill = event => {
-    this.state.skills.splice("skill" + event.target.id, 1);
-    this.setState({
-      skills: this.state.skills
-    });
-  };
 
   renderPage = () => {
     if (this.state.edit) {
       return (
         <ProfileEdit
           props={this.state}
-          handleArraySubmit={this.handleArraySubmit}
           handleArrayInput={this.handleArrayInput}
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}
@@ -168,7 +161,7 @@ class Profile extends Component {
         />
       );
     } else if (!this.state.edit) {
-      return <MyInfo state={this.state} editPage={this.editPage} />;
+      return <MyInfo deleteProject={this.deleteProject} state={this.state} editPage={this.editPage} />;
     }
   };
 

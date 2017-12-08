@@ -21,6 +21,7 @@ class ViewProfile extends Component {
         username: "",
         displayName: "",
         email: "",
+        imageURL: "",
         pic: "",
         projects: ["Pulled", "From", "Database"],        
         joined: ["Pulled", "From", "Database"],   
@@ -55,6 +56,7 @@ class ViewProfile extends Component {
                 projects: data.projects,
                 imageURL: data.imageURL
             })
+            console.log(this.state)
           
         })
         .catch(err => console.log("PROFILE DIDMOUNT err",err))

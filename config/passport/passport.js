@@ -40,7 +40,7 @@ module.exports = function(passport, user) {
            User.findOne({email})
            .then((user) => {
                if (user) {
-                    return done(null, false, req.flash('error', 'That email is already taken'));
+                    return done(null, false, req.flash('error', 'That email is already taken')[0]);
                } 
                else {
                    var userPassword = generateHash(password);
@@ -64,11 +64,24 @@ module.exports = function(passport, user) {
                     })
                     .catch((err) => {
                         console.log("REGISTER CREATE ERROR:",err)
-                        return res.json(err)
+                        return res.status(400).json({
+                            _status: 400,
+                            _content: {
+                                message: err.toString()
+                            }
+                        });
                     })
                }
            })
-           .catch(err => console.log("REGISTER ERROR: ", err))
+           .catch(err => {
+               console.log("REGISTER ERROR: ", err)
+               return res.status(400).json({
+                _status: 400,
+                _content: {
+                    message: err.toString()
+                }
+            });
+            })
        }
    ));
 
@@ -93,13 +106,13 @@ module.exports = function(passport, user) {
                }
                if (!isValidPassword(user.password, password)) {
 
-                   return done(null, false, req.flash('error', 'Incorrect Password'));
+                   return done(null, false, req.flash('error', 'Incorrect Password')[0]);
                }
                return done(null, user);
     
            }).catch(function(err) {
                console.log("Error:", err);
-               return done(null, false, req.flash('error', 'Something went wrong with your sign in'));   
+               return done(null, false, req.flash('error', 'Something went wrong with your sign in')[0]);   
            });
        } 
    ));   

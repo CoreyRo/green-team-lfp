@@ -43,26 +43,18 @@ module.exports =
             res.json(info);
 
         });
+
     }, 
-    updateGroup: function(req, response) {
-        console.log("here")
-        let temp
-        axios.get('/api/user/myprofile/')
-        .then(res =>
+    updateGroup: function(req, res)
+    {
+        temp = res
+        db.Post
+        .findOneAndUpdate({ _id: req.params.id }, { joined:[...res._id] })
+        .then(dbModel =>
         {
-            console.log(res.data)
-            temp = res
-            // db.Post
-            // .findOneAndUpdate({ _id: req.params.id }, { joined:[...res._id] })
-            // .then(dbModel => 
-            // {
-            // })
-            // .catch(err => response.status(422).json(err));
+            console.log(model)
         })
-        .catch((err)=>
-        {
-            console.log(err)
-        })
-        
+        .catch(err => resp.status(422).json(err));
+
       }
 }

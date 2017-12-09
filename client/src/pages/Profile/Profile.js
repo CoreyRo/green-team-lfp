@@ -203,8 +203,8 @@ class Profile extends Component {
 										</Col>
 									</div>
 								</Col>
-								<Col size="sm-2" />
-								<Col size="sm-4">{this.renderPage()}</Col>
+								<Col size="sm-1" />
+								<div className="col-sm-7">{this.renderPage()}</div>
 							</Row>
 						</Col>
 					</Row>

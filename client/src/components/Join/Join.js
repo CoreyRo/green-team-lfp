@@ -91,6 +91,13 @@ class Join extends Component
     runAxioscalls = () => {
         this.getProjectArr()
         this.getJoinedArr()
+        setTimeout(function(){
+             window.location.replace("/myProfile") 
+            }, 800);
+                
+            
+        
+        
         
     }
 

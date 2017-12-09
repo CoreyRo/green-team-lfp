@@ -121,12 +121,7 @@ class CreatePost extends Component {
                                 <label htmlFor="projectDetails">Project Details</label>
                                 <textarea className="form-control" id="projectDetails" rows="3" name="description" onChange={this.handleInputChange} ></textarea>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputFile">Project Logo (optional)</label>
-                                <input type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" />
-                                <small id="fileHelp" className="form-text text-muted">Enter in a company logo or picture if desired this will display with your project</small>
-                            </div>
-
+                            
                             <button type="submit" className="btn btn-primary post-submit" onClick={this.handleFormSubmit}>Submit</button>
                         </form>
                     </Col>

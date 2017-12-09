@@ -3,8 +3,7 @@ body{
 }
 
 .profileHead{
-  margin-top: -50px;
-  margin-bottom: 50px;
+  
   
 }
 .profileHeadText{
@@ -13,13 +12,11 @@ body{
   text-shadow: 1px 1px 5px #161A2D;
   font-size: 58pt;
   border-bottom: 5px solid #FFF;
-
-}
-ul{
-  margin-top: 20px;
+  margin: -40px 0 50px 0;
 }
 
-.profileCont{
+.jumbotron{
+  
   color: #000000;
   text-shadow: none;
   background-color: #A7C4E5 !important;

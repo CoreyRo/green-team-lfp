@@ -8,6 +8,16 @@
 
 }
 
+#my-title-feed
+{
+    color: rgb(22, 113, 199) !important;
+    text-align: center;
+    font-size: 25px !important;
+    text-shadow: 1px 1px 1px black !important;
+    font-size: 28pt !important;
+    font-weight: bold;
+}
+
 .my-project-header {
     color: #fff;
     font-family: 'Josefin Sans', sans-serif;
@@ -19,7 +29,7 @@
 }
 
 #scroll {
-    background-color: #A7C4E5;
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     /* border-radius: 25px; */
     box-shadow: 2px 6px 2px black;

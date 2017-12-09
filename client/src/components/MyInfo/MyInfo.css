@@ -1,3 +1,7 @@
+body{
+  overflow-wrap: normal;
+  overflow-wrap: break-word;
+}
 img{
     margin: 0 auto !important;
 }
@@ -17,13 +21,17 @@ img{
   }
   .myProjects{
     height: auto;
-
+  }
+  .aboutMeTxt{
+    color: #000;
+    font-size: 14pt;
+    font-family: 'Roboto', sans-serif;
   }
 
   .projects, .joined{
     border-radius: 10px;
-    font-size: 14pt;
-    border-radius: 10px;
+    font-size: 18pt;
+    border-radius: 8px;
     padding: 5px 8px 5px 8px;
     margin:10px 5px 10px 5px;
     background-color: #161A2D;
@@ -47,21 +55,15 @@ img{
   }
 
   .myInfoDiv{
-    text-overflow: ellipsis;
-    word-break:break-all;
     margin: 10px 0px 50px -20px;
-    border-radius: 3px;
     color: #FFF !important;
-    font-family: 'Kanit', sans-serif !important;
-    text-shadow: 1px 1px 5px #161A2D;
-    font-size: 18pt;
+    font-family: 'Kanit', sans-serif;
   }
 
 .infoContainer{
   border: 2px solid #161A2D;
   color: #FFF;
   word-break:break-all;
-  overflow: auto;
   border-radius: 5px;
   background-color: #161A2D;
   box-shadow: 3px 5px 10px 3px #000;

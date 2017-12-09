@@ -24,7 +24,7 @@
 
 .editProfileButton{
   border: 2px solid #000;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #A7C4E5 !important;
   /* IE10+ */
   background-image: -ms-linear-gradient(top, #A7C4E5 0%, #7B90A8 100%);

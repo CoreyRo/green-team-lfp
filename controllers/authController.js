@@ -36,11 +36,12 @@ module.exports = {
 		.populate('joined')
 			.exec(function (err, popRes) {
 				if (err) return res.status(400).json({
-					_status: 400,
-					_content: {
-						message: err.toString()
-					}
-				});
+                    _status: 400,
+                    _content: {
+                        message: err.toString()
+                    }
+                });
+				console.log(popRes)
 			})
 		.then(function(result) {
 			return res.json(result)

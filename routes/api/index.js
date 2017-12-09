@@ -4,6 +4,7 @@ const userRoutes = require("./user");
 const postRoutes = require("./post");
 const joinRoutes = require('./join-group')
 const recoveryRoutes = require("./recovery");
+const mailerRoutes = require('./mailer')
 
 //appends /user to routes
 //route looks like /api/user/
@@ -20,5 +21,7 @@ router.use("/recovery", recoveryRoutes);
 router.use("/user", authRoutes);
 
 
+
+router.use('/mailer', mailerRoutes)
 
 module.exports = router

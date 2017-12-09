@@ -1,7 +1,8 @@
 module.exports = {
     Post: require("./Post"),
     User: require("./User"),
-    Message: require("./Message")
+    Message: require("./Message"),
+    Mailer: require('./Mailer')
   };
   
 

@@ -15,10 +15,10 @@ const MyInfo = props => {
 
 				<Row>
 					<h3 className="info-headers">My Projects</h3>
-					<div className="col-sm-12 myProjects myProjectDiv">
+					<div className="text-center myProjects myProjectDiv">
 					<Row>
 						{props.state.projects.length >= 1 ? props.state.projects.map((project, i) =>
-						<div key={i} className="projdiv col-sm-4"><Link to={`/project/${project._id}`} className='projects'>{project.title}
+						<div key={i} className="projdiv projects col-sm-4"><Link to={`/project/${project._id}`} >{project.title}
 						</Link></div>  
 					) : <p>My Projects...</p>}
 					</Row>
@@ -27,9 +27,9 @@ const MyInfo = props => {
 
 				<Row>
 					<h3 className="info-headers">Joined Projects</h3>
-					<div className="col-sm-12 myProjects myProjectDiv">
+					<div className="text-center myProjects myProjectDiv">
 						{props.state.joined.length >= 1 ? props.state.joined.map((join, i) => 
-						<div key={i} className="projdiv col-sm-4"><Link to={`/project/${join._id}`} className='projects'>{join.title}
+						<div key={i} className="projdiv projects col-sm-4"><Link to={`/project/${join._id}`}>{join.title}
 						</Link></div>
 						) : <p>Joined Projects...</p>}
 					</div>

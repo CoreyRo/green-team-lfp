@@ -1,6 +1,5 @@
 body{
   overflow-wrap: normal;
-  overflow-wrap: break-word;
 }
 img{
     margin: 0 auto !important;
@@ -41,7 +40,7 @@ img{
     border-radius: 10px;
     font-size: 14pt;
     padding: 5px 8px 5px 8px;
-        
+    overflow-wrap: normal;
     background-color: #161A2D;
     -webkit-box-shadow: 3px 5px 10px 3px #000;
     box-shadow: 3px 5px 10px 3px #000;

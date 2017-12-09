@@ -16,12 +16,14 @@ router.use("/user", postRoutes);
 
 router.use("/join", joinRoutes)
 
+router.use('/mailer', mailerRoutes)
+
 router.use("/recovery", recoveryRoutes);
 
 router.use("/user", authRoutes);
 
 
 
-router.use('/mailer', mailerRoutes)
+
 
 module.exports = router

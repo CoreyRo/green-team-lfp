@@ -31,11 +31,11 @@ const LoginForm = props => {
             </div>
             
 
-            <button type="submit" className="btn" onClick={props.handleFormSubmit} id="login-submit">Sign-In</button>
+            <button type="submit" className="btn login-btn" onClick={props.handleFormSubmit} id="login-submit">Sign-In</button>
 
-            <Link type="submit" className="btn"  to="/sign-up" id="register-submit">Register</Link>
+            <Link type="submit" className="btn login-btn"  to="/sign-up" id="register-submit">Register</Link>
 
-            <Link type="submit" className="btn" to="/user"  id="forgot-submit">Forgot Password?</Link>
+            <Link type="submit" className="btn login-btn" to="/user"  id="forgot-submit">Forgot Password?</Link>
         </form>
 
     </div>

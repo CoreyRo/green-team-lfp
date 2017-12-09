@@ -11,9 +11,9 @@ class Splash extends Component {
     render() {
         console.log(localStorage.getItem("loggedIn"))
         return (
-                <div>
+                <div className=''>
                     <img src={Pic} alt="project-lfp" className="img-fluid"/>
-                    <div className="splash-btn">
+                <div className="splash-btn">
                     <Link to={ localStorage.getItem("loggedIn") ? `/myProfile` : `/sign-in`} >
                     <i className="fa fa-3x fa-user btn-icon" aria-hidden="true"></i>
                     </Link>

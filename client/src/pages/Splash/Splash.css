@@ -10,9 +10,27 @@
     border-radius: 50%;
     border: 2px solid #000000;
     overflow: hidden;
-    background: #fff;
-    box-shadow: 0 0 3px gray;
-    box-shadow: inset  0px 0px 15px rgba(0, 0, 0, 0.9);
+
+
+    background-color: #161A2D;
+    -webkit-box-shadow: 3px 5px 10px 3px #000;
+    box-shadow: 3px 5px 10px 3px #000;
+    background-image: -o-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #242B4A), color-stop(100, #161A2D));
+    background-image: -webkit-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#242B4A), to(#161A2D));
+    background-image: linear-gradient(to bottom, #242B4A 0%, #161A2D 100%);
+}
+
+.splash-btn:hover{
+    background-color: #2389c2;
+    -webkit-box-shadow: 3px 5px 10px 3px #000;
+    box-shadow: 3px 5px 10px 3px #000;
+    background-image: -o-linear-gradient(top, #49b7f5 0%, #2389c2 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #49b7f5), color-stop(100, #2389c2));
+    background-image: -webkit-linear-gradient(top, #49b7f5 0%, #2389c2 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#49b7f5), to(#2389c2));
+    background-image: linear-gradient(to bottom, #49b7f5 0%, #2389c2 100%);
 }
 
 .btn-icon {
@@ -20,6 +38,6 @@
     text-decoration: none;
     position: absolute;
     text-shadow: 3px 2px 4px rgb(80, 79, 79);
-    top: 15%;
-    left: 20%;
+    top: 20%;
+    left: 25%;
 }

@@ -48,7 +48,14 @@ module.exports = {
 		})
 		.catch(err => console.log("FIND ONE err ", err.body))
 	},
-
+	viewReply: function(req,res) {
+		console.log("req.params.id", req.params.id)
+		db.User.findOne({ _id: req.params.id})
+		.then(function(result) {
+			return res.json(result)
+		})
+		.catch(err => console.log("FIND ONE err ", err.body))
+	},
 // Post login
 	doLogin : function(req, res) {
 		passport.authenticate('local-signin')(req, res, function () {

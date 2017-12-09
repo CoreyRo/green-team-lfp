@@ -5,6 +5,7 @@
 .sender {
     padding: 20px;
     display: inline-block;
+    border-right: 1px solid black;
 }
 
 .sent-text {
@@ -12,3 +13,61 @@
     border-left: 1px solid black;
     border-bottom: 1px solid black;
 }
+
+.inbox-header {
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 35pt;
+    display: inline-block;
+    border-bottom: 4px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+}
+
+.reply-btn {
+    margin-left: 5%!important;
+}
+
+.project-t {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.from-username {
+    color: #fff;
+
+}
+
+.col-recipient {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.from-user {
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.text-area {
+    width: 100%;
+    min-height: 75px;
+    display: block;
+}
+
+.reply-btnn {
+    padding: 25px;
+    margin-bottom: 0!important;
+    margin-left: -25px;
+}
+
+.delete-btn {
+    color: rgb(207, 3, 3);
+}
+
+.inbox-wrapper {
+    max-height: 100vh;
+    overflow: scroll;
+}
+

@@ -34,7 +34,12 @@ module.exports = {
 		db.User.findOne({ _id: req.params.id})
 		.populate('projects')
 			.exec(function (err, popRes) {
-				if (err) return handleError(err);
+				if (err) return res.status(400).json({
+                    _status: 400,
+                    _content: {
+                        message: err.toString()
+                    }
+                });
 				console.log(popRes)
 			})
 		.then(function(result) {

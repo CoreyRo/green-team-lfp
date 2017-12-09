@@ -50,7 +50,7 @@ module.exports =
         console.log("body ", req.body)
         console.log("params ", req.params)
         db.Post
-        .findOneAndUpdate({ _id: req.body.projectOwner }, {$set:{ joined: [...req.body.applicant]}})
+        .findOneAndUpdate({ _id: req.body.projectId }, {$set:{ joined: [...req.body.applicant]}})
         .then(dbModel =>
         {
             console.log("Successful")

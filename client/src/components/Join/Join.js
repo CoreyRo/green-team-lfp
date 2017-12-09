@@ -24,7 +24,7 @@ class Join extends Component
 
         arr.push(projId)
 
-        axios.post('/api/join/apply-for-group/' + id, { projectOwner: id, applicant: arr })
+        axios.post('/api/join/apply-for-group/' + id, { projectId: id, applicant: arr })
         .then(res =>
         {
             console.log(res)

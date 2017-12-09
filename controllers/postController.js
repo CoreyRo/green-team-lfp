@@ -5,7 +5,7 @@ module.exports = {
 
   findAll: function(req, res) {
     let aggregate = db.Post.aggregate()
-    let options = { page:req.params.num, limit:2}
+    let options = { page:req.params.num, limit:5}
     aggregate.match({})
     db.Post.aggregatePaginate(aggregate, options, function (err, results, pageCount, count) {
       if (err) {

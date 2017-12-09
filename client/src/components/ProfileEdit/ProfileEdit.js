@@ -3,7 +3,7 @@ import './ProfileEdit.css'
 
 
 const ProfileEdit = props =>{
-  console.log(props.prop)
+
   let prop = props.props
   return (
     <div className="row">

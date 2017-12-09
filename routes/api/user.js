@@ -30,9 +30,6 @@ router
   .route("/browse/get-all")
   .get(posts.findThreeUsers)
 
-
-
-
 module.exports = router;
 
 

@@ -14,6 +14,7 @@ class Inbox extends Component {
         message: "",
         senderId: "",
         projName: "",
+        projectId: "",
         username: "",
         sendUser: ""
     }
@@ -59,14 +60,23 @@ class Inbox extends Component {
                 replyClicked: false
             })
         }
-        this.setState({
-            senderId: e.target.id,
-            projName: e.target.dataproj
-        })
 
-        axios.get("/api/user/reply/" + this.state.senderId)
-        .then((res) => {
-            console.log("user", res);
+        let info = e.target.id.split(",");
+        let senderId = info[0];
+        let projName = info[1];
+        let projectId = info[2];
+        this.setState({
+            senderId: senderId,
+            projName: projName,
+            projectId: projectId
+        }, () => {
+   
+            axios.get("/api/user/reply/" + this.state.senderId)
+            .then((res) => {
+                this.setState({
+                    sendUser: res.data.username
+                })
+            })
         })
 
     }
@@ -74,10 +84,11 @@ class Inbox extends Component {
     handleReplySend = (e) => {
         e.preventDefault();
         axios.post("/api/user/messages", {
-            senderId: this.state.senderId,
-            userId: this.state.id,
+            senderId: this.state.id,
+            userId: this.state.senderId,
             senderUsername: this.state.username,
             projectTitle: this.state.projName,
+            projectId: this.state.projectId,
             text: this.state.message
         })
         .then((res)=> {
@@ -90,6 +101,39 @@ class Inbox extends Component {
                 senderId: ""
             })
         })
+        window.location.reload();
+    }
+
+        handleMessageSend = (e) => {
+        e.preventDefault();
+        axios.post("/api/user/messages", {
+            senderId: this.state.id,
+            userId: this.state.senderId,
+            projectId: this.state.projName,
+            senderUsername: this.state.username,
+            projectTitle: this.state.projName,
+            text: this.state.message
+        })
+        .then((res)=> {
+            this.setState({
+                message: "",
+                sentmsg: true
+            })
+        })
+
+    }
+
+    handleDelete = (e) => {
+        e.preventDefault();
+        let info = e.target.id.split(",");
+        let messageId = info[0];
+        let index = info[1];
+        axios.post("/api/user/delete/" + messageId)
+        .then((res) => {
+            console.log("delete res", res);
+        })
+        window.location.reload();
+
     }
 
     render() {
@@ -100,30 +144,45 @@ class Inbox extends Component {
                 <h1 className="inbox-header">Inbox</h1>
                 {this.state.replyClicked ? 
                 (
-                    <div className="message-area row">
-                    <form  id="usrform" onChange={this.handleInputChange} >
-                        <Col size="md-12 from">
-                        <span className="from-user">From: {this.state.username}</span>
-                        <span className="from-user">Sending To: {this.state.sendUser}</span>
-                        <textarea rows="4" cols="100" name="message" form="usrform" onChange={this.handleInputChange} />
-                        <br/>
-                        <button onClick={this.handleMessageSend}>Send</button>
+                    <div className="row">
+                        <Col size="xs-3 sm-3 md-3 lg-3 xl-3 recipient">
+                        <h6 className="from-user">From: {this.state.username} </h6>
+                        <h6 className="end-user">Sending To: {this.state.sendUser}</h6>
                         </Col>
-                    </form>
+                        <Col size="xs-8 sm-8 md-8 lg-8 xl-8">
+                        <form  id="usrform" onChange={this.handleInputChange} >
+                            <textarea name="message" form="usrform" className="text-area" placeholder="Enter message here..." onChange={this.handleInputChange} />
+                        </form>
+                        </Col>
+                        <Col size="xs-1 sm-1 md-1">
+                            <button className="reply-btnn" onClick={this.handleReplySend}>Send</button>
+                        </Col>
                     </div>
                 )
                 :
                 (
                     <div></div>
                 )}
-                {this.state.messages ? this.state.messages.map(e =>
+                <div className="inbox-wrapper">
+                {this.state.messages ? this.state.messages.map((e, index) =>
                 <div className="row inbox" key={e._id}>
                     <Col size="xs-3 md-3 lg-3 text-center">
                         <h6 className="sender">{e.senderUsername}</h6>
-                        <button id={e.senderId} dataproj={e.projectTitle} className="btn reply-btn" onClick={this.handleReplyButton}><i className="fa fa-lg fa-reply" id={e.senderId} dataproj={e.projectTitle}  aria-hidden="true" onClick={this.handleReplyButton}> Reply</i></button>
+                        <button className="btn reply-btn">
+                            <span className="fa fa-lg fa-reply" id={e.senderId + "," + e.projectTitle + "," + e.projectId + "," + index} onClick={this.handleReplyButton} aria-hidden="true"> Reply</span>
+                        </button>
                     </Col>
                     <Col size="xs-9 sm-9 md-9 lg-9">
-                        <p className="sent-text"><span className="project-t">Project: {e.projectTitle}</span>&nbsp;&nbsp;&nbsp;&nbsp;{e.text}</p>
+                        <p className="sent-text">
+                            <span className="project-t">Project: {e.projectTitle}
+                                <span>
+                                    <button className="btn delete-btn" onClick={this.handleDelete}>
+                                        <i className="fa fa-lg fa-trash-o" id={e._id + "," + index} aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;{e.text}
+                        </p>
                     </Col>
                 </div>
                 )
@@ -133,6 +192,7 @@ class Inbox extends Component {
                     <h6 className="null">Sender Name</h6>
                 </Col>
                 )}
+                </div>
             </Container>
             <Footer/>
             </div>

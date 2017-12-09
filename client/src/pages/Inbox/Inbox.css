@@ -36,4 +36,38 @@
 
 .from-username {
     color: #fff;
+
 }
+
+.col-recipient {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.from-user {
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.text-area {
+    width: 100%;
+    min-height: 75px;
+    display: block;
+}
+
+.reply-btnn {
+    padding: 25px;
+    margin-bottom: 0!important;
+    margin-left: -25px;
+}
+
+.delete-btn {
+    color: rgb(207, 3, 3);
+}
+
+.inbox-wrapper {
+    max-height: 100vh;
+    overflow: scroll;
+}
+

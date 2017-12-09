@@ -50,7 +50,6 @@ class ViewProfile extends Component {
             imageURL: data.imageURL,
             about: data.about
           });
-          this.validUser();
         })
         .catch(err => {
           console.log("Mount err", err)

@@ -75,7 +75,7 @@ class Login extends Component {
                 <div className="col-md-6 mx-auto" id="registerCard">
                     <div className="card">
                     <div className="card-header">
-                        <h3>Register</h3>
+                        <h3 className="reg-headers">Register</h3>
                         {this.state.errors === "" ? "" :
                         <Row>
                             <Alert state={this.state}/>
@@ -119,7 +119,7 @@ class Login extends Component {
                         </div>
                         
 
-                        <input type="submit" className="btn btn-primary" id="registerSubmit" value="Sign Up" onClick={this.handleFormSubmit}/>
+                        <span type="submit" className="login-btn" id="registerSubmit" value="Sign Up" onClick={this.handleFormSubmit} >Sign up </span>
 
                         </form>
 

@@ -18,7 +18,7 @@ const MyInfo = props => {
 					<div className="col-sm-12 myProjects myProjectDiv">
 					<Row>
 						{props.state.projects.length >= 1 ? props.state.projects.map((project, i) =>
-						<div className="projdiv col-sm-4"><Link to={`/project/${project._id}`} className='projects' key={i}>{project.title}
+						<div key={i} className="projdiv col-sm-4"><Link to={`/project/${project._id}`} className='projects'>{project.title}
 						</Link></div>  
 					) : <p>My Projects...</p>}
 					</Row>
@@ -29,7 +29,7 @@ const MyInfo = props => {
 					<h3 className="info-headers">Joined Projects</h3>
 					<div className="col-sm-12 myProjects myProjectDiv">
 						{props.state.joined.length >= 1 ? props.state.joined.map((join, i) => 
-						<div className="projdiv col-sm-4"><Link to={`/project/${join._id}`} className='projects' key={i}>{join.title}
+						<div key={i} className="projdiv col-sm-4"><Link to={`/project/${join._id}`} className='projects'>{join.title}
 						</Link></div>
 						) : <p>Joined Projects...</p>}
 					</div>

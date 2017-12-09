@@ -20,6 +20,10 @@ ul{
   margin-top: 20px;
 }
 
+.alertclass{
+  width: 100%;
+}
+
 .jumbotron{
   color: #000000;
   text-shadow: none;

@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import MyInfo from '../../components/MyInfo'
 import ProfileCard from '../../components/ProfileCard'
 import Skills from '../../components/Skills'
+import Alert from "../../components/Alert";
 import axios from 'axios'
 import './ViewProfile.css'
 
@@ -25,7 +26,8 @@ class ViewProfile extends Component {
       skillInput: "",
       projects: [],
       joined: ["Pulled", "From", "Database"],
-      skills: ["Javascript", "HTML"]
+      skills: ["Javascript", "HTML"],
+      errors: '',
     };
 
     componentDidMount(){
@@ -46,16 +48,18 @@ class ViewProfile extends Component {
             skillInput: data.skills.toString(),
             joined: data.joined,
             projects: data.projects,
-            userId: data._id,
             imageURL: data.imageURL,
             about: data.about
           });
         })
         .catch(err => {
           console.log("Mount err", err)
-          localStorage.clear()
-          window.location.replace("/sign-in")
-          
+          this.setState({
+            errors:"Can't find this profile"
+          }, () => {
+            
+          })
+                    
         });
     }
 
@@ -68,9 +72,15 @@ class ViewProfile extends Component {
               <div className="row jumbotron d-flex">
                 <div className="row mx-auto profileHead">
                   <div className="col-sm-12">
+                  {this.state.errors?
+                  <div className='alertrow'>
+                      <Alert state={this.state}/>
+                  </div> :
                     <h1 className="text-center mx-auto profileHeadText">
                      {` ${this.state.displayName}'s Profile`}
                     </h1>
+                                      
+                    }
                   </div>
                 </div>
                 <Col size="sm-12">

@@ -25,13 +25,14 @@ module.exports =
         message = 
             `Hello, ${projectOwner.firstName} ${projectOwner.lastName}, 
             ProjectLFP user ${applyingUser.firstName} ${applyingUser.lastName} would like to join your project: 
-            ${projectOwner.title}
-            ${projectOwner.description}
-            ${projectOwner.desiredSkills}
-            https://www.projectlfg.herokuapp.com/project/${projectOwner.projectId}
-            
+            Project: ${projectOwner.title}
+
+            Desc: ${projectOwner.description}
+
+            Desired Skills: ${projectOwner.desiredSkills}
+                       
             Click the link to add them to your project.
-            https://www.projectlfg.herokuapp.com/join/apply-for-group/${applyingUser._id}/for/${projectOwner.projectId}`
+            https://www.projectlfp.herokuapp.com/join/apply-for-group/${applyingUser._id}/for/${projectOwner.projectId}`
 
         // setup email data with unicode symbols
         let mailOptions = {

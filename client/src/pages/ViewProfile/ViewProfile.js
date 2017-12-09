@@ -63,7 +63,6 @@ class ViewProfile extends Component {
         });
     }
 
-
     render(){
         return <div>
             <Navbar />

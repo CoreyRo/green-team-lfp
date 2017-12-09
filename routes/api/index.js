@@ -13,10 +13,12 @@ router.use("/user", userRoutes);
 
 router.use("/user", postRoutes);
 
+router.use("/join", joinRoutes)
+
 router.use("/recovery", recoveryRoutes);
 
 router.use("/user", authRoutes);
 
-router.use("/join", joinRoutes)
+
 
 module.exports = router

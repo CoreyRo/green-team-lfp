@@ -56,7 +56,6 @@ app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUnini
 app.use(cookieParser('greenteamgreenteamgreenteam'));
 app.use(passport.initialize());
 app.use(passport.session({cookie: {maxAge: 60000} })); // persistent login sessions
-=======
 app.use(session(
   { secret: 'greenteamgreenteamgreenteam',
   resave: false, 

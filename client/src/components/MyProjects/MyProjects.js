@@ -47,7 +47,7 @@ class MyProjects extends Component {
         return (
             <div>
                 <div id="scroll">
-                <h1 id="title-feed">Latest Post</h1>
+                <h1 id="my-title-feed">Latest Post</h1>
                     {this.state.projects ? 
                     (
                         <div className="col-myProjects">

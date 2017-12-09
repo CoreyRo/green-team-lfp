@@ -31,7 +31,7 @@ module.exports =
 
             Desired Skills: ${projectOwner.desiredSkills}
                        
-            Click the link to add them to your project.
+            Click or Copy the link to add them to your project.
             https://www.projectlfp.herokuapp.com/join/apply-for-group/${applyingUser._id}/for/${projectOwner.projectId}`
 
         // setup email data with unicode symbols

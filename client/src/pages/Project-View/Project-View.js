@@ -44,7 +44,6 @@ class Project extends Component {
             })
             .then((res) =>
             {
-                console.log(res)
                 this.setState({
                     request: true
                 })
@@ -77,7 +76,6 @@ class Project extends Component {
 
         axios.get("/api/user/project/" + id)
         .then((res) => {
-            console.log(res);
             this.setState({
                 userId: res.data.userId,
                 author: res.data.author,
@@ -132,7 +130,6 @@ class Project extends Component {
             text: this.state.message
         })
         .then((res)=> {
-            console.log(res)
             this.setState({
                 message: "",
                 sentmsg: true

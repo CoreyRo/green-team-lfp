@@ -11,7 +11,7 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   location: { type: String },
   skills: { type: Array },
-  joined: { type: Array },
+  joined: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
   projects: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
   imageURL: { type: String },
   about: { type: String }

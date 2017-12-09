@@ -36,7 +36,6 @@ class Profile extends Component {
     axios
       .get("/api/user/myProfile/")
       .then(res => {
-        console.log("PROFILE RES:", res);
         let data = res.data;
         this.setState({
           username: data.username,
@@ -54,11 +53,10 @@ class Profile extends Component {
           about: data.about
         });
         this.validUser();
-        console.log('state', this.state)
       })
       .catch(err => {
         console.log("Mount err", err)
-        // window.location.replace("/sign-in");
+        window.location.replace("/sign-in");
       });
   }
 
@@ -70,8 +68,6 @@ class Profile extends Component {
     for (var i = 0; i < length; i++) {
       arSkills[i] = arSkills[i].trim();
     }
-
-
     let queryString = "/api/user/myProfile/";
     this.setState({
       about: this.state.about || "",
@@ -101,8 +97,9 @@ class Profile extends Component {
       .then(res => {
 
       })
-
       .catch(err => console.log(err));
+      localStorage.clear()
+      window.location.reload()
   };
 
   handleInputChange = event => {
@@ -125,11 +122,11 @@ class Profile extends Component {
 
       })
       .catch(err => console.log("ImgUp err", err));
+      window.location.reload()
   };
 
   editPage = event => {
     event.preventDefault();
-    
     this.setState({
       edit: !this.state.edit
     });
@@ -148,7 +145,6 @@ class Profile extends Component {
       });
     }
   }
-
 
   renderPage = () => {
     if (this.state.edit) {
@@ -196,7 +192,6 @@ class Profile extends Component {
                       <Row>
                         <Skills
                           state={this.state}
-                          removeSkill={this.removeSkill}
                         />
                       </Row>
                     </Col>

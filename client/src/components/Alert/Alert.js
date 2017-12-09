@@ -1,12 +1,13 @@
 import React from 'react'
+import './Alert.css'
 
 const Alert = props => {
   return(
-  <div
-    className={`alert alert-danger fade in`}
-    style={{ width: '80%', margin: '0 auto', marginTop: 18, ...props.style }}
-  >
-    {props.errors}
-  </div>)
+    <div className="mx-auto text-center alert alert-danger alert-dismissible fade show alertclass" role="alert">
+    <strong>{props.state.errors}</strong> 
+    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>) 
 }
 export default Alert

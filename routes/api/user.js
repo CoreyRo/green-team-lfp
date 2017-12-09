@@ -15,14 +15,11 @@ router
   .route("/sign-in")
   .post(auth.doLogin)
 
-router
-  .route("/logout")
-  .get(auth.logout)
-
-  //Route for other users profiles
+//Route for other users profiles
 router
   .route("/profile/:id")
   .get(auth.viewOne)
+  .post(posts.updateOtherUser)
 
 router
   .route("/browse")

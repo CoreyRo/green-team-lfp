@@ -19,6 +19,7 @@ var cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
@@ -28,38 +29,62 @@ mongoose.connect(
     useMongoClient: true
   }
 );
+
+
 //now we should configure the API to use bodyParser and look for 
 //JSON data in the request body
 app.use(cors()); //Must be before BodyParser**
+
 
 // Sets up the Express App
 // =============================================================
 app.use('/public', express.static('public')) // Static directory
 app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+
 // For Passport
-app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
+app.use(session(
+  { secret: 'greenteamgreenteamgreenteam',
+  resave: false, 
+  saveUninitialized:false  
+}));
+// read cookies (needed for auth)
+app.use(cookieParser('greenteamgreenteamgreenteam'));
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+ // persistent login sessions
+app.use(passport.session({cookie: {maxAge: 600000}}));
 app.use(function(req, res, next){
   res.locals.isAuthenticated = req.isAuthenticated();
-  next();
+  next()
 });
 app.use(flash()) // use connect-flash for flash messages stored in session
+
 
 // Routes
 // =============================================================
 require('./config/passport/passport.js')(passport, db.User);
 const routes = require("./routes")
 app.use(routes);
+// app.get('/api/user/logout', function(req, res) {
+//   console.log("loggin out")
+//   req.session.destroy(function(err){
+//      if(err){
+//         console.log(err);
+//       }else{
+         
+//       }
+//       req.logOut()
+//       res.end()
+//   })
+// })
 
 // Send every request to the React app
 // Define any API routes before this runs

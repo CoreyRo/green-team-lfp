@@ -74,6 +74,8 @@ app.use(flash()) // use connect-flash for flash messages stored in session
 // Routes
 // =============================================================
 require('./config/passport/passport.js')(passport, db.User);
+const routes = require("./routes")
+app.use(routes);
 app.get('/api/user/logout', function(req, res) {
   console.log("loggin out")
   req.session.destroy(function(err){
@@ -86,9 +88,6 @@ app.get('/api/user/logout', function(req, res) {
       res.end()
   })
 })
-const routes = require("./routes")
-app.use(routes);
-
 
 // Send every request to the React app
 // Define any API routes before this runs

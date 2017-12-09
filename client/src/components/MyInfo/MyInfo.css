@@ -1,3 +1,7 @@
+body{
+  overflow-wrap: normal;
+  overflow-wrap: break-word;
+}
 img{
     margin: 0 auto !important;
 }
@@ -9,23 +13,36 @@ img{
 
 
 .info-headers{
-    border-bottom:  4px solid #fff;
     color: #FFF !important;
+    width:100%;
     font-family: 'Josefin Sans', sans-serif !important;
     text-shadow: 1px 1px 5px #161A2D;
     font-size: 30pt;
+    background-color: #161A2D;
+    -webkit-box-shadow: 3px 5px 10px 3px #000;
+    box-shadow: 3px 5px 10px 3px #000;
+    background-image: -o-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #242B4A), color-stop(100, #161A2D));
+    background-image: -webkit-linear-gradient(top, #242B4A 0%, #161A2D 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#242B4A), to(#161A2D));
+    background-image: linear-gradient(to bottom, #242B4A 0%, #161A2D 100%);
   }
   .myProjects{
+    padding-bottom: 20px;;
     height: auto;
-
+  }
+  .aboutMeTxt{
+    color: #FFF;
+    font-size: 14pt;
+    font-family: 'Roboto', sans-serif;
   }
 
   .projects, .joined{
     border-radius: 10px;
     font-size: 14pt;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 5px 8px 5px 8px;
-    margin:10px 5px 10px 5px;
+    margin:25px 5px 10px 5px !important;
     background-color: #161A2D;
     -webkit-box-shadow: 3px 5px 10px 3px #000;
     box-shadow: 3px 5px 10px 3px #000;
@@ -38,31 +55,36 @@ img{
   
 
   .myJoined{
-    height: auto;
-
+   
+    margin: 10px 0px 50px -20px;
   }
 
   .aboutMe{
-    height: auto;
+    
+    border-radius: 3px;
   }
 
   .myInfoDiv{
-    text-overflow: ellipsis;
-    word-break:break-all;
-    margin: 10px 0px 50px -20px;
-    border-radius: 3px;
+    -webkit-box-shadow: 3px 5px 10px 3px #000;
+    box-shadow: 3px 5px 10px 3px #000;
+    background-image: -o-linear-gradient(top, rgb(48, 52, 70) 0%, rgb(33, 36, 54) 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(57, 63, 87)), color-stop(100, rgb(40, 47, 75)));
+    background-image: -webkit-linear-gradient(top, rgb(64, 69, 90) 0%, rgb(36, 43, 78) 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(64, 69, 90) 0%), to(rgb(36, 43, 78) 100%));
+    background-image: linear-gradient(to bottom, rgb(64, 69, 90) 0%, rgb(36, 43, 78) 100%);
     color: #FFF !important;
-    font-family: 'Kanit', sans-serif !important;
-    text-shadow: 1px 1px 5px #161A2D;
-    font-size: 18pt;
+    font-family: 'Kanit', sans-serif;
+    background-color:#000;
+    padding: 18px 20px 25px 20px !important;
+    margin-bottom: 18px;
   }
 
 .infoContainer{
+  
   border: 2px solid #161A2D;
   color: #FFF;
   word-break:break-all;
-  overflow: auto;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: #161A2D;
   box-shadow: 3px 5px 10px 3px #000;
   /* IE10+ */ 

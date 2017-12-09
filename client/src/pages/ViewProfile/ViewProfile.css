@@ -5,8 +5,7 @@ img{
     margin: 0 auto !important;
 }
 .profileHead{
-  margin-top: -50px;
-  margin-bottom: 50px;
+
   
 }
 .profileHeadText{
@@ -19,6 +18,10 @@ img{
 }
 ul{
   margin-top: 20px;
+}
+
+.alertclass{
+  width: 100%;
 }
 
 .jumbotron{

@@ -12,7 +12,7 @@ module.exports =
     {
         let { applyingUser } = req.body
         let { projectOwner } = req.body
-
+        let { projectId } = req.body
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
             service:'gmail',
@@ -22,10 +22,16 @@ module.exports =
             }
 
         });
-        message = 'Hello, ' + projectOwner.firstName + ' ' + applyingUser.username +
-            ' would like to join your group. His skills are: ' +
-            applyingUser.skills  + ". Would you like to add him to your group?" +
-            "https://www.projectlfg.herokuapp.com/join/apply-for-group/" + projectOwner.projectId
+        message = 
+            `Hello, ${projectOwner.firstName} ${projectOwner.lastName}, 
+            ProjectLFP user ${applyingUser.firstName} ${applyingUser.lastName} would like to join your project: 
+            ${projectOwner.title}
+            ${projectOwner.description}
+            ${projectOwner.desiredSkills}
+            https://www.projectlfg.herokuapp.com/project/${projectOwner.projectId}
+            
+            Click the link to add them to your project.
+            https://www.projectlfg.herokuapp.com/join/apply-for-group/${applyingUser._id}/for/${projectOwner.projectId}`
 
         // setup email data with unicode symbols
         let mailOptions = {
@@ -38,25 +44,28 @@ module.exports =
         // send mail with defined transport object
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                return console.log(error);
+                return 
+                console.log(error);
             }
             res.json(info);
 
         });
 
     }, 
+
+    // join/apply-for-group/5a2a4f67deb2c47a28bc84d9
     updateGroup: function(req, res)
     {
-        console.log("body ", req.body)
-        console.log("params ", req.params)
         db.Post
         .findOneAndUpdate({ _id: req.body.projectId }, {$set:{ joined: [...req.body.applicant]}})
         .then(dbModel =>
         {
-            console.log("Successful")
-            console.log(model)
+            res.json(dbModel)
         })
-        .catch(err => res.status(422).json(err));
+        .catch(err => {
+            console.log("join err", err)
+            res.status(422).json(err)
+        })
 
       }
 }

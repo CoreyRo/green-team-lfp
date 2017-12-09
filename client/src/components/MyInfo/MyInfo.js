@@ -28,10 +28,12 @@ const MyInfo = props => {
 				<Row>
 					<h3 className="info-headers">Joined Projects</h3>
 					<div className="text-center myProjects myProjectDiv">
+					<Row>
 						{props.state.joined.length >= 1 ? props.state.joined.map((join, i) => 
 						<div key={i} className="projdiv projects col-sm-4"><Link to={`/project/${join._id}`}>{join.title}
 						</Link></div>
 						) : <p>Joined Projects...</p>}
+					</Row>
 					</div>
 				</Row>
 

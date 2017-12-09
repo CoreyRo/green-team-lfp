@@ -20,12 +20,12 @@ class Login extends Component {
     }
 
     handleRedirect = (result) => {
-        console.log(localStorage.getItem("id"))
         if(localStorage.getItem("id") !== undefined || localStorage.getItem("id") !== 'undefined'){
             return window.location.replace("/myProfile/")
         }
         else{
-            return window.location.replace("/Logout/")
+            localStorage.clear()
+            window.location.replace("/sign-in/")
         }
         
                     
@@ -33,7 +33,6 @@ class Login extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log("STATE", this.state);
         axios.post('/api/user/sign-up', 
         { 
             firstName: this.state.firstName, 
@@ -43,7 +42,6 @@ class Login extends Component {
             password: this.state.password
         })
         .then((res) => {
-            console.log("RES", res)
             localStorage.setItem('id', res.data._id)
             localStorage.setItem('loggedIn', true)
             this.handleRedirect(res)
@@ -68,7 +66,6 @@ class Login extends Component {
 
 
     render() {
-        // const { errors } = this.state;
         return (
             <div>
             <Navbar />

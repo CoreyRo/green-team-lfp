@@ -13,7 +13,6 @@ module.exports =
         let { applyingUser } = req.body
         let { projectOwner } = req.body
         let { projectId } = req.body
-        console.log("req.body", req.body)
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
             service:'gmail',
@@ -45,7 +44,8 @@ module.exports =
         // send mail with defined transport object
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                return console.log(error);
+                return 
+                console.log(error);
             }
             res.json(info);
 
@@ -56,14 +56,10 @@ module.exports =
     // join/apply-for-group/5a2a4f67deb2c47a28bc84d9
     updateGroup: function(req, res)
     {
-        console.log("body ", req.body)
-        console.log("params ", req.params)
         db.Post
             .findOneAndUpdate({ _id: req.params.id }, req.body)
         .then(dbModel =>
         {
-            console.log("Successful")
-            console.log(dbModel)
             res.json(dbModel)
         })
         .catch(err => {

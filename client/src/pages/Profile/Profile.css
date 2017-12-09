@@ -13,13 +13,11 @@ body{
   text-shadow: 1px 1px 5px #161A2D;
   font-size: 58pt;
   border-bottom: 5px solid #FFF;
-
-}
-ul{
-  margin-top: 20px;
+  margin: -40px 0 50px 0;
 }
 
-.profileCont{
+.jumbotron{
+  margin-top: 50px !important;
   color: #000000;
   text-shadow: none;
   background-color: #A7C4E5 !important;

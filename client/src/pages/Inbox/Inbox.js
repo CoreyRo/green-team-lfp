@@ -32,7 +32,6 @@ class Inbox extends Component {
                 }
             })
             .then((res) => {
-                console.log("Messages res", res)
                 this.setState({
                     messages: res.data
                 })
@@ -92,7 +91,6 @@ class Inbox extends Component {
             text: this.state.message
         })
         .then((res)=> {
-            console.log(res)
             this.setState({
                 message: "",
                 replyClicked: false,
@@ -130,7 +128,6 @@ class Inbox extends Component {
         let index = info[1];
         axios.post("/api/user/delete/" + messageId)
         .then((res) => {
-            console.log("delete res", res);
         })
         window.location.reload();
 

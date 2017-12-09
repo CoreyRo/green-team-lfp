@@ -28,13 +28,11 @@ class MyProjects extends Component {
                 }
             })
             .then((res) => {
-                console.log("My projects res", res);
                 this.setState({
                     projects: res.data
                 })
             })
             .catch((err) => {
-                console.log(err);
             });//end of axios post
         })
         .catch((err) => {

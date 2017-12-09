@@ -166,13 +166,13 @@ class Inbox extends Component {
                 <div className="inbox-wrapper">
                 {this.state.messages ? this.state.messages.map((e, index) =>
                 <div className="row inbox" key={e._id}>
-                    <Col size="xs-3 md-3 lg-3 text-center">
+                    <Col size="xs-4 md-4 lg-4 text-center">
                         <h6 className="sender">{e.senderUsername}</h6>
                         <button className="btn reply-btn">
                             <span className="fa fa-lg fa-reply" id={e.senderId + "," + e.projectTitle + "," + e.projectId + "," + index} onClick={this.handleReplyButton} aria-hidden="true"> Reply</span>
                         </button>
                     </Col>
-                    <Col size="xs-9 sm-9 md-9 lg-9">
+                    <Col size="xs-8 sm-8 md-8 lg-8">
                         <p className="sent-text">
                             <span className="project-t">Project: {e.projectTitle}
                                 <span>

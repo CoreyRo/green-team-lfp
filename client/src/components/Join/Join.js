@@ -8,10 +8,12 @@ class Join extends Component
         super(props)
         this.state =
         {
-            res: {},
+            _res: {},
+            otherRes: {},
             applyingId:"",
             projectForId: "",
             joinedArr: [],
+            projectArr: []
         }
     }
     
@@ -21,27 +23,24 @@ class Join extends Component
         let urlID = window.location.href
         let applyId, projectId
         [applyId, projectId ] = urlID.split("/apply-for-group/")[1].split('/for/')
-        // console.log("applyId", applyId)
-        // console.log("projectId", projectId)
         this.setState({
             applyingId: applyId,
             projectForId: projectId
-        }, () => this.getProjectArr())
+        }, () => this.runAxioscalls())
     }
 
     //Gets the current joined array from the project
-    getProjectArr = () => {
+    getJoinedArr = () => {
         axios.get('/api/user/project/' + this.state.projectForId)
         .then(res =>
         {
-            // console.log("get: ", res)
             //if the user is already part of the project, do not add to the array
             res.data.joined.includes(this.state.applyingId)
             ? 
-            console.log("Already Joined" )
+            console.log("Already Joined Project" )
             :
             //otherwise add the the appying user to the existing project
-            this.setState({response: res, joinedArr: [...res.data.joined, this.state.applyingId]}, () => this.postToDb())
+            this.setState({_res: res, joinedArr: [...res.data.joined, this.state.applyingId]}, () => this.postToPostModel())
         })
         .catch((err)=>
         {
@@ -49,17 +48,50 @@ class Join extends Component
         })
     }
 
+    //Gets the current joined array from the project
+    getProjectArr = () => {
+        axios.get('/api/user/profile/' + this.state.applyingId)
+        .then(resB =>
+        {
+            //if the user is already part of the project, do not add to the array
+            resB.data.joined.includes(this.state.projectForId)
+            ? 
+            console.log("Project already on user" )
+            :
+            //otherwise add the the appying user to the existing project
+            this.setState({otherRes: resB, projectArr: [...resB.data.joined, this.state.projectForId]}, () => this.postToUserModel())
+        })
+        .catch((err)=>
+        {
+            console.log(err)
+        })
+    }
 
     //Uses the new Array with all the userIds and updates the Post models with the new joined array
-    postToDb = () =>
+    postToPostModel = () =>
     {
-        // console.log("POST to DB STATE", this.state)
         axios.post('/api/join/apply-for-group/' + this.state.projectForId, {joined: this.state.joinedArr })
         .then(res =>
         {
-            // console.log("UPDATE RES", res)
+
         })
         .catch(err => console.log("update res err", err))
+    }
+
+    postToUserModel = () =>
+    {
+        axios.post('/api/user/profile/' + this.state.applyingId, {joined: this.state.projectArr })
+        .then(res =>
+        {
+
+        })
+        .catch(err => console.log("update res err", err))
+    }
+
+    runAxioscalls = () => {
+        this.getProjectArr()
+        this.getJoinedArr()
+        
     }
 
     render()

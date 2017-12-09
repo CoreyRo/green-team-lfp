@@ -24,16 +24,11 @@ class Feed extends Component {
     getProjects = (e) => {
         axios.get("/api/user/browse/page/" + this.state.page)
             .then((res) => {
-                console.log("Page", this.state.page)
-                console.log("Post data", res.data)
                 this.setState({
                     posts: res.data.results,
                     pageCount: res.data.pageCount,
                     count: res.data.count
                 });
-
-                console.log("POSTS STATE", this.state)
-                console.log(this.state.pageCount, this.state.page)
             })
             .catch((err) => {
                 console.log(err);

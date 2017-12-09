@@ -9,9 +9,9 @@ module.exports = {
 	findOne : function(req, res) {
 		db.User.findOne({ _id: req.user._id})
 		.populate('projects')
+		.populate('joined')
 			.exec(function (err, popRes){
 				if (err) console.log(err);
-				console.log(popRes)
 			})
 		.then((result) => {
 			res.json(result);
@@ -33,6 +33,7 @@ module.exports = {
 	viewOne: function(req,res) {
 		db.User.findOne({ _id: req.params.id})
 		.populate('projects')
+		.populate('joined')
 			.exec(function (err, popRes) {
 				if (err) return res.status(400).json({
 					_status: 400,
@@ -40,7 +41,6 @@ module.exports = {
 						message: err.toString()
 					}
 				});
-				console.log(popRes)
 			})
 		.then(function(result) {
 			return res.json(result)
@@ -52,16 +52,6 @@ module.exports = {
 	doLogin : function(req, res) {
 		passport.authenticate('local-signin')(req, res, function () {
 			return res.json(req.user)
-		});
-	},
-
-// logout
-	logout : function(req, res) {
-		req.session.destroy(function(err) {
-			if(err) {
-				return console.log(err);
-			}
-			res.redirect('/');
 		});
 	}
 }

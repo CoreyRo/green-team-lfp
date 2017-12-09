@@ -28,7 +28,7 @@ const MyInfo = props => {
     <h3 className="info-headers">Joined Projects</h3>
       <Col size="sm-12">
       <div className="myJoined myInfoDiv">
-          {props.state.joined.length >= 1 ? props.state.joined.map((join, i) => <Link to='/project-view' key={i}>{join.title}</Link>
+          {props.state.joined.length >= 1 ? props.state.joined.map((join, i) => <Link to='/project-view'className='projects' key={i}>{join.title}</Link>
         ) : <p>Joined Projects...</p>}
       </div>
       </Col>

@@ -58,7 +58,7 @@ module.exports =
     updateGroup: function(req, res)
     {
         db.Post
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+        .findOneAndUpdate({ _id: req.body.projectId }, {$set:{ joined: [...req.body.applicant]}})
         .then(dbModel =>
         {
             res.json(dbModel)

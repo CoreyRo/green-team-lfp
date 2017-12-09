@@ -51,6 +51,11 @@ if (process.env.NODE_ENV === "production") {
 
 
 // For Passport
+app.use(session({ secret: 'greenteamgreenteamgreenteam',resave: false, saveUninitialized:false})); // session secret
+ // read cookies (needed for auth)
+app.use(cookieParser('greenteamgreenteamgreenteam'));
+app.use(passport.initialize());
+app.use(passport.session({cookie: {maxAge: 60000} })); // persistent login sessions
 app.use(session(
   { secret: 'greenteamgreenteamgreenteam',
   resave: false, 
